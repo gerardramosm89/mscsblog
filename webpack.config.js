@@ -17,10 +17,10 @@ const config = {
       {
         // use: ['style-loader', 'css-loader'],
         // test: /\.css$/
-        test: /\.css$/,
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: "css-loader"
+          use: ["css-loader", "sass-loader"]
         })
       }
     ]

@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import '../styles/js/vendor/jquery.js';
 import '../styles/js/vendor/foundation.js';
 import '../styles/js/vendor/what-input.js';
-import '../styles/main.css';
-import '../styles/app.css';
-import '../styles/chat.css';
-import '../styles/foundation.css';
+import '../styles/main.scss';
+
 import {
   BrowserRouter,
   Route,

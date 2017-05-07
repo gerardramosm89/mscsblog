@@ -47,8 +47,8 @@ class BlogsNew extends Component {
         <h1>{this.props.newBlog.content}</h1>
         <label>Content</label>
         <input type="text" onChange={this.contentInput.bind(this)} value={this.state.content} />
-        <button onClick={this.newBlogButton.bind(this)}>New Blog</button>
-        <button onClick={() => this.forceUpdate()}>Update</button>
+        <button className="button" onClick={this.newBlogButton.bind(this)}>New Blog</button>
+        <button className="button" onClick={() => this.forceUpdate()}>Update</button>
       </div>
     );
   }

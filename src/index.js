@@ -15,7 +15,7 @@ import {
 // Components
 import BlogsIndex from './components/blogs_index';
 import BlogsNew from './components/blogs_new';
-
+import ImageUpload from './components/image_upload';
 
 // Redux
 import { createStore, applyMiddleware } from 'redux';
@@ -32,8 +32,10 @@ ReactDOM.render(
       <div>
         <h1>header</h1>
         <Link to="/">Home</Link>
+        <Link to="/imageupload">Upload File</Link>
         <Switch>
-          <Route path="/blogs/new" component={BlogsNew} /> 
+          <Route path="/blogs/new" component={BlogsNew} />
+          <Route path="/imageupload" component={ImageUpload} />
           <Route path="/" component={BlogsIndex} />
         </Switch>
 

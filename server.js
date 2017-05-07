@@ -1,4 +1,6 @@
 const express = require('express');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -23,7 +25,24 @@ app.use(express.static(__dirname + '/'));
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-
+app.post('/upload', upload.single('onefile'), function (req, res, next) {
+	console.log(req.body); //form fields
+	/* example output:
+	{ title: 'abc' }
+	 */
+	console.log(req.file); //form files
+	/* example output:
+            { fieldname: 'upl',
+              originalname: 'grumpy.png',
+              encoding: '7bit',
+              mimetype: 'image/png',
+              destination: './uploads/',
+              filename: '436ec561793aa4dc475a88e84776b1b9',
+              path: 'uploads/436ec561793aa4dc475a88e84776b1b9',
+              size: 277056 }
+	 */
+	res.send({ message: "File upload received" });
+});
 
 io.on('connection', (socket) => {
     console.log(`New user connected`);

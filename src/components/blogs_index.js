@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class BlogsIndex extends Component {
   componentDidMount() {
@@ -17,6 +18,10 @@ class BlogsIndex extends Component {
         </li>
       );
     });
+  }
+
+  handleUpload(e) {
+    console.log(e);
   }
 
   render() {

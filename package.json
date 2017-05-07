@@ -1,0 +1,45 @@
+{
+  "name": "gerry_ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "mocha server/**/*.js",
+    "test-watch": "nodemon --exec 'npm test'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "expect": "^1.20.2",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "css-loader": "^0.28.0",
+    "draft-js": "^0.10.0",
+    "express": "^4.15.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "http": "0.0.0",
+    "lodash": "^4.17.4",
+    "morgan": "^1.8.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-promise": "^0.5.3",
+    "socket.io": "^1.4.8",
+    "socket.io-client": "^1.7.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1"
+  }
+}

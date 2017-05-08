@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createBlog } from '../actions';
+import { createBlog } from '../../actions/index';
 import _ from 'lodash';
 
 class BlogsNew extends Component {

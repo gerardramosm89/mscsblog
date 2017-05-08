@@ -13,8 +13,8 @@ import {
 } from 'react-router-dom';
 
 // Components
-import BlogsIndex from './components/blogs_index';
-import BlogsNew from './components/blogs_new';
+import BlogsIndex from './components/blogs/blogs_index';
+import BlogsNew from './components/blogs/blogs_new';
 import ImageUpload from './components/image_upload';
 
 // Redux

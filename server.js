@@ -18,7 +18,7 @@ const path = require('path');
 //app.use(cors());
 app.use(bodyParser.json({ type: '*/*'}));
 //serve our static files
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 app.use(express.static(__dirname + '/'));
 
 // viewed at http://localhost:8081

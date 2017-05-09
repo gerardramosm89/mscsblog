@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../styles/js/vendor/jquery.js';
-import '../styles/js/vendor/foundation.js';
-import '../styles/js/vendor/what-input.js';
+
 import '../styles/main.scss';
 
 import {
@@ -32,11 +30,20 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <h1>header</h1>
-        <Link to="/">Home</Link>
-        <Link to="/imageupload">Upload File</Link>
-        <Link to="/signin">Sign In</Link>
-        <Link to="/signup">Sign Up</Link>
+        <ul className="nav">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/imageupload">Upload File</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/signin">Sign In</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/signup">Sign Up</Link>
+          </li>
+        </ul>
         
         <Switch>
           <Route path="/blogs/new" component={BlogsNew} />

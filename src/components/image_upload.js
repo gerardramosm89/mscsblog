@@ -12,6 +12,12 @@ class ImageUpload extends Component {
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      console.log("You are logged in! there is a token!");
+    }
+  }
   _handleSubmit(e) {
     e.preventDefault();
     console.log("Upload attempted");

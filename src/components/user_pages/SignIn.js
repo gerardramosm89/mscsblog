@@ -1,46 +1,87 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signIn } from '../../actions/index';
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      error: null
     };
   }
 
   componentDidMount() {
   }
+  componentDidUpdate() {
+    console.log("SignIn component updated!");
+  }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target);
-    console.log(this.state);
+    if (this.state.username.length > 0) {
+      console.log(e.target);
+      console.log(this.state.username.length);
+    } else {
+      this.setState({
+        error: "Well well, you should probably put in BOTH a username and password shouldn't you? ahahahaha"
+      });
+    }
+    this.setState({
+      username: '',
+      password: ''
+    });
+    this.props.signIn({ username: this.state.username, password: this.state.password });
+  }
+  renderError() {
+    if (!this.state.error) return null;
+    else {
+      return (
+        <div className="alert alert-warning" role="alert">
+          <strong>NOPE!</strong> {this.state.error}
+        </div>
+      );
+    }
   }
   render() {
     return (
       <div>
-        <h1>Sign In Page</h1>
+        <h1 className="text-center">Sign In Page</h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
-            <div className="col-6">
+            <div className="col-6 offset-3">
+              {this.renderError()}
               <div className="form-group">
-                <label>
-                  <input 
-                  onChange={(e) => this.setState({ username: e.target.value })} className="form-control" name="username" placeholder="username" />
-                </label>
+                <label htmlFor="username">Username</label>
+                  <input
+                  value={this.state.username}
+                  id="username"
+                  onChange={(e) => this.setState({ 
+                    username: e.target.value,
+                    error: null
+                    })} className="form-control" name="username" placeholder="username" />
               </div>
               <div className="form-group">
-                <label>
+                <label>Password</label>
                   <input 
-                  onChange={(e) => this.setState({ password: e.target.value })}
+                  value={this.state.password}
+                  onChange={(e) => this.setState({ 
+                    password: e.target.value,
+                    error: null
+                     })}
                   className="form-control" name="password" placeholder="password" />
-                </label>
               </div>
+              <button className="btn btn-block btn-primary">Submit</button>
             </div>
-            <button>Submit</button>
+
         </form>
       </div>
     );
   }
 }
 
-export default SignIn;
+
+function mapStateToProps(state) {
+  return { signInStatus: state.signInStatus };
+}
+export default connect(mapStateToProps, { signIn })(SignIn);
+// export default SignIn;

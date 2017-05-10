@@ -29,7 +29,7 @@ class BlogsIndex extends Component {
       <div className="container">
         <h1>Blogs Index</h1>
         <Link to="/blogs/new">
-          <button className="button">Add Post</button>
+          <button className="btn btn-lg btn-primary">Add Post</button>
         </Link>
         <ul>
           {this.renderBlogs()}

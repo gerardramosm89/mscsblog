@@ -8,8 +8,8 @@ class Navbar extends Component {
 
   render() {
     return(
-      <div>
-        <ul className="nav">
+      <div className="col-12">
+        <ul className="nav justify-content-center">
           <li className="nav-item">
             <Link className="nav-link" to="/">Home</Link>
           </li>
@@ -21,6 +21,9 @@ class Navbar extends Component {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/signup">Sign Up</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/blogs">Blogs</Link>
           </li>
         </ul>
       </div>

@@ -17,6 +17,7 @@ import ImageUpload from './components/image_upload';
 import SignIn from './components/user_pages/SignIn';
 import SignUp from './components/user_pages/SignUp';
 import Navbar from './components/navbar';
+import Home from './components/home';
 
 // Redux
 import { createStore, applyMiddleware } from 'redux';
@@ -37,8 +38,9 @@ ReactDOM.render(
           <Route path="/blogs/new" component={BlogsNew} />
           <Route path="/imageupload" component={ImageUpload} />
           <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />          
-          <Route path="/" component={BlogsIndex} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/blogs" component={BlogsIndex} />
+          <Route path="/" component={Home} />
         </Switch>
       </div>
     </BrowserRouter>

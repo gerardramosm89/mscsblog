@@ -13,3 +13,6 @@ $text-color: #333;
 h1 {
   color: $text-color;
 }
+
+@import 'navbar.scss';
+@import 'user_pages.scss';

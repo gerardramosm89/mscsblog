@@ -46,34 +46,35 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">Sign In Page</h1>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-            <div className="col-6 offset-3">
-              {this.renderError()}
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                  <input
-                  value={this.state.username}
-                  id="username"
-                  onChange={(e) => this.setState({ 
-                    username: e.target.value,
-                    error: null
-                    })} className="form-control" name="username" placeholder="username" />
+        <div className="signin__wrapper">
+          <h1 className="text-center">Sign In Page</h1>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+              <div className="col-6 offset-3">
+                {this.renderError()}
+                <div className="form-group">
+                  <label htmlFor="username">Username</label>
+                    <input
+                    value={this.state.username}
+                    id="username"
+                    onChange={(e) => this.setState({ 
+                      username: e.target.value,
+                      error: null
+                      })} className="form-control" name="username" placeholder="username" />
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
+                    <input 
+                    value={this.state.password}
+                    onChange={(e) => this.setState({ 
+                      password: e.target.value,
+                      error: null
+                      })}
+                    className="form-control" name="password" placeholder="password" />
+                </div>
+                <button className="btn btn-block btn-primary">Submit</button>
               </div>
-              <div className="form-group">
-                <label>Password</label>
-                  <input 
-                  value={this.state.password}
-                  onChange={(e) => this.setState({ 
-                    password: e.target.value,
-                    error: null
-                     })}
-                  className="form-control" name="password" placeholder="password" />
-              </div>
-              <button className="btn btn-block btn-primary">Submit</button>
-            </div>
-
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

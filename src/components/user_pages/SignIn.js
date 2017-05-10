@@ -47,9 +47,10 @@ class SignIn extends Component {
     return (
       <div>
         <div className="signin__wrapper">
+          <div className="signin__inner col-6 offset-3">
           <h1 className="text-center">Sign In Page</h1>
           <form onSubmit={this.handleSubmit.bind(this)}>
-              <div className="col-6 offset-3">
+              <div>
                 {this.renderError()}
                 <div className="form-group">
                   <label htmlFor="username">Username</label>
@@ -74,6 +75,7 @@ class SignIn extends Component {
                 <button className="btn btn-block btn-primary">Submit</button>
               </div>
           </form>
+          </div>
         </div>
       </div>
     );
@@ -82,7 +84,7 @@ class SignIn extends Component {
 
 
 function mapStateToProps(state) {
-  return { signInStatus: state.signInStatus };
+  return { token: state.token };
 }
 export default connect(mapStateToProps, { signIn })(SignIn);
 // export default SignIn;

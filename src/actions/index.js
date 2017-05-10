@@ -31,3 +31,11 @@ export function signIn(data) {
     payload: request
   }
 }
+
+export function signOut(data) {
+  console.log("signout action launched!");
+  return {
+    type: 'SIGN_OUT',
+    payload: {}
+  }
+}

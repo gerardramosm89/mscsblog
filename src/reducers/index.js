@@ -6,7 +6,7 @@ import SignInReducer from './signin_reducer';
 const rootReducer = combineReducers({
   blogs: BlogsReducer,
   newBlog: NewBlogReducer,
-  signInStatus: SignInReducer
+  token: SignInReducer
 });
 
 export default rootReducer;

@@ -36,6 +36,6 @@ export function signOut(data) {
   console.log("signout action launched!");
   return {
     type: 'SIGN_OUT',
-    payload: {}
+    payload: { message: 'signing out', token: null}
   }
 }

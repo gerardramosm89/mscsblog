@@ -8,7 +8,8 @@ class Navbar extends Component {
     super(props);
   }
   componentDidMount() {
-    this.props.token ? console.log("token is there!") : console.log("token is not there");
+    // this.props.token ? console.log("token is there!") : console.log("token is not there");
+    console.log(this.props.token);
   }
   handleLogout() {
     this.props.signOut();

@@ -8,7 +8,8 @@ export default function(state = currentToken, action) {
       return action.payload.data.token;
     case 'SIGN_OUT':
       localStorage.removeItem('token');
-      return null;
+      console.log('action.payload from sign out is: ', action.payload);
+      return action.payload.token;
     default:
       return state;
   }

@@ -1,3 +1,15 @@
 .select_your_path__header {
   margin: 3.125rem;
 }
+.card-img-top {
+  width: 100%;
+}
+.path-helper {
+  color: $gold;
+  font-size: 2rem;
+  transform: translateY(-.2rem);
+  cursor: pointer;
+}
+.card-text {
+  line-height: 1.2rem;
+}

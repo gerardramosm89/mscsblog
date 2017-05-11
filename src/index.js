@@ -18,6 +18,7 @@ import SignIn from './components/user_pages/SignIn';
 import SignUp from './components/user_pages/SignUp';
 import Navbar from './components/navbar';
 import Home from './components/home';
+import LearningPaths from './components/learning_paths';
 
 // Redux
 import { createStore, applyMiddleware } from 'redux';
@@ -40,6 +41,7 @@ ReactDOM.render(
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/blogs" component={BlogsIndex} />
+          <Route path="/learningpaths" component={LearningPaths} />
           <Route path="/" component={Home} />
         </Switch>
       </div>

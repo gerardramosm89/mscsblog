@@ -41,6 +41,9 @@ class Navbar extends Component {
             <Link className="nav-link" to="/">Home</Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link" to="/learningpaths">Learning Paths</Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to="/imageupload">Upload File</Link>
           </li>
           <li className="nav-item">

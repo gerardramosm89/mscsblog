@@ -9,7 +9,7 @@ class Navbar extends Component {
   }
   componentDidMount() {
     // this.props.token ? console.log("token is there!") : console.log("token is not there");
-    console.log(this.props.token);
+    console.log("token from navbar", this.props.token.token);
   }
   handleLogout() {
     this.props.signOut();
@@ -18,7 +18,7 @@ class Navbar extends Component {
     console.log("navbar component updated!");
   }
   renderLogoutBtn() {
-    if (this.props.token === null) {
+    if (this.props.token.token === null) {
       return (
           <li className="nav-item">
             <Link className="nav-link" to="/signin">Sign In</Link>

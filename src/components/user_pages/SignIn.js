@@ -28,7 +28,6 @@ class SignIn extends Component {
       });
     }
     this.setState({
-      username: '',
       password: ''
     });
     this.props.signIn({ username: this.state.username, password: this.state.password });
@@ -43,12 +42,24 @@ class SignIn extends Component {
       );
     }
   }
+  renderPasswordError() {
+    if (this.props.token.message == 'Wrong password') {
+      return (
+        <div className="alert alert-warning">
+          <strong>Oh snap!</strong>Incorrect password or username, please check
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
   render() {
     return (
       <div>
         <div className="signin__wrapper">
           <div className="signin__inner col-6 offset-3">
           <h1 className="text-center">Sign In Page</h1>
+          {this.renderPasswordError()}
           <form onSubmit={this.handleSubmit.bind(this)}>
               <div>
                 {this.renderError()}
@@ -65,6 +76,7 @@ class SignIn extends Component {
                 <div className="form-group">
                   <label>Password</label>
                     <input 
+                    type="password"
                     value={this.state.password}
                     onChange={(e) => this.setState({ 
                       password: e.target.value,

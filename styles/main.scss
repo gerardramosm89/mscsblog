@@ -1,10 +1,9 @@
+/* Color Schemes */
 $aqua: #488A99;
 $gold: #DBAE58;
 $charcoal: #FBE9E7;
 $gray: #B4B4B4;
 $text-color: #333;
-
-@import url('https://fonts.googleapis.com/css?family=Lato');
 
 * {
   font-family: 'Lato';
@@ -14,6 +13,7 @@ h1 {
   color: $text-color;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Lato');
 @import 'navbar.scss';
 @import 'user_pages.scss';
 @import 'paths.scss';

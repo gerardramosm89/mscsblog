@@ -1,0 +1,27 @@
+.home-header__wrapper {
+  background: url('/img/mscs-header.jpg');
+  background-size: cover;
+  background-position: center;
+  height:95vh;
+}
+.home-header__text-container {
+
+  text-align: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.51);
+
+  & h1 {
+    font-size: 3.4375rem;
+    color: white;
+    padding-top: 40vh;
+    font-weight: 600;
+    text-shadow: 0 3px 17px rgba(0,0,0,.6);
+  }
+
+}
+.home-header--subheading {
+  font-size: 1.75rem;
+  font-weight: 200;
+  color: white;
+  text-shadow: 0 3px 17px rgba(0,0,0,.6);
+}

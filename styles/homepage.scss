@@ -13,7 +13,7 @@
   & h1 {
     font-size: 3.4375rem;
     color: white;
-    padding-top: 40vh;
+    padding-top: 35vh;
     font-weight: 600;
     text-shadow: 0 3px 17px rgba(0,0,0,.6);
   }
@@ -24,4 +24,25 @@
   font-weight: 200;
   color: white;
   text-shadow: 0 3px 17px rgba(0,0,0,.6);
+}
+.btns__container {
+
+}
+.team-trial-btn {
+  margin-right:1rem;
+  background-color: $gold;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+.free-trial-btn {
+  margin-left: 1rem;
+  background-color: $aqua;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.03);
+  }
 }

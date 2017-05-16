@@ -3,13 +3,49 @@ import React, { Component } from 'react';
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.cards = [
+      {
+        title: 'Amazon Web Services',
+        content: 'With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.'
+      },
+      {
+        title: 'Microsoft Azure',
+        content: 'With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.'
+      },
+      {
+        title: 'Google Cloud',
+        content: 'With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.'
+      }
+    ];
   }
 
   handleFreeTrial(e) {
     e.preventDefault();
     this.props.history.push('/signup');
   }
+
+  renderCards() {
+    return this.cards.map(card => {
+      return (
+        <div className="col-md-4" key={card.title}>
+          <div className="card text-center">
+            <div className="card-header">
+            </div>
+            <div className="card-block">
+              <h4 className="card-title">
+                { card.title }
+              </h4>
+              <p className="card-text">
+                { card.content }
+              </p>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
   render() {
+    console.log('this.cards is: ', this.cards[0]);
     return(
       <div>
         <header className="home-header__wrapper">
@@ -37,21 +73,7 @@ class Home extends Component {
         </section>
         <div className="container">
           <section className="row">
-            <div className="col-md-4">
-              <div className="card text-center">
-                <div className="card-header">
-                  Section
-                </div>
-                <div className="card-block">
-                  <h4 className="card-title">Amazon Web Services</h4>
-                  <p className="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.</p>
-                  {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
-                </div>
-                {/*<div className="card-footer text-muted">
-                  2 days ago
-                </div>*/}
-              </div>
-            </div>
+            {this.renderCards()}
           </section>
         </div>
 

@@ -16,6 +16,7 @@
     padding-top: 35vh;
     font-weight: 600;
     text-shadow: 0 3px 17px rgba(0,0,0,.6);
+    letter-spacing: -.1rem;
   }
 
 }
@@ -58,5 +59,9 @@
   & p {
     font-size: .9rem;
     color: $text-color-lighter;
+    padding-bottom: 3rem;
   }
+}
+.card-header {
+  background-color: #DBAE58;
 }

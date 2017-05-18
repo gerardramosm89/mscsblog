@@ -1,6 +1,5 @@
 const express = require('express');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
 const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -15,8 +14,11 @@ var io = socketIO(server);
 
 const path = require('path');
 // app.use(morgan('combined'));
-//app.use(cors());
-app.use(bodyParser.json({ type: '*/*'}));
+app.use(cors());
+// app.use(bodyParser.json({ limit: '10mb', type: '*/*'}));
+app.use(bodyParser.json({limit: '500mb'}));
+app.use(bodyParser.urlencoded({limit: '500mb', extended: false}));
+
 //serve our static files
 const port = process.env.PORT || 8081;
 app.use(express.static(__dirname + '/'));
@@ -25,24 +27,28 @@ app.use(express.static(__dirname + '/'));
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-app.post('/upload', upload.single('onefile'), function (req, res, next) {
-	console.log(req.body); //form fields
-	/* example output:
-	{ title: 'abc' }
-	 */
-	console.log(req.file); //form files
-	/* example output:
-            { fieldname: 'upl',
-              originalname: 'grumpy.png',
-              encoding: '7bit',
-              mimetype: 'image/png',
-              destination: './uploads/',
-              filename: '436ec561793aa4dc475a88e84776b1b9',
-              path: 'uploads/436ec561793aa4dc475a88e84776b1b9',
-              size: 277056 }
-	 */
-	res.send({ message: "File upload received" });
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '/Users/frameworkjs/Projects/mscsblog/img')
+  }, 
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
 });
+var upload = multer({ 
+    storage: storage,
+    limits: { 
+      fileSize: 1000000000 
+    }
+});
+
+app.post('/api/upload', upload.any(), function(req, res) {
+    res.sendStatus(200);
+});
+
+
+
 
 io.on('connection', (socket) => {
     console.log(`New user connected`);

@@ -30,15 +30,25 @@ class ImageUpload extends Component {
 
   uploadFiles(e) {
     e.preventDefault();
-    console.log('this.files is: ');
-    console.log(this.files.files);
+    // console.log('this.files is: ');
+    // console.log(this.files.files);
     const config = {
       headers: { 'Content-Type': 'multipart/form-data'}
     };
     // axios.post('http://localhost:8081/api/upload', this.files.files, config)
     // .then(response => console.log('response from post is: ', response))
     // .catch(errors => console.log('errors from post is: ', errors));
-    this.uploadFile(this.files.files[0]);
+    // for (var file in this.files.files) {
+    //   if (file.name) {
+    //     console.log("file!", file);
+    //   }
+    // };
+    console.log('this.files.files.length is: ', this.files.files.length);
+    for (let i = 0; i < this.files.files.length; i++) {
+      console.log(this.files.files[i]);
+      this.uploadFile(this.files.files[i]);
+    }
+    // this.uploadFile(this.files.files[0]);
   }
 
   readAndPreview(file) {

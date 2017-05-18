@@ -45,7 +45,7 @@ class ImageUpload extends Component {
     let reader = new FileReader();
     reader.addEventListener('load', function() {
         var image = new Image();
-        image.height = 100;
+        image.height = 250;
         image.title = file.name;
         image.src = this.result;
         var preview = document.querySelector('#preview');
@@ -54,7 +54,7 @@ class ImageUpload extends Component {
       reader.readAsDataURL(file);
   }
 
-    uploadFile(file){
+  uploadFile(file){
       var url = "http://localhost:8081/api/upload";
       var xhr = new XMLHttpRequest();
       var fd = new FormData();

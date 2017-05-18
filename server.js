@@ -44,6 +44,8 @@ var upload = multer({
 });
 
 app.post('/api/upload', upload.any(), function(req, res) {
+    console.log('req.files is: ', req.files);
+    console.log('req.body is: ', req.body);
     res.sendStatus(200);
 });
 

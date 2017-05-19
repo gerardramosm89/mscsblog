@@ -52,6 +52,9 @@ class Navbar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/signup">Sign Up</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/dashboard">Dashboard</Link>
+          </li>
           {this.renderLogoutBtn()}
         </ul>
       </nav>

@@ -5,6 +5,15 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const socketIO = require('socket.io');
+const fs = require('fs');
+
+fs.unlink('./img/ay.gif', (err) => {
+  if (err) {
+    return console.log("no file to delete");
+  };
+  console.log('successfully deleted ./img/ay.gif');
+});
+
 // Create the app with express
 const app = express();
 

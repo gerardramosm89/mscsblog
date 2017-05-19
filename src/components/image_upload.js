@@ -30,34 +30,19 @@ class ImageUpload extends Component {
 
   uploadFiles(e) {
     e.preventDefault();
-    // console.log('this.files is: ');
-    // console.log(this.files.files);
-    const config = {
-      headers: { 'Content-Type': 'multipart/form-data'}
-    };
-    // axios.post('http://localhost:8081/api/upload', this.files.files, config)
-    // .then(response => console.log('response from post is: ', response))
-    // .catch(errors => console.log('errors from post is: ', errors));
-    // for (var file in this.files.files) {
-    //   if (file.name) {
-    //     console.log("file!", file);
-    //   }
-    // };
-    console.log('this.files.files.length is: ', this.files.files.length);
     for (let i = 0; i < this.files.files.length; i++) {
-      console.log(this.files.files[i]);
       this.uploadFile(this.files.files[i]);
     }
-    // this.uploadFile(this.files.files[0]);
   }
 
   readAndPreview(file) {
     let reader = new FileReader();
     reader.addEventListener('load', function() {
         var image = new Image();
-        image.height = 250;
+        image.height = 300;
         image.title = file.name;
         image.src = this.result;
+        image.class = 'col-xs-3';
         var preview = document.querySelector('#preview');
         preview.appendChild(image);
       }, false);
@@ -92,9 +77,12 @@ class ImageUpload extends Component {
           multiple />
         </form>
 
-        <div id="preview" 
-        ref={(preview) => {this.preview = preview}}
-        ></div>
+        <section className="row">
+          <div id="preview"
+          ref={(preview) => {this.preview = preview}}
+          ></div>
+        </section>
+
         <button onClick={this.consoleLog.bind(this)}>console log preview</button>
         <button
         onClick={this.logFiles.bind(this)}

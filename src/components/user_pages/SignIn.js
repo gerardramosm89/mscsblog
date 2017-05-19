@@ -13,6 +13,7 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
+    console.log('this.props.token is: ', this.props.token);
   }
   componentDidUpdate() {
     console.log("SignIn component updated!");

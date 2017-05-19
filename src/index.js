@@ -19,6 +19,7 @@ import SignUp from './components/user_pages/SignUp';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import LearningPaths from './components/learning_paths';
+import Dashboard from './components/user_pages/Dashboard';
 
 // Redux
 import { createStore, applyMiddleware } from 'redux';
@@ -42,6 +43,7 @@ ReactDOM.render(
           <Route path="/signup" component={SignUp} />
           <Route path="/blogs" component={BlogsIndex} />
           <Route path="/learningpaths" component={LearningPaths} />
+          <Route path="/dashboard" component={Dashboard} />          
           <Route path="/" component={Home} />
         </Switch>
       </div>

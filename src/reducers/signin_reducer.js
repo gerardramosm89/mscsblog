@@ -14,6 +14,7 @@ export default function(state = { message: '', token: currentToken, user: curren
       return action.payload.data;
     case 'SIGN_OUT':
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
       console.log('action.payload from sign out is: ', action.payload);
       return action.payload;
     default:

@@ -25,6 +25,9 @@ class Dashboard extends Component {
 
   componentDidUpdate() {
     console.log("Dashboard component updated!");
+    if (!this.props.token.token) {
+      this.props.history.push('/signin');
+    }
   }
 
   newPost() {

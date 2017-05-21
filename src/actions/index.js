@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 // const Variables
 const rootUrl = 'http://reduxblog.herokuapp.com/api';
 const apiKey = '?key=01211989'

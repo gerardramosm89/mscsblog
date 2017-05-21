@@ -20,7 +20,7 @@ import Navbar from './components/navbar';
 import Home from './components/home';
 import LearningPaths from './components/learning_paths';
 import Dashboard from './components/user_pages/Dashboard';
-
+import EditBlog from './components/blogs/blogs_edit.js';
 // Redux
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -38,12 +38,13 @@ ReactDOM.render(
         <Navbar />
         <Switch>
           <Route path="/blogs/new" component={BlogsNew} />
+          <Route path="/blogs/edit/:id" component={EditBlog} />          
           <Route path="/imageupload" component={ImageUpload} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/blogs" component={BlogsIndex} />
           <Route path="/learningpaths" component={LearningPaths} />
-          <Route path="/dashboard" component={Dashboard} />          
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/" component={Home} />
         </Switch>
       </div>

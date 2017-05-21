@@ -28,15 +28,11 @@ class Dashboard extends Component {
 
   newPost() {
     console.log('hi');
-
   }
   renderBlogs() {
     if (!this.state.blogs) {
       return <div>No posts loaded, have you written any posts?</div>
     }
-    // if (this.state.blogs.length == 0) {
-    //   return <div>loading</div>
-    // }
     return this.state.blogs.map(blog => {
       return (
         <div key={blog._id}>

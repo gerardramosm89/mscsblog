@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/index';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Dashboard extends Component {
     return this.state.blogs.map(blog => {
       return (
         <div key={blog._id}>
-          <h1>{blog.title}</h1>
+          <Link to={`/blogs/edit/${blog._id}`}><h1>{blog.title}</h1></Link>
           <p>{blog.content}</p>
         </div>
       );

@@ -15,7 +15,6 @@ class Dashboard extends Component {
   componentDidMount() {
     axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
     .then(response => {
-      console.log('response from axios post is: ', response);
       this.setState({
         blogs: response.data.blogs
       });
@@ -29,12 +28,10 @@ class Dashboard extends Component {
   }
 
   newPost() {
-    console.log('hi');
   }
   deletePost(postId) {
     const data = { token: this.props.token.token, postId: postId };
     axios.post('http://localhost:3050/api/deleteOne', data).then((response) => {
-      console.log(response);
       axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
       .then(response => {
         this.setState({

@@ -14,31 +14,26 @@ class SignUp extends Component {
 
   usernameInput(e) {
     e.preventDefault();
-    console.log(e.target.value);
     this.setState({
       username: e.target.value
     });
   }
   emailInput(e) {
     e.preventDefault();
-    console.log(e.target.value);
     this.setState({
       email: e.target.value
     });
   }
   passwordInput(e) {
     e.preventDefault();
-    console.log(e.target.value);
     this.setState({
       password: e.target.value
     });
   }
   onFormSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     axios.post('http://localhost:3050/api/users', this.state)
       .then(response => {
-        console.log('response from user creation is: ', response);
         this.setState({
           message: response.data.message
         });
@@ -63,7 +58,7 @@ class SignUp extends Component {
                 </div>
                 <div className="form-group">
                   <label>Password</label>
-                  <input className="form-control" onChange={this.passwordInput.bind(this)} />
+                  <input type="password" className="form-control" onChange={this.passwordInput.bind(this)} />
                 </div>
                 <button className="btn btn-primary">Submit</button>
               </form>

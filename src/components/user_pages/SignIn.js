@@ -13,16 +13,12 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
-    console.log('this.props.token is: ', this.props.token);
   }
   componentDidUpdate() {
-    console.log("SignIn component updated!");
   }
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.username.length > 0) {
-      console.log(e.target);
-      console.log(this.state.username.length);
     } else {
       this.setState({
         error: "Well well, you should probably put in BOTH a username and password shouldn't you? ahahahaha"
@@ -33,8 +29,6 @@ class SignIn extends Component {
     });
     this.props.signIn({ username: this.state.username, password: this.state.password })
       .then(response => {
-        console.log(response.payload.request.status);
-        // this.props.location.push('/dashboard');
         if (response.payload.request.status == 200) {
           this.props.history.push('/dashboard');
         }

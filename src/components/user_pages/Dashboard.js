@@ -52,10 +52,15 @@ class Dashboard extends Component {
       return <div>No posts loaded, have you written any posts?</div>
     }
     return this.state.blogs.map(blog => {
+      // Need to make this safer, right now vulnerable to XSS
+      function createMarkUp() {
+        return {__html: blog.content}
+      }
       return (
         <div key={blog._id}>
           <Link to={`/blogs/${blog._id}`}><h1>{blog.title}</h1></Link>
-          <p>{blog.content}</p>
+          <p dangerouslySetInnerHTML={createMarkUp()}></p>
+          <Link to={`/blogs/edit/${blog._id}`}><button className="btn btn-warning">Edit Post</button></Link>          
           <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
         </div>
       );
@@ -70,7 +75,6 @@ class Dashboard extends Component {
       <div>
         <h1>Dashboard Component</h1>
         <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
-        <button onClick={this.newPost.bind(this)} className="btn btn-primary">Query Blogs</button>
         {this.renderBlogs()}
       </div>
     );

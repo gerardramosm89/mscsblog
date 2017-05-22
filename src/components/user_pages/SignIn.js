@@ -65,7 +65,7 @@ class SignIn extends Component {
     return (
       <div>
         <div className="signin__wrapper">
-          <div className="signin__inner col-6 offset-3">
+          <div className="signin__inner col-8 offset-2">
           <h1 className="text-center">Sign In Page</h1>
           {this.renderPasswordError()}
           <form onSubmit={this.handleSubmit.bind(this)}>

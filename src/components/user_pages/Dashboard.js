@@ -38,7 +38,14 @@ class Dashboard extends Component {
     const data = { token: this.props.token.token, postId: postId };
     axios.post('http://localhost:3050/api/deleteOne', data).then((response) => {
       console.log(response);
-    });
+      axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
+      .then(response => {
+        console.log('response from axios post is: ', response);
+        this.setState({
+          blogs: response.data.blogs
+        }, console.log("this.state.blogs is: ", response.data.blogs));
+      });
+    });  
   }
   renderBlogs() {
     if (!this.state.blogs) {

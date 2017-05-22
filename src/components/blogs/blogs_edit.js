@@ -15,13 +15,12 @@ class EditBlog extends Component {
     let data = { token: this.props.token.token, postId: this.props.match.params.id }; 
     axios.post('http://localhost:3050/api/fetchone', data)
       .then(res => {
-        console.log('res from post is: ', res);
         this.setState({
           post: res.data[0],
           title: res.data[0].title,
           content: res.data[0].content
         });
-        return console.log('res from edit is: ', res);
+        return res;
       });
   }
   componentDidUpdate() {
@@ -31,18 +30,9 @@ class EditBlog extends Component {
   }
   updateBlog(e) {
     e.preventDefault();
-    // this.props.createBlog({
-    //   token: this.props.token.token,
-    //   newblog: {
-    //     title: this.state.title,
-    //     content: this.state.content
-    //   }
-    // });
     const updates = { postId: this.props.match.params.id, updates: { title: this.state.title, content: this.state.content }};
-    console.log('updates we are trying to push is: ', updates);
     axios.post('http://localhost:3050/api/updateOne', updates)
       .then(response => {
-        console.log('response from updating is: ', response);
       });
   }
   titleInput(e) {

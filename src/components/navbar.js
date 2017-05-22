@@ -13,7 +13,6 @@ class Navbar extends Component {
     this.props.signOut();
   }
   componentDidUpdate() {
-    console.log("navbar component updated!");
   }
   renderLogoutBtn() {
     if (this.props.token.token === null) {

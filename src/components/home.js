@@ -45,7 +45,6 @@ class Home extends Component {
     });
   }
   render() {
-    console.log('this.cards is: ', this.cards[0]);
     return(
       <div>
         <header className="home-header__wrapper">

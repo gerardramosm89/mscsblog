@@ -13,11 +13,14 @@ class BlogsNew extends Component {
     }
   }
 
-  newBlogButton() {
-    this.props.createBlog({ 
-      title: this.state.title,
-      categories: this.state.categories,
-      content: this.state.content 
+  newBlogButton(e) {
+    e.preventDefault();
+    this.props.createBlog({
+      token: this.props.token.token,
+      newblog: {
+        title: this.state.title,
+        content: this.state.content
+      }
     });
   }
   titleInput(e) {
@@ -38,17 +41,21 @@ class BlogsNew extends Component {
   render() {
     return (
       <div>
-        <h1>{this.props.newBlog.title}</h1>
-        <label>Title</label>
-        <input type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
-        <h1>{this.props.newBlog.categories}</h1>
-        <label>Categories</label>
-        <input type="text" onChange={this.categoriesInput.bind(this)} value={this.state.categories} />
-        <h1>{this.props.newBlog.content}</h1>
-        <label>Content</label>
-        <input type="text" onChange={this.contentInput.bind(this)} value={this.state.content} />
-        <button className="button" onClick={this.newBlogButton.bind(this)}>New Blog</button>
-        <button className="button" onClick={() => this.forceUpdate()}>Update</button>
+        <section className="col-6 offset-3">
+          <form onSubmit={this.newBlogButton.bind(this)}>
+            <h1>{this.props.newBlog.title}</h1>
+            <div className="form-group">
+              <label>Title</label>
+              <input className="form-control newblog__header"type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
+            </div>
+            <h1>{this.props.newBlog.content}</h1>
+            <div className="form-group">
+              <label>Content</label>
+              <textarea rows="5" className="form-control" onChange={this.contentInput.bind(this)} value={this.state.content} />
+            </div>
+            <button className="button" onClick={this.newBlogButton.bind(this)}>New Blog</button>
+          </form>
+        </section>
       </div>
     );
   }
@@ -56,7 +63,7 @@ class BlogsNew extends Component {
 
 
 function mapStateToProps(state) {
-  return { newBlog: state.newBlog };
+  return { newBlog: state.newBlog, token: state.token };
 }
 
 export default connect(mapStateToProps, { createBlog })(BlogsNew);

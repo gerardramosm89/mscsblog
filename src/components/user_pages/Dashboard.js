@@ -40,18 +40,21 @@ class Dashboard extends Component {
     return this.state.blogs.map(blog => {
       return (
         <div key={blog._id}>
-          <Link to={`/blogs/edit/${blog._id}`}><h1>{blog.title}</h1></Link>
+          <Link to={`/blogs/${blog._id}`}><h1>{blog.title}</h1></Link>
           <p>{blog.content}</p>
         </div>
       );
     });
   }
-
+  newPost(e) {
+    e.preventDefault();
+    this.props.history.push('/blogs/new');
+  }
   render() {
     return (
       <div>
         <h1>Dashboard Component</h1>
-        <p>the token is: {this.props.token.token}</p>
+        <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
         <button onClick={this.newPost.bind(this)} className="btn btn-primary">Query Blogs</button>
         {this.renderBlogs()}
       </div>

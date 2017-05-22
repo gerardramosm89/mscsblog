@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-class EditBlog extends Component {
+class ViewBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +10,8 @@ class EditBlog extends Component {
     };
   }
   componentDidMount() {
-    let data = { token: this.props.token.token, postId: this.props.match.params.id }; 
+    let data = { token: this.props.token.token, postId: this.props.match.params.id };
+    // Grab Post
     axios.post('http://localhost:3050/api/fetchone', data)
       .then(res => {
         this.setState({
@@ -29,7 +30,7 @@ class EditBlog extends Component {
     console.log('this.state.post', this.state.post);
     return (
       <div>
-        <h1>Edit Blog Component</h1>
+        <h1>View Blog Component</h1>
         <h2>Title is: {this.state.post.title}</h2>
         <p>Content is: {this.state.post.content}</p>
         <p>Id you are looking at is: {this.props.match.params.id}</p>
@@ -41,4 +42,4 @@ class EditBlog extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, {  })(EditBlog);
+export default connect(mapStateToProps, {  })(ViewBlog);

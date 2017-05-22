@@ -1,6 +1,5 @@
 import _ from 'lodash';
 
-console.log("blogs_reducer was loaded");
 export default function(state = {}, action) {
   switch (action.type) {
     case 'FETCH_POSTS':

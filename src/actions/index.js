@@ -5,7 +5,6 @@ const apiKey = '?key=01211989'
 const signInUrl = 'http://localhost:3050/api/userauth'
 // Action Functions
 export function fetchPosts(testData) {
-  console.log("Fetch posts was called");
   const request = axios.get(`${rootUrl}/posts${apiKey}`);
   return {
     type: 'FETCH_POSTS',
@@ -14,7 +13,6 @@ export function fetchPosts(testData) {
 }
 
 export function createBlog(data) {
-  console.log('data from redux is: ', data);
   const request = axios.post(`${rootUrl}/api/blogs/create`, data);
   return {
     type: 'NEW_BLOG',

@@ -1,7 +1,5 @@
 import _ from 'lodash';
 
-console.log("newblog_reducer was loaded");
-
 export default function(state = {}, action) {
   switch (action.type) {
     case 'NEW_BLOG':

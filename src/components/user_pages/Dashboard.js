@@ -13,18 +13,16 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    console.log('this.props.token is: ', this.props.token);
     axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
     .then(response => {
       console.log('response from axios post is: ', response);
       this.setState({
         blogs: response.data.blogs
-      }, console.log("this.state.blogs is: ", response.data.blogs));
+      });
     });
   }
 
   componentDidUpdate() {
-    console.log("Dashboard component updated!");
     if (!this.props.token.token) {
       this.props.history.push('/signin');
     }
@@ -34,16 +32,14 @@ class Dashboard extends Component {
     console.log('hi');
   }
   deletePost(postId) {
-    console.log('postId is: ', postId);
     const data = { token: this.props.token.token, postId: postId };
     axios.post('http://localhost:3050/api/deleteOne', data).then((response) => {
       console.log(response);
       axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
       .then(response => {
-        console.log('response from axios post is: ', response);
         this.setState({
           blogs: response.data.blogs
-        }, console.log("this.state.blogs is: ", response.data.blogs));
+        });
       });
     });  
   }

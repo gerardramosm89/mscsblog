@@ -33,6 +33,13 @@ class Dashboard extends Component {
   newPost() {
     console.log('hi');
   }
+  deletePost(postId) {
+    console.log('postId is: ', postId);
+    const data = { token: this.props.token.token, postId: postId };
+    axios.post('http://localhost:3050/api/deleteOne', data).then((response) => {
+      console.log(response);
+    });
+  }
   renderBlogs() {
     if (!this.state.blogs) {
       return <div>No posts loaded, have you written any posts?</div>
@@ -42,6 +49,7 @@ class Dashboard extends Component {
         <div key={blog._id}>
           <Link to={`/blogs/${blog._id}`}><h1>{blog.title}</h1></Link>
           <p>{blog.content}</p>
+          <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
         </div>
       );
     });

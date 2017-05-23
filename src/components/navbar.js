@@ -6,6 +6,7 @@ import { signOut } from '../actions/index';
 class Navbar extends Component {
   constructor(props) {
     super(props);
+    this.current = false;
   }
   componentDidMount() {
   }
@@ -14,11 +15,20 @@ class Navbar extends Component {
   }
   componentDidUpdate() {
   }
+  accountBtn() {
+    this.current = !this.current;
+    this.current ? (this.account.classList.add('show')) : (this.account.classList.remove('show'))
+    
+  }
   renderLogoutBtn() {
+    const self = this;
     if (this.props.token.token === null) {
       return (
-          <li className="nav-item">
-            <Link className="nav-link" to="/signin">Sign In</Link>
+          <li className="nav-item dropdown">
+            <div onClick={self.accountBtn.bind(self)} className="nav-link">Account</div>
+            <div ref={account => self.account = account} className="g-dropdown">
+              <Link className="nav-link" to="/signin">Sign In</Link>
+            </div>
           </li>
       );
     } else {
@@ -43,9 +53,6 @@ class Navbar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/imageupload">Upload File</Link>
           </li>
-          {/*<li className="nav-item">
-            <Link className="nav-link" to="/blogs">Blogs</Link>
-          </li>*/}
           <li className="nav-item">
             <Link className="nav-link" to="/signup">Sign Up</Link>
           </li>

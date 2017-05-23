@@ -7,3 +7,15 @@ a {
 .nav {
   min-height: 5vh;
 }
+.g-dropdown {
+  display: none;
+  position: absolute;
+  transition: .5s ease all;
+}
+.dropdown {
+  position: relative;
+}
+.g-dropdown.show {
+  display: inline-block;
+  transition: .5s ease all;
+}

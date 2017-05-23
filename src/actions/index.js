@@ -36,7 +36,6 @@ export function createBlog(data) {
 // }
 // SignIn Component actions
 export function signIn(data) {
-  console.log('data from sign in action is: ', data);
   const request = axios.post(`${signInUrl}`, data);
   return {
     type: 'SIGN_IN',
@@ -45,7 +44,6 @@ export function signIn(data) {
 }
 
 export function signOut(data) {
-  console.log("signout action launched!");
   return {
     type: 'SIGN_OUT',
     payload: { message: 'signing out', token: null}

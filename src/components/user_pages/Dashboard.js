@@ -50,11 +50,11 @@ class Dashboard extends Component {
         return {__html: blog.content}
       }
       return (
-        <div key={blog._id}>
-          <Link to={`/blogs/${blog._id}`}><h1>{blog.title}</h1></Link>
-          <p dangerouslySetInnerHTML={createMarkUp()}></p>
-          <Link to={`/blogs/edit/${blog._id}`}><button className="btn btn-warning">Edit Post</button></Link>          
-          <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
+        <div className="col-10 offset-1" key={blog._id}>
+            <Link to={`/blogs/${blog._id}`}><h5>{blog.title}</h5></Link>
+            <p dangerouslySetInnerHTML={createMarkUp()}></p>
+            <Link to={`/blogs/edit/${blog._id}`}><button className="btn btn-warning">Edit Post</button></Link>          
+            <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
         </div>
       );
     });
@@ -66,9 +66,18 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h1>Dashboard Component</h1>
-        <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
-        {this.renderBlogs()}
+        <div className="container">
+          <div className="row">
+            <div className="col-10 offset-1 text-center">
+              <h1>Your Dashboard</h1>
+              <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
+            </div>
+            <h2 className="col-10 offset-1">Your Posts</h2>
+              {this.renderBlogs()}
+          </div>
+        </div>
+
+
       </div>
     );
   }

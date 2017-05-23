@@ -9,12 +9,14 @@ class BlogsNew extends Component {
     this.state = {
       title: '',
       categories: '',
-      content: ''
+      content: '',
+      postResponse: null
     }
   }
 
   newBlogButton(e) {
     e.preventDefault();
+    const self = this;
     this.props.createBlog({
       token: this.props.token.token,
       newblog: {
@@ -22,6 +24,24 @@ class BlogsNew extends Component {
         content: this.state.content
       }
     });
+    this.setState({
+      postResponse: 'Message submitted! Redirecting to dashboard'
+    });
+    setTimeout(function() {
+      console.log('After 1 second delay');
+      self.props.history.push('/dashboard');
+    }, 1500);
+  }
+  renderPostMessage() {
+    if (this.state.postResponse) {
+      return (
+        <div className="alert alert-success" role="alert">
+          <strong>Post submitted!</strong> You successfully posted the message, redirecting...
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
   titleInput(e) {
     this.setState({
@@ -42,6 +62,7 @@ class BlogsNew extends Component {
     return (
       <div>
         <section className="col-6 offset-3">
+          {this.renderPostMessage()}
           <form onSubmit={this.newBlogButton.bind(this)}>
             <h1>{this.props.newBlog.title}</h1>
             <div className="form-group">

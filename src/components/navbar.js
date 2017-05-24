@@ -29,6 +29,7 @@ class Navbar extends Component {
             <div ref={account => self.account = account} className="g-dropdown">
               <Link className="nav-link" to="/signin">Sign In</Link>
               <Link className="nav-link" to="/signup">Sign Up</Link>
+              <Link className="nav-link" to="/dashboard">Dashboard</Link>
             </div>
           </li>
       );
@@ -53,10 +54,6 @@ class Navbar extends Component {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/imageupload">Upload File</Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link" to="/dashboard">Dashboard</Link>
           </li>
           {this.renderLogoutBtn()}
         </ul>

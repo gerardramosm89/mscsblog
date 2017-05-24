@@ -8,14 +8,19 @@ a {
   min-height: 5vh;
 }
 .g-dropdown {
-  display: none;
+  // display: none;
+  transform: scale(0);
+  transform-origin: top;
   position: absolute;
-  transition: .5s ease all;
+  transition: .25s ease all;
+  z-index: 50;
+  background: white;
+  border-radius: 0px 0px 5px 5px;
 }
 .dropdown {
   position: relative;
 }
 .g-dropdown.show {
   display: inline-block;
-  transition: .5s ease all;
+  transform: scale(1);
 }

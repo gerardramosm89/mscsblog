@@ -18,13 +18,14 @@ class Navbar extends Component {
   accountBtn() {
     this.current = !this.current;
     this.current ? (this.account.classList.add('show')) : (this.account.classList.remove('show'))
-    
   }
   renderLogoutBtn() {
     const self = this;
     if (this.props.token.token === null) {
       return (
-          <li className="nav-item dropdown">
+          <li
+          onMouseLeave={this.accountBtn.bind(this)} 
+          onMouseEnter={this.accountBtn.bind(this)} className="nav-item dropdown">
             <div onClick={self.accountBtn.bind(self)} className="nav-link">Account</div>
             <div ref={account => self.account = account} className="g-dropdown">
               <Link className="nav-link" to="/signin">Sign In</Link>

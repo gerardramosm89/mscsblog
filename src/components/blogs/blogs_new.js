@@ -10,7 +10,9 @@ class BlogsNew extends Component {
       title: '',
       categories: '',
       content: '',
-      postResponse: null
+      postResponse: null,
+      learningPath: 'Statistical Learning',
+      publish: true
     }
   }
 
@@ -58,6 +60,25 @@ class BlogsNew extends Component {
       content: e.target.value
     });
   }
+  handleLearningPathChange(e) {
+    e.preventDefault();
+    this.setState({
+      learningPath: !e.target.value
+    });
+  }
+  handlePublish(e) {
+    e.preventDefault();
+    const self = this;
+    self.newValue = !e.target.checked;
+    console.log('e.target.checked is: ', e.target.checked);
+    console.log('this.state.publish is: ', this.state.publish);
+    this.setState({
+      publish: self.newValue
+    });
+  }
+  componentDidUpdate() {
+    console.log('newpost updated');
+  }
   render() {
     return (
       <div>
@@ -74,7 +95,28 @@ class BlogsNew extends Component {
               <label>Content</label>
               <textarea rows="5" className="form-control" onChange={this.contentInput.bind(this)} value={this.state.content} />
             </div>
-            <button className="button" onClick={this.newBlogButton.bind(this)}>New Blog</button>
+
+            <div className="form-group">
+              <label>Learning Path</label>
+              <select
+              className="form-control" 
+              onChange={this.handleLearningPathChange.bind(this)}
+              value={this.state.learningPath}
+              >
+                <option  value="Statistical Learning">Statistical Learning</option>
+              </select>
+            </div>
+
+        <label>
+          Is going:
+          <input
+            name="publish"
+            type="checkbox"
+            checked={this.state.publish}
+            onChange={this.handlePublish.bind(this)} />
+        </label>
+
+            <button className="btn btn-lg btn-info" onClick={this.newBlogButton.bind(this)}>Post Blog</button>
           </form>
         </section>
       </div>

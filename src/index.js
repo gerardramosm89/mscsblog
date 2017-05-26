@@ -22,6 +22,7 @@ import LearningPaths from './components/learning_paths';
 import Dashboard from './components/user_pages/Dashboard';
 import EditBlog from './components/blogs/blogs_edit.js';
 import ViewBlog from './components/blogs/ViewBlog';
+import StatisticalLearning from './components/blogs/StatisticalLearning';
 // Redux
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -47,6 +48,7 @@ ReactDOM.render(
           <Route path="/blogs" component={BlogsIndex} />
           <Route path="/learningpaths" component={LearningPaths} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/statistical-learning" component={StatisticalLearning} />
           <Route path="/" component={Home} />
         </Switch>
       </div>

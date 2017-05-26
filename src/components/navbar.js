@@ -8,26 +8,21 @@ class Navbar extends Component {
     super(props);
     this.current = false;
   }
-  componentDidMount() {
-  }
   handleLogout() {
     this.props.signOut();
-  }
-  componentDidUpdate() {
   }
   accountBtn() {
     this.current = !this.current;
     this.current ? (this.account.classList.add('show')) : (this.account.classList.remove('show'))
   }
-  renderLogoutBtn() {
-    const self = this;
+  renderLogout() {
     if (this.props.token.token === null) {
       return (
           <li
           onMouseLeave={this.accountBtn.bind(this)} 
           onMouseEnter={this.accountBtn.bind(this)} className="nav-item dropdown">
-            <div onClick={self.accountBtn.bind(self)} className="nav-link">Account</div>
-            <div ref={account => self.account = account} className="g-dropdown">
+            <div className="nav-link">Account</div>
+            <div ref={account => this.account = account} className="g-dropdown">
               <Link className="nav-link" to="/signin">Sign In</Link>
               <Link className="nav-link" to="/signup">Sign Up</Link>
               <Link className="nav-link" to="/dashboard">Dashboard</Link>
@@ -36,9 +31,17 @@ class Navbar extends Component {
       );
     } else {
       return (
-        <li className="nav-item">
-          <span className="nav-link" onClick={this.handleLogout.bind(this)}>Logout</span>
-        </li>
+          <li
+          onMouseLeave={this.accountBtn.bind(this)} 
+          onMouseEnter={this.accountBtn.bind(this)} className="nav-item dropdown">
+            <div className="nav-link">Account</div>
+            <div ref={account => this.account = account} className="g-dropdown">
+              <div className="nav-item">
+                <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                <span className="nav-link" onClick={this.handleLogout.bind(this)}>Logout</span>
+              </div>
+            </div>
+          </li>
       );
     }
   }
@@ -56,7 +59,7 @@ class Navbar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/imageupload">Upload File</Link>
           </li>
-          {this.renderLogoutBtn()}
+          {this.renderLogout()}
         </ul>
       </nav>
     );

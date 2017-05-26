@@ -12,7 +12,8 @@ class BlogsNew extends Component {
       content: '',
       postResponse: null,
       learningPath: 'Statistical Learning',
-      publish: true
+      publish: true,
+      postOrder: null
     }
   }
 
@@ -23,7 +24,10 @@ class BlogsNew extends Component {
       token: this.props.token.token,
       newblog: {
         title: this.state.title,
-        content: this.state.content
+        content: this.state.content,
+        postOrder: this.state.postOrder,
+        publish: this.state.publish,
+        learningPath: this.state.learningPath
       }
     });
     this.setState({
@@ -32,7 +36,7 @@ class BlogsNew extends Component {
     setTimeout(function() {
       console.log('After 1 second delay');
       self.props.history.push('/dashboard');
-    }, 1500);
+    }, 1000);
   }
   renderPostMessage() {
     if (this.state.postResponse) {
@@ -67,18 +71,29 @@ class BlogsNew extends Component {
     });
   }
   handlePublish(e) {
-    e.preventDefault();
-    const self = this;
-    self.newValue = !e.target.checked;
-    console.log('e.target.checked is: ', e.target.checked);
+    const target = e.target;
+    const value = target.checked;
     console.log('this.state.publish is: ', this.state.publish);
     this.setState({
-      publish: self.newValue
+      [e.target.name]: value
     });
   }
+
+  consoleLogPublish(e) {
+    console.log('this.state is: ', this.state);
+  }
+
   componentDidUpdate() {
     console.log('newpost updated');
   }
+
+  postOrder(e) {
+    const postOrder = e.target.value;
+    this.setState({
+      postOrder
+    });
+  }
+
   render() {
     return (
       <div>
@@ -95,7 +110,6 @@ class BlogsNew extends Component {
               <label>Content</label>
               <textarea rows="5" className="form-control" onChange={this.contentInput.bind(this)} value={this.state.content} />
             </div>
-
             <div className="form-group">
               <label>Learning Path</label>
               <select
@@ -106,19 +120,27 @@ class BlogsNew extends Component {
                 <option  value="Statistical Learning">Statistical Learning</option>
               </select>
             </div>
-
-        <label>
-          Is going:
-          <input
-            name="publish"
-            type="checkbox"
-            checked={this.state.publish}
-            onChange={this.handlePublish.bind(this)} />
-        </label>
-
+            <div className="form-group">
+              <label>Post Order</label>
+              <input className="form-control" type="number" onChange={this.postOrder.bind(this)} />  
+            </div>
+            <div className="form-check">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  name="publish"
+                  type="checkbox"
+                  checked={this.state.publish}
+                  onChange={this.handlePublish.bind(this)} 
+                />  
+                Publish now?
+              </label>
+            </div>
             <button className="btn btn-lg btn-info" onClick={this.newBlogButton.bind(this)}>Post Blog</button>
           </form>
         </section>
+            <button onClick={this.consoleLogPublish.bind(this)} className="btn btn-lg">Console log this.state.publish</button>
+
       </div>
     );
   }

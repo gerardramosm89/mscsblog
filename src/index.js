@@ -24,17 +24,21 @@ import EditBlog from './components/blogs/blogs_edit.js';
 import ViewBlog from './components/blogs/ViewBlog';
 import StatisticalLearning from './components/blogs/StatisticalLearning';
 // Redux
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(promise)
+));
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  // <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>  
     <BrowserRouter>
       <div>
         <Navbar />

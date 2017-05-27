@@ -1,7 +1,6 @@
 import axios from 'axios';
 // const Variables
 const rootUrl = 'http://localhost:3050';
-const apiKey = '?key=01211989'
 const signInUrl = 'http://localhost:3050/api/userauth'
 // Action Functions
 export function fetchPosts(testData) {

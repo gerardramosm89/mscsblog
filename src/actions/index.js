@@ -20,21 +20,6 @@ export function createBlog(data) {
   }
 }
 
-// Decided it would be better to handle new posts within a component only, no other component cares about new posts except the new post component (Dashboard)
-
-// export function newPost(data) {
-//   console.log('data from newPost is: ', data);
-//   // const request = axios.post(`${rootUrl}/posts${apiKey}`, data);
-//   axios.post(`${rootUrl}/posts${apiKey}`, data)
-//     .then(response => {
-//       console.log('response from axios newPost was: ', response);
-//       return {
-//         type: 'NEW_POST',
-//         payload: response
-//       };
-//     });
-// }
-// SignIn Component actions
 export function signIn(data) {
   const request = axios.post(`${signInUrl}`, data);
   return {

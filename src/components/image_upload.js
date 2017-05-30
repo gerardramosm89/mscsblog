@@ -61,7 +61,6 @@ class ImageUpload extends Component {
           }
       };
       fd.append('uploaded_file', file);
-      console.log('fd is: ', fd);
       xhr.send(fd);
   }
 

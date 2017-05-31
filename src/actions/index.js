@@ -2,7 +2,8 @@ import axios from 'axios';
 // const Variables
 const rootUrl = 'http://localhost:3050';
 const signInUrl = 'http://localhost:3050/api/userauth'
-// Action Functions
+
+// Posts actions
 export function fetchPosts(testData) {
   const request = axios.get(`${rootUrl}/posts${apiKey}`);
   return {
@@ -10,7 +11,6 @@ export function fetchPosts(testData) {
     payload: request
   };
 }
-
 export function createBlog(data) {
   const request = axios.post(`${rootUrl}/api/blogs/create`, data);
   return {
@@ -18,7 +18,14 @@ export function createBlog(data) {
     payload: request
   }
 }
-
+export function fetchByLearningPath(data) {
+  const request = axios.post(`${rootUrl}/api/learningpath`, data);
+  return {
+    type: 'FETCH_BY_LEARNING_PATH',
+    payload: request
+  }
+}
+// Authentication actions
 export function signIn(data) {
   const request = axios.post(`${signInUrl}`, data);
   return {
@@ -26,7 +33,6 @@ export function signIn(data) {
     payload: request
   }
 }
-
 export function signOut(data) {
   return {
     type: 'SIGN_OUT',

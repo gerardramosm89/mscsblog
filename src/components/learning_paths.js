@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchByLearningPath } from '../actions/index';
 
 class LearningPaths extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return(
       <div>
         <div className="container">
           <div className="row">
             <div className="col-12">
-
-
-
-
               <div className="text-center">
                 <h1 className="select_your_path__header">Select your path <i className="fa fa-question-circle-o path-helper" aria-hidden="true"></i></h1>
               </div>
@@ -40,4 +37,9 @@ class LearningPaths extends Component {
   }
 }
 
-export default LearningPaths;
+// export default LearningPaths;
+
+function mapStateToProps(state) {
+  return { token: state.token };
+}
+export default connect(mapStateToProps, { fetchByLearningPath })(LearningPaths);

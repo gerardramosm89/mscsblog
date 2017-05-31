@@ -8,9 +8,6 @@ class ImageUpload extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
-    if (token) {
-      console.log("You are logged in! there is a token!");
-    }
   }
 
   previewFiles(e) {

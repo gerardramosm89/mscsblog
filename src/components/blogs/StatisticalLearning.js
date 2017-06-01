@@ -39,15 +39,25 @@ class StatisticalLearning extends Component {
       <div>
         <section>
           <div className="sl__header">
-            <h1>
-              Statistical Learning
-            </h1>
+
+            <div className="container">
+              <div className="row">
+                <div className="col-5 offset-1">
+                  <h1 className="sl__header--heading">
+                    Statistical Learning
+                  </h1>
+                  <p className="sl__header--subheading">
+                    From foundational concepts and skills to emerging technologies and platforms, our Statistical Learning Path covers the full range of areas to build and strengthen your Machine Learning knowledge.
+                  </p>
+                </div>
+            </div>
+            </div>
           </div>
         </section>
         <section className="sl__body">
           <div className="container">
             <div className="row">
-              <div className="col-8 offset-2">
+              <div className="col-10 offset-1">
                 {this.renderPosts()}
               </div>
             </div>

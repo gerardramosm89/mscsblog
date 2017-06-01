@@ -11,7 +11,7 @@ $text-color-lighter: #777;
 $learningpathgray: #eeeeee;
 
 * {
-  font-family: 'Lato';
+  font-family: 'Roboto';
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import 'navbar.scss';
 @import 'user_pages.scss';
 @import 'paths.scss';

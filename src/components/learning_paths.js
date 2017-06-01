@@ -6,6 +6,12 @@ class LearningPaths extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    this.props.fetchByLearningPath();
+  }
+  componentDidUpdate() {
+    console.log('fetched learning path posts is: ', this.props.learningPathPosts)
+  }
   render() {
     return(
       <div>
@@ -40,6 +46,6 @@ class LearningPaths extends Component {
 // export default LearningPaths;
 
 function mapStateToProps(state) {
-  return { token: state.token };
+  return { learningPathPosts: state.learningPathPosts };
 }
 export default connect(mapStateToProps, { fetchByLearningPath })(LearningPaths);

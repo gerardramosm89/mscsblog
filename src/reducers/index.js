@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   blogs: BlogsReducer,
   newBlog: NewBlogReducer,
   token: SignInReducer,
-  learningPathBlogs: LearningPathReducer
+  learningPathPosts: LearningPathReducer
 });
 
 export default rootReducer;

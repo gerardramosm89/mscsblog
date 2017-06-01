@@ -20,6 +20,10 @@ export function createBlog(data) {
 }
 export function fetchByLearningPath(data) {
   const request = axios.post(`${rootUrl}/api/learningpath`, data);
+  request.then((response) => {
+    console.log('response is: ', response.data);
+  });
+  console.log('fetchByLearningPath action');
   return {
     type: 'FETCH_BY_LEARNING_PATH',
     payload: request

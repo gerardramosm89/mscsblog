@@ -6,6 +6,10 @@ $gray: #B4B4B4;
 $text-color: #333;
 $text-color-lighter: #777;
 
+/* Background Colors */
+/* Light grey for learning paths */
+$learningpathgray: #eeeeee;
+
 * {
   font-family: 'Lato';
 }
@@ -13,6 +17,7 @@ $text-color-lighter: #777;
 h1 {
   color: $text-color;
 }
+
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import 'navbar.scss';

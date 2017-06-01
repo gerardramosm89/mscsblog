@@ -22,10 +22,14 @@ class StatisticalLearning extends Component {
     }
     return this.props.learningPathPosts.map(post => {
       return (
-        <div key={post.postOrder}>
-          <h2>{post.title}</h2>
-          <h4>{post.postOrder}</h4>
-          <p>{post.content}</p>
+        <div className="card" key={post.postOrder}>
+          <div className="card-header">
+            <div>Path #: {post.postOrder}</div>
+          </div>
+          <div className="card-block">
+            <h4 className="card-title">{post.title}</h4>
+            <h6 className="card-text">{post.content}</h6>
+          </div>
         </div>
       );
     });
@@ -33,8 +37,24 @@ class StatisticalLearning extends Component {
   render() {
     return (
       <div>
-        <h2>Statistical Learning Posts</h2>
-        {this.renderPosts()}
+        <section>
+          <div className="sl__header">
+            <h1>
+              Statistical Learning
+            </h1>
+          </div>
+        </section>
+        <section className="sl__body">
+          <div className="container">
+            <div className="row">
+              <div className="col-8 offset-2">
+                {this.renderPosts()}
+              </div>
+            </div>
+          </div>
+        </section>
+
+
       </div>
     );
   }

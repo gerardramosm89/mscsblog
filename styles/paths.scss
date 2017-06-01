@@ -35,3 +35,9 @@
 .sl__body {
   background-color: $learningpathgray;
 }
+.card-block--margin {
+  margin-bottom: 1.5rem;
+}
+.card-block--margin:first-child {
+  margin-top: 1.5rem;
+}

@@ -22,10 +22,10 @@ class StatisticalLearning extends Component {
     }
     return this.props.learningPathPosts.map(post => {
       return (
-        <div className="card" key={post.postOrder}>
-          <div className="card-header">
+        <div className="card card-block--margin" key={post.postOrder}>
+          {/*<div className="card-header">
             <div>Path #: {post.postOrder}</div>
-          </div>
+          </div>*/}
           <div className="card-block">
             <h4 className="card-title">{post.title}</h4>
             <h6 className="card-text">{post.content}</h6>

@@ -1,6 +1,8 @@
 import axios from 'axios';
 // const Variables
 const rootUrl = 'http://localhost:3050';
+// const rootUrl = process.env.host;
+console.log('rootUrl is: ');
 const signInUrl = 'http://localhost:3050/api/userauth'
 
 // Posts actions

@@ -26,9 +26,9 @@ class StatisticalLearning extends Component {
           {/*<div className="card-header">
             <div>Path #: {post.postOrder}</div>
           </div>*/}
-          <div className="card-block">
-            <h4 className="card-title">{post.title}</h4>
-            <h6 className="card-text">{post.content}</h6>
+          <div className="card-block path-card">
+            <h4 className="card-title path-title">{post.title}</h4>
+            <h6 className="card-text path-text">{post.content}</h6>
           </div>
         </div>
       );
@@ -42,7 +42,7 @@ class StatisticalLearning extends Component {
 
             <div className="container">
               <div className="row">
-                <div className="col-5 offset-1">
+                <div className="col-7 offset-1">
                   <h1 className="sl__header--heading">
                     Statistical Learning
                   </h1>

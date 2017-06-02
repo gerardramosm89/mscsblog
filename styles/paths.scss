@@ -31,6 +31,8 @@
 }
 .sl__header {
   padding: 4.5rem 0;
+  background: url('/img/tealoverlay.png');
+  color: white;
 }
 .sl__body {
   background-color: $learningpathgray;
@@ -40,4 +42,30 @@
 }
 .card-block--margin:first-child {
   margin-top: 1.5rem;
+}
+.path-text {
+  color: $text-color-lighter;
+}
+.path-title {
+  color: $text-color;
+}
+.path-card {
+  box-shadow: 2px 4px 10px #888888;
+}
+.sl__header--heading {
+  font-size: 5rem;
+}
+.sl__header--subheading {
+  text-shadow: 1px 1px 5px #333;
+  font-size: 1.2rem;
+}
+.btn-teal {
+  background-color: $aqua;
+  color: white;
+}
+.btn-teal:hover {
+  color: white !important;
+}
+a.btn-teal {
+  color: white !important;
 }

@@ -8,6 +8,7 @@ class LearningPaths extends Component {
   }
   componentDidMount() {
     this.props.fetchByLearningPath();
+    console.log('this is: ', this);
   }
   componentDidUpdate() {
     console.log('fetched learning path posts is: ', this.props.learningPathPosts)
@@ -29,7 +30,7 @@ class LearningPaths extends Component {
                     <div className="card-block">
                       <h4 className="card-title">Statistical Learning</h4>
                       <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" className="btn btn-primary">I want to learn this!</a>
+                      <a href="#" className="btn btn-teal">I want to learn this!</a>
                     </div>
                   </div>
                 </div>

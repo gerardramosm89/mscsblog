@@ -13,6 +13,7 @@ export function fetchPosts(testData) {
 }
 export function createBlog(data) {
   const request = axios.post(`${rootUrl}/api/blogs/create`, data);
+  console.log('data sent through create blog is: ', data);
   return {
     type: 'NEW_BLOG',
     payload: request

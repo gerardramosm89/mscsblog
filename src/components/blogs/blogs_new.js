@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createBlog } from '../../actions/index';
 import _ from 'lodash';
+import { Editor } from 'react-draft-wysiwyg';
 
 class BlogsNew extends Component {
   constructor(props) {
@@ -13,7 +14,9 @@ class BlogsNew extends Component {
       postResponse: null,
       learningPath: 'Statistical Learning',
       publish: true,
-      postOrder: null
+      postOrder: null,
+      editorState: '',
+      editorHTML: ''
     }
   }
 
@@ -94,6 +97,14 @@ class BlogsNew extends Component {
     });
   }
 
+  onEditorStateChange(editorState) {
+    this.setState({
+      editorState,
+      editorHTML: this.input.editor.refs.editor.innerHTML
+    });
+  }
+
+
   render() {
     return (
       <div>
@@ -136,6 +147,12 @@ class BlogsNew extends Component {
                 Publish now?
               </label>
             </div>
+
+            <Editor
+            ref={node => this.input = node} 
+            onChange={this.onEditorStateChange.bind(this)} 
+            />
+
             <button className="btn btn-lg btn-info" onClick={this.newBlogButton.bind(this)}>Post Blog</button>
           </form>
         </section>

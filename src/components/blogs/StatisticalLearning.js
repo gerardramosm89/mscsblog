@@ -29,7 +29,7 @@ class StatisticalLearning extends Component {
           <div className="card-block path-card">
             <h4 className="card-title path-title">{post.title}</h4>
             <h6 className="card-text path-text">{post.content}</h6>
-            <span>Posted at: {post.createdAt.slice(0,10)}</span>
+            <span className="path-date">Last updated {post.updatedAt.slice(0,10)}</span>
           </div>
         </div>
       );

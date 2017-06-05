@@ -37,7 +37,6 @@ class BlogsNew extends Component {
       postResponse: 'Message submitted! Redirecting to dashboard'
     });
     setTimeout(function() {
-      console.log('After 1 second delay');
       self.props.history.push('/dashboard');
     }, 1000);
   }

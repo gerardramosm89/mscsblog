@@ -16,7 +16,9 @@ class BlogsNew extends Component {
       publish: true,
       postOrder: null,
       editorState: '',
-      editorHTML: ''
+      editorHTML: '',
+      difficulty: '',
+      subheading: ''
     }
   }
 
@@ -30,7 +32,10 @@ class BlogsNew extends Component {
         content: this.state.content,
         postOrder: this.state.postOrder,
         publish: this.state.publish,
-        learningPath: this.state.learningPath
+        // learningPath: this.state.learningPath
+        learningPath: { orderNum: this.state.postOrder, path: this.state.learningPath },
+        difficulty: this.state.difficulty,
+        subheading: this.state.subheading
       }
     });
     this.setState({
@@ -66,6 +71,19 @@ class BlogsNew extends Component {
       content: e.target.value
     });
   }
+
+  subheadingInput(e) {
+    this.setState({
+      subheading: e.target.value
+    });
+  }
+
+  difficultyInput(e) {
+    this.setState({
+      difficulty: e.target.value
+    });
+  }
+
   handleLearningPathChange(e) {
     e.preventDefault();
     this.setState({
@@ -115,6 +133,17 @@ class BlogsNew extends Component {
               <label>Title</label>
               <input className="form-control newblog__header"type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
             </div>
+
+            <div className="form-group">
+              <label>Subheading</label>
+              <input className="form-control newblog__header"type="text" onChange={this.subheadingInput.bind(this)} value={this.state.subheading} />
+            </div>
+
+            <div className="form-group">
+              <label>Difficulty</label>
+              <input className="form-control newblog__header"type="text" onChange={this.difficultyInput.bind(this)} value={this.state.difficulty} />
+            </div>
+
             <h1>{this.props.newBlog.content}</h1>
             <div className="form-group">
               <label>Content</label>

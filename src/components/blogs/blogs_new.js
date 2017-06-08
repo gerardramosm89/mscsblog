@@ -32,7 +32,6 @@ class BlogsNew extends Component {
         content: this.state.content,
         postOrder: this.state.postOrder,
         publish: this.state.publish,
-        // learningPath: this.state.learningPath
         learningPath: { orderNum: this.state.postOrder, path: this.state.learningPath },
         difficulty: this.state.difficulty,
         subheading: this.state.subheading

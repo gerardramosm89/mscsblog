@@ -76,13 +76,11 @@ class BlogsNew extends Component {
       subheading: e.target.value
     });
   }
-
   difficultyInput(e) {
     this.setState({
       difficulty: e.target.value
     });
   }
-
   handleLearningPathChange(e) {
     e.preventDefault();
     this.setState({

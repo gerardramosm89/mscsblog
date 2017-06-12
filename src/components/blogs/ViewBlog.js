@@ -26,8 +26,6 @@ class ViewBlog extends Component {
     }
   }
   render() {
-    console.log('from editblog', this.props.token.token);
-    console.log('this.state.post', this.state.post);
     return (
       <div>
         <h1>View Blog Component</h1>

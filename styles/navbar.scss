@@ -4,6 +4,10 @@ a {
 .nav-link:hover {
   cursor: pointer;
 }
+.nav-link {
+  padding: .8rem 1rem;
+  font-size: 1.1rem;
+}
 .nav {
   min-height: 5vh;
 }

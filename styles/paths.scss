@@ -31,7 +31,8 @@
 }
 .sl__header {
   padding: 4.5rem 0;
-  background: url('/img/tealoverlay.png');
+  // background: url('/img/tealoverlay.png');
+  background: linear-gradient( 90deg, $royalblue, $lightpink );
   color: white;
 }
 .sl__body {
@@ -55,10 +56,14 @@
 }
 .sl__header--heading {
   font-size: 5rem;
+  line-height: 4rem;
+  color: white;
+  text-shadow: 1px 1px 5px #333;  
 }
 .sl__header--subheading {
   text-shadow: 1px 1px 5px #333;
   font-size: 1.2rem;
+  font-weight: 100;
 }
 .btn-teal {
   background-color: $aqua;

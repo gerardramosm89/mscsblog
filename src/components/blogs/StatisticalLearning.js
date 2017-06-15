@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchByLearningPath } from '../../actions/index';
+import { Link } from 'react-router-dom';
 
 
 class StatisticalLearning extends Component {
@@ -26,6 +27,7 @@ class StatisticalLearning extends Component {
           <div className="card-block path-card">
             <h4 className="card-title path-title">{post.title}</h4>
             <h6 className="card-text path-text">{post.content}</h6>
+            <p>ID is: {post._id}</p>
             <span className="path-date">Last updated {post.updatedAt.slice(0,10)}</span>
           </div>
         </div>
@@ -61,8 +63,6 @@ class StatisticalLearning extends Component {
             </div>
           </div>
         </section>
-
-
       </div>
     );
   }

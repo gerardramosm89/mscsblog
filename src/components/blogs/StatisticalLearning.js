@@ -39,7 +39,6 @@ class StatisticalLearning extends Component {
       <div>
         <section>
           <div className="sl__header">
-
             <div className="container">
               <div className="row">
                 <div className="col-7 offset-1">

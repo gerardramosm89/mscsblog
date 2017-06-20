@@ -43,9 +43,6 @@ class LearningPaths extends Component {
     );
   }
 }
-
-// export default LearningPaths;
-
 function mapStateToProps(state) {
   return { learningPathPosts: state.learningPathPosts };
 }

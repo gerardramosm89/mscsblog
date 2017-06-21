@@ -24,7 +24,6 @@ export function fetchByLearningPath(data) {
   request.then((response) => {
     console.log('response is: ', response.data);
   });
-  console.log('fetchByLearningPath action');
   return {
     type: 'FETCH_BY_LEARNING_PATH',
     payload: request

@@ -78,3 +78,29 @@ a.btn-teal {
   color: $text-color-lighter;
   font-size: .9rem;
 }
+
+
+// View Blog CSS
+.viewblog__background {
+  background-color: $purple-background3;
+}
+.viewblog__header {
+  background-color: $purple-background2;
+  & h1 {
+    text-align: center;
+    padding: 5rem 0;
+    color: $purple1;
+    font-size: 4rem;
+  }
+}
+.viewblog__content p {
+  font-family: "Lora";
+  font-size: 1.1rem;
+}
+
+
+
+
+
+
+

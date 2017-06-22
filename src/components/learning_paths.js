@@ -8,7 +8,6 @@ class LearningPaths extends Component {
   }
   componentDidMount() {
     this.props.fetchByLearningPath();
-    console.log('this is: ', this);
   }
   componentDidUpdate() {
     console.log('fetched learning path posts is: ', this.props.learningPathPosts)

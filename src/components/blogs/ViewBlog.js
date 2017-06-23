@@ -12,7 +12,7 @@ class ViewBlog extends Component {
   componentDidMount() {
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
     // Grab Post
-    axios.post('http://localhost:3050/api/fetchone', data)
+    axios.post('http://mlhq.io:3050/api/fetchone', data)
       .then(res => {
         this.setState({
           post: res.data[0]

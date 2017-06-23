@@ -32,7 +32,7 @@ class SignUp extends Component {
   }
   onFormSubmit(e) {
     e.preventDefault();
-    axios.post('http://localhost:3050/api/users', this.state)
+    axios.post('http://mlhq.io:3050/api/users', this.state)
       .then(response => {
         this.setState({
           message: response.data.message

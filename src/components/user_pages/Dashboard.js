@@ -13,7 +13,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
+    axios.post('http://mlhq.io:3050/api/queryblogs', { token: this.props.token.token })
     .then(response => {
       this.setState({
         blogs: response.data.blogs
@@ -31,8 +31,8 @@ class Dashboard extends Component {
   }
   deletePost(postId) {
     const data = { token: this.props.token.token, postId: postId };
-    axios.post('http://localhost:3050/api/deleteOne', data).then((response) => {
-      axios.post('http://localhost:3050/api/queryblogs', { token: this.props.token.token })
+    axios.post('http://mlhq.io:3050/api/deleteOne', data).then((response) => {
+      axios.post('http://mlhq.io:3050/api/queryblogs', { token: this.props.token.token })
       .then(response => {
         this.setState({
           blogs: response.data.blogs

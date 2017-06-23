@@ -49,9 +49,9 @@ class Home extends Component {
       <div>
         <header className="home-header__wrapper">
           <div className="home-header__text-container">
-            <h1>MLHQ Blog.</h1>
+            <h1>Machine Learning Headquarters</h1>
             <p className="home-header--subheading">
-              Hooking you up with the latest in machine learning.
+              Need to have some kind of subheading here, right now just going to keep this as a placeholder
             </p>
             <div className="btns__container">
               <button className="team-trial-btn btn btn-lg">

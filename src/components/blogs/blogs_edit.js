@@ -13,7 +13,7 @@ class EditBlog extends Component {
   }
   componentDidMount() {
     let data = { token: this.props.token.token, postId: this.props.match.params.id }; 
-    axios.post('http://localhost:3050/api/fetchone', data)
+    axios.post('http://mlhq.io:3050/api/fetchone', data)
       .then(res => {
         this.setState({
           post: res.data[0],
@@ -31,7 +31,7 @@ class EditBlog extends Component {
   updateBlog(e) {
     e.preventDefault();
     const updates = { postId: this.props.match.params.id, updates: { title: this.state.title, content: this.state.content }};
-    axios.post('http://localhost:3050/api/updateOne', updates)
+    axios.post('http://mlhq.io:3050/api/updateOne', updates)
       .then(response => {
       });
   }

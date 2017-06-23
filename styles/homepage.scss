@@ -2,18 +2,18 @@
   background: url('/img/mscs-header.jpg');
   background-size: cover;
   background-position: center;
-  height:95vh;
+  height:50vh;
 }
 .home-header__text-container {
 
   text-align: center;
   height: 100%;
-  background: rgba(0, 0, 0, 0.51);
+  background: #3F0079;
 
   & h1 {
     font-size: 3.4375rem;
     color: white;
-    padding-top: 35vh;
+    padding-top: 10vh;
     font-weight: 600;
     text-shadow: 0 3px 17px rgba(0,0,0,.6);
     letter-spacing: -.1rem;
@@ -25,9 +25,29 @@
   font-weight: 200;
   color: white;
   text-shadow: 0 3px 17px rgba(0,0,0,.6);
+  width: 40rem;
+  margin: auto;
 }
 .btns__container {
 
+}
+.btn__border {
+  border-style: solid;
+  border-width: .25rem;
+  border-radius: 10px;
+  border-color: white;
+  display:inline-block;
+  margin: auto;
+  margin-top:2rem;
+}
+.btn__text {
+  background-color: #3F0079;
+  color: white;
+  font-size:1.2rem;
+  margin:.5rem;
+}
+.arrow-lg {
+  font-size:1.5rem;
 }
 .team-trial-btn {
   margin-right:1rem;

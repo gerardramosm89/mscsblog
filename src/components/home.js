@@ -54,17 +54,16 @@ class Home extends Component {
               Need to have some kind of subheading here, right now just going to keep this as a placeholder
             </p>
             <div className="btns__container">
-              <button className="team-trial-btn btn btn-lg">
-                Start a team trial
-              </button>
-              <button onClick={this.handleFreeTrial.bind(this)} className="free-trial-btn btn btn-lg">
-                Start a free trial
-              </button>
+              <div className="btn__border">
+                <div className="btn__text">
+                  View a sample post <i className="fa fa-arrow-circle-right arrow-lg" aria-hidden="true"></i>
+                </div>
+              </div>
             </div>
           </div>
 
         </header>
-        <section className="info-section">
+        {/*<section className="info-section">
           <div className="info-section__inner">
             <h1>Learn them machines</h1>
             <p>Machine peepin' is tha subfield of computa science that, accordin ta Arthur Samuel up in 1959, gives "computas tha mobilitizzle ta learn without bein explicitly programmed." Evolved from tha study of pattern recognition n' computationizzle peepin' theory up in artificial intelligence, machine peepin' explores tha study n' construction of algorithms dat can learn from n' make predictions on data" such algorithms overcome followin strictly static program </p>
@@ -74,7 +73,7 @@ class Home extends Component {
           <section className="row">
             {this.renderCards()}
           </section>
-        </div>
+        </div>*/}
 
       </div>
     );

@@ -26,8 +26,7 @@ class StatisticalLearning extends Component {
         <div className="card card-block--margin" key={post._id}>
           <div className="card-block path-card">
             <h4 className="card-title path-title"><Link to={"/blogs/" + post._id}>{post.title}</Link></h4>
-            <h6 className="card-text path-text">{post.content}</h6>
-            <p>ID is: {post._id}</p>
+            <h6 className="card-text path-text">{post.subheading}</h6>
             <span className="path-date">Last updated {post.updatedAt.slice(0,10)}</span>
           </div>
         </div>

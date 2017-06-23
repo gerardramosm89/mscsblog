@@ -31,7 +31,7 @@
 }
 .sl__header {
   padding: 4.5rem 0;
-  background: linear-gradient( 90deg, $royalblue, $lightpink );
+  background-color: $purple2;
   color: white;
 }
 .sl__body {
@@ -46,9 +46,12 @@
 .path-text {
   color: $text-color-lighter;
 }
-.path-title {
-  color: $text-color;
+.path-title a {
+  color: $purple2;
   font-size: 2rem;
+  &:hover {
+    text-decoration: none;
+  }
 }
 .path-card {
   box-shadow: 2px 4px 10px #888888;

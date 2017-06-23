@@ -25,6 +25,10 @@ class ViewBlog extends Component {
       this.props.history.push('/signin');
     }
   }
+
+  dangerousInnerHTML() {
+    return { __html: this.state.post.content }
+  }
   render() {
     return (
       <div className="viewblog__background">
@@ -37,6 +41,7 @@ class ViewBlog extends Component {
         <div className="container">
           <div className="row">
             <div className="col-8 offset-2 viewblog__content">
+              <div dangerouslySetInnerHTML={this.dangerousInnerHTML()} />
               <p>Content is: {this.state.post.content}</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae minima voluptates quod consequatur beatae labore cum libero vero dolore. Voluptas quod veritatis assumenda a repellendus ab possimus consectetur quo? Et!</p>
             </div>

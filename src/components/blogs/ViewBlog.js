@@ -34,7 +34,6 @@ class ViewBlog extends Component {
       <div className="viewblog__background">
 
         <div className="viewblog__header">
-          {/*<h1>View Blog Component</h1>*/}
           <h1>{this.state.post.title}</h1>
           
         </div>

@@ -6,7 +6,6 @@ class EditBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: {},
       title: '',
       content: ''
     };
@@ -15,10 +14,16 @@ class EditBlog extends Component {
     let data = { token: this.props.token.token, postId: this.props.match.params.id }; 
     axios.post('http://mlhq.io:3050/api/fetchone', data)
       .then(res => {
+        let post = res.data[0]
+        console.log('res.data[0] is: ', post);
         this.setState({
-          post: res.data[0],
-          title: res.data[0].title,
-          content: res.data[0].content
+          title: post.title,
+          content: post.content,
+          subheading: post.subheading,
+          difficulty: post.difficulty,
+          learningPath: post.learningPath.path,
+          orderNum: post.learningPath.orderNum,
+          publish: post.publish
         });
         return res;
       });
@@ -27,6 +32,7 @@ class EditBlog extends Component {
     if (!this.props.token.token) {
       this.props.history.push('/signin');
     }
+    console.log('this.state on update is: ', this.state);
   }
   updateBlog(e) {
     e.preventDefault();
@@ -39,6 +45,7 @@ class EditBlog extends Component {
     this.setState({
       title: e.target.value
     });
+    console.log('state is: ', this.state);
   }
   contentInput(e) {
     this.setState({
@@ -46,9 +53,6 @@ class EditBlog extends Component {
     });
   }
   render() {
-    if (!this.state.title) {
-      return <div>loading</div>
-    }
     return (
       <div>
         <section className="col-6 offset-3">

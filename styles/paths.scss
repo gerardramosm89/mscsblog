@@ -39,6 +39,8 @@
 }
 .card-block--margin {
   margin-bottom: 1.5rem;
+  box-shadow: 2px 4px 10px #888888;
+  border-radius: 10px;
 }
 .card-block--margin:first-child {
   margin-top: 1.5rem;
@@ -54,13 +56,14 @@
   }
 }
 .path-card {
-  box-shadow: 2px 4px 10px #888888;
+
 }
 .sl__header--heading {
-  font-size: 5rem;
+  font-size: 4rem;
   line-height: 4rem;
   color: white;
-  text-shadow: 1px 1px 5px #333;  
+  text-shadow: 1px 1px 5px #333;
+  font-weight: 700;
 }
 .sl__header--subheading {
   text-shadow: 1px 1px 5px #333;

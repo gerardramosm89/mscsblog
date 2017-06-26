@@ -15,7 +15,7 @@ class StatisticalLearning extends Component {
     this.props.fetchByLearningPath({ learningPath: "Statistical Learning" });
   }
   componentDidUpdate() {
-    console.log('fetched learning path posts is: ', this.props.learningPathPosts)
+
   }
   renderPosts() {
     if (!this.props.learningPathPosts) {

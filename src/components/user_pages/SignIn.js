@@ -27,12 +27,15 @@ class SignIn extends Component {
     this.setState({
       password: ''
     });
-    this.props.signIn({ username: this.state.username, password: this.state.password })
-      .then(response => {
+
+    this.props.signIn({ 
+      username: this.state.username, 
+      password: this.state.password
+    }).then(response => {
         if (response.payload.request.status == 200) {
           this.props.history.push('/dashboard');
         }
-      });
+    });
   }
   renderError() {
     if (!this.state.error) return null;

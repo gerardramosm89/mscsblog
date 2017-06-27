@@ -60,7 +60,7 @@ class StatisticalLearning extends Component {
         <section className="sl__body">
           <div className="container">
             <div className="row">
-              <div className="col-6 offset-5">
+              <div className="col-8 offset-2">
                 {this.renderPosts()}
               </div>
             </div>

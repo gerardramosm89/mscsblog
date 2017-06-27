@@ -7,7 +7,9 @@ class EditBlog extends Component {
     super(props);
     this.state = {
       title: '',
-      content: ''
+      content: '',
+      subheading: '',
+      learningPath: 'Learning path must be selected'
     };
   }
   componentDidMount() {
@@ -22,7 +24,7 @@ class EditBlog extends Component {
           subheading: post.subheading,
           difficulty: post.difficulty,
           learningPath: post.learningPath.path,
-          orderNum: post.learningPath.orderNum,
+          postOrder: post.learningPath.orderNum,
           publish: post.publish
         });
         return res;
@@ -36,7 +38,17 @@ class EditBlog extends Component {
   }
   updateBlog(e) {
     e.preventDefault();
-    const updates = { postId: this.props.match.params.id, updates: { title: this.state.title, content: this.state.content }};
+    const updates = { postId: this.props.match.params.id, 
+    updates: { 
+      title: this.state.title, 
+      subheading: this.state.subheading,
+      content: this.state.content,
+      learningPath: { 
+        orderNum: this.state.postOrder, 
+        path: this.state.learningPath
+      }
+    }};
+    console.log('attempting to update, updates we are passing in is: ', updates);
     axios.post('http://mlhq.io:3050/api/updateOne', updates)
       .then(response => {
       });
@@ -45,27 +57,74 @@ class EditBlog extends Component {
     this.setState({
       title: e.target.value
     });
-    console.log('state is: ', this.state);
   }
+
+  subheadingInput(e) {
+    this.setState({
+      subheading: e.target.value
+    });
+  }
+
   contentInput(e) {
     this.setState({
       content: e.target.value
     });
   }
+
+  postOrder(e) {
+    const postOrder = e.target.value;
+    this.setState({
+      postOrder
+    });
+  }
+
+  handleLearningPathChange(e) {
+    this.setState({
+      learningPath: e.target.value
+    });
+    e.preventDefault();
+    console.log('this.state.learningPath is: ', this.state.learningPath);
+  }
   render() {
     return (
       <div>
-        <section className="col-6 offset-3">
+        <section className="col-8 offset-2">
           <form onSubmit={this.updateBlog.bind(this)}>
             <div className="form-group">
               <label>Title</label>
               <input className="form-control newblog__header"type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
             </div>
+            
+            <div className="form-group">
+              <label>Subheading</label>
+              <input className="form-control newblog__header"type="text" onChange={this.subheadingInput.bind(this)} value={this.state.subheading} />
+            </div>
+
             <div className="form-group">
               <label>Content</label>
               <textarea rows="5" className="form-control" onChange={this.contentInput.bind(this)} value={this.state.content} />
             </div>
-            <button className="button" onClick={this.updateBlog.bind(this)}>New Blog</button>
+
+
+            <div className="form-group">
+              <label>Post Order</label>
+              <input className="form-control" type="number" onChange={this.postOrder.bind(this)} value={this.state.postOrder} />  
+            </div>
+
+            <div className="form-group">
+              <label>Learning Path</label>
+              <select
+              className="form-control" 
+              onChange={this.handleLearningPathChange.bind(this)}
+              value={this.state.learningPath}
+              >
+                <option  value={null}>You need to select a path</option>              
+                <option  value="Statistical Learning">Statistical Learning</option>
+                <option  value="Algorithms">Algorithms</option>
+              </select>
+            </div>
+            {/*<div className="alert alert-info">Don't forget to select a path</div>*/}
+            <button className="button btn btn-primary" onClick={this.updateBlog.bind(this)}>Submit changes to blog</button>
           </form>
         </section>
       </div>

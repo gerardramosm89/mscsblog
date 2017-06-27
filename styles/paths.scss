@@ -33,9 +33,11 @@
   padding: 4.5rem 0;
   background-color: $purple2;
   color: white;
+  background-image: linear-gradient(to bottom right,$purple1,$purple3);
+  opacity: .6; 
 }
 .sl__body {
-  background-color: $learningpathgray;
+  background-color: #F4F6F8;
 }
 .card-block--margin {
   margin-bottom: 1.5rem;
@@ -47,10 +49,13 @@
 }
 .path-text {
   color: $text-color-lighter;
+  font-weight: 300;
+  font-size: 1.3rem;
 }
 .path-title a {
-  color: $purple2;
+  color: $text-color;
   font-size: 2rem;
+  font-weight: 700;
   &:hover {
     text-decoration: none;
   }

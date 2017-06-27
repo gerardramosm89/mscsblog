@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { signIn } from '../../actions/index';
 
 class SignUp extends Component {
   constructor(props) {
@@ -32,11 +34,24 @@ class SignUp extends Component {
   }
   onFormSubmit(e) {
     e.preventDefault();
+    let self = this;
+    function logUserIn(username, password, message) {
+      if (message == 'User Created!') {
+        self.props.signIn({ 
+          username: self.state.username, 
+          password: self.state.password
+        }).then(response => {
+            if (response.payload.request.status == 200) {
+              self.props.history.push('/dashboard');
+            }
+        });
+      }
+    }
     axios.post('http://mlhq.io:3050/api/users', this.state)
       .then(response => {
         this.setState({
           message: response.data.message
-        });
+        }, logUserIn(this.state.username, this.state.password, response.data.message));
       });
   }
   render() {
@@ -71,4 +86,8 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+function mapStateToProps(state) {
+  return { token: state.token }
+}
+
+export default connect(mapStateToProps, { signIn })(SignUp);

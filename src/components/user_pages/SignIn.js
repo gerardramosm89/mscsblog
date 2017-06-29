@@ -104,4 +104,3 @@ function mapStateToProps(state) {
   return { token: state.token };
 }
 export default connect(mapStateToProps, { signIn })(SignIn);
-// export default SignIn;

@@ -51,10 +51,14 @@ class Navbar extends Component {
       <nav className="col-12">
         <ul className="nav justify-content-center">
           <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link navbar-brand" to="/">MLHQ</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/learningpaths">Learning Paths</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link"
+            to="/">Glossary</Link>
           </li>
           {/*<li className="nav-item">
             <Link className="nav-link" to="/imageupload">Upload File</Link>

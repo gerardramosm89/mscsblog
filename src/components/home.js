@@ -47,6 +47,9 @@ class Home extends Component {
   render() {
     return(
       <div>
+
+
+
         <header className="home-header__wrapper">
           <div className="home-header__text-container">
             <h1>Machine Learning Headquarters</h1>

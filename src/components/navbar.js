@@ -57,9 +57,9 @@ class Navbar extends Component {
         >
           <span className="account-title">Account</span>
           <ul ref={accountContent => this.accountContent = accountContent} className="content">
-            <li className="content-item">Sign In</li>
-            <li className="content-item">Sign Up</li>
-            <li className="content-item">Dashboard</li>
+            <li className="content-item"><Link className="nav-link" to="/signin">Sign In</Link></li>
+            <li className="content-item"><Link className="nav-link" to="/signup">Sign Up</Link></li>
+            <li className="content-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>
           </ul>
         </div>
       );
@@ -72,9 +72,8 @@ class Navbar extends Component {
         >
           <span className="account-title">Account</span>
           <ul ref={accountContent => this.accountContent = accountContent} className="content">
-            <li className="content-item">Sign In</li>
-            <li className="content-item">Sign Up</li>
-            <li className="content-item">Dashboard</li>
+            <li className="content-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>
+            <li className="content-item"><span className="nav-link" onClick={this.handleLogout.bind(this)}>Logout</span></li>
           </ul>
         </div>
       );

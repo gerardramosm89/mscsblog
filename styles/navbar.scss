@@ -80,6 +80,9 @@ nav {
 }
 .content-item {
   padding: .2rem;
+  & a {
+    color: $darkblue !important;
+  }
 }
 .content.show {
   border-top: 2px $darkblue solid;

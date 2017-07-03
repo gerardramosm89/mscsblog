@@ -25,6 +25,7 @@ $purple-background3: #f4f6f8;
 
 /* another color remake */
 $darkblue: #0B3862;
+$ltbluebg: #f2f6f8;
 
 
 * {
@@ -32,9 +33,6 @@ $darkblue: #0B3862;
 }
 h1 {
   color: $text-color;
-}
-body {
-  background-color: $purple-background3;
 }
 @import url('http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');
 @import url('http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700');

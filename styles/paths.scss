@@ -135,6 +135,12 @@ a.btn-teal {
   border: 1px #888 solid;
   border-radius: 5px;
   height: 100%;
+  transform: scale(1);
+  transition: .3s ease all;
+  &:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+  }
 }
 .topic-card--top {
   padding: 1rem;

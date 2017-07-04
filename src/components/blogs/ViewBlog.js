@@ -31,18 +31,17 @@ class ViewBlog extends Component {
   }
   render() {
     return (
-      <div className="viewblog__background">
-
+      <div className="viewblog__container">
         <div className="viewblog__header">
-          <h1>{this.state.post.title}</h1>
-          
+          <h1 className="viewblog__header--title">{this.state.post.title}</h1>
+          <div className="viewblog__header--hr">
+            <hr />
+          </div>
         </div>
         <div className="container">
           <div className="row">
             <div className="col-8 offset-2 viewblog__content">
               <div dangerouslySetInnerHTML={this.dangerousInnerHTML()} />
-              <p>Content is: {this.state.post.content}</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae minima voluptates quod consequatur beatae labore cum libero vero dolore. Voluptas quod veritatis assumenda a repellendus ab possimus consectetur quo? Et!</p>
             </div>
           </div>
         </div>

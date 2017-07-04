@@ -90,28 +90,73 @@ a.btn-teal {
   font-size: .9rem;
 }
 
-
-// View Blog CSS
-.viewblog__background {
-  background-color: $purple-background3;
+// New Learning Paths page CSS
+.learning-paths__header-container {
+  text-align: center;
 }
-.viewblog__header {
-  background-color: $purple-background2;
-  & h1 {
-    text-align: center;
-    padding: 5rem 0;
-    color: $purple1;
-    font-size: 4rem;
+.learning-paths__heading {
+  text-align: center;
+  font-size: 4rem;
+  padding: 2rem 0 0 0;
+  letter-spacing: -.1rem;
+}
+.learning-paths__subheading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  width: 35rem;
+  margin: auto;
+  letter-spacing: -.1rem;
+  line-height: 2.2rem;
+}
+.topic-container {
+  padding-top: 2rem;
+}
+.topic-card {
+  border: 1px #888 solid;
+  border-radius: 5px;
+  height: 100%;
+  transform: scale(1);
+  transition: .3s ease all;
+  &:hover {
+    transform: scale(1.03);
+    cursor: pointer;
   }
 }
-.viewblog__content p {
-  font-family: "Lora";
-  font-size: 1.1rem;
+.topic-card--top {
+  padding: 1rem;
+  border-bottom: 1px #888 solid;
 }
-
-
-
-
-
-
-
+.topic-card--bottom {
+  padding: 1rem;
+}
+.topic-icon {
+  text-align: center;
+}
+.topic-card--bottom__header {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+.topic-card--bottom__subheading {
+  padding-top: .2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -.03rem;
+  line-height: 1.3rem;
+}
+.quote-container {
+  text-align: center;
+  padding-top: 3rem;
+}
+.quote-inner {
+  width: 26rem;
+  margin: auto;
+  border-left: .3rem solid $darkblue;
+  & p {
+    font-family: 'Lora';
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    font-style: italic;
+  }
+}

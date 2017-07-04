@@ -29,7 +29,7 @@ class StatisticalLearning extends Component {
 
             </div>
             <div className="statistical-learning__card--text">
-              <h1>{post.title}</h1>
+              <Link to={"/blogs/" + post._id}><h1>{post.title}</h1></Link>
               <p>{post.subheading}</p>
             </div>
           </div>

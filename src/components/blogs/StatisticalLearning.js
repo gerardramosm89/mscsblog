@@ -23,15 +23,24 @@ class StatisticalLearning extends Component {
     else
     return this.props.learningPathPosts.map(post => {
       return (
-        <div className="statistical-learning__card" key={post._id}>
+        <div key={post._id}>
           <div className="statistical-learning__card--container">
             <div className="statistical-learning__card--image">
-
+              
             </div>
             <div className="statistical-learning__card--text">
               <Link to={"/blogs/" + post._id}><h1>{post.title}</h1></Link>
               <p>{post.subheading}</p>
             </div>
+            <div className="statistical-learning__author-date__container">
+              <div>
+                <p className="statistical-learning__card--author">Chris Sawtelle</p>
+              </div>
+              <div>
+                <p className="statistical-learning__card--date">June 7, 2017</p>
+              </div>
+            </div>
+
           </div>
         </div>
       );

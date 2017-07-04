@@ -4,6 +4,9 @@
 .statistical-learning {
   &__body {
     background-color: #F2F6F8;
+    &--inner {
+      padding-top: 4rem;
+    }
   }
   &__header {
     &--inner {
@@ -27,6 +30,20 @@
     &--subheading {
       font-size: 1.5rem;
       line-height: 1.7rem;
+    }
+  }
+
+  &__card {
+    &--container {
+      width: 40rem;
+      border: 1px solid #333;
+      border-radius: 5px;
+      padding: 2rem;
+      margin: 2rem auto;
+      background-color: white;
+    }
+    &--container:first-child {
+      margin-top: 0;
     }
   }
 }

@@ -45,7 +45,6 @@ class ViewBlog extends Component {
             </div>
           </div>
         </div>
-
       </div>
     );
   }

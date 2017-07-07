@@ -33,10 +33,14 @@ class StatisticalLearning extends Component {
             </div>
             <div className="statistical-learning__author-date__container">
               <div>
-                <p className="statistical-learning__card--author">Chris Sawtelle</p>
+                <p className="statistical-learning__card--author">
+                  {post.author}
+                </p>
               </div>
               <div>
-                <p className="statistical-learning__card--date">June 7, 2017</p>
+                <p className="statistical-learning__card--date">
+                  Created: {post.createdAt.slice(0,10)}
+                </p>
               </div>
             </div>
 

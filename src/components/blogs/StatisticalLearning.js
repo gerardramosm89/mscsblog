@@ -13,7 +13,6 @@ class StatisticalLearning extends Component {
   }
   componentDidMount() {
     this.props.fetchByLearningPath({ learningPath: "Statistical Learning" });
-    console.log(document.getElementById('body'));
   }
   componentDidUpdate() {
 

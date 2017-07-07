@@ -52,7 +52,7 @@ class Dashboard extends Component {
       return (
         <div className="col-10 offset-1" key={blog._id}>
             <Link to={`/blogs/${blog._id}`}><h5>{blog.title}</h5></Link>
-            <p dangerouslySetInnerHTML={createMarkUp()}></p>
+            {/*<p dangerouslySetInnerHTML={createMarkUp()}></p>*/}
             <Link to={`/blogs/edit/${blog._id}`}><button className="btn btn-warning">Edit Post</button></Link>          
             <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
         </div>

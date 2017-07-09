@@ -29,6 +29,7 @@ export function fetchByLearningPath(data) {
     payload: request
   }
 }
+
 // Authentication actions
 export function signIn(data) {
   const request = axios.post(`${signInUrl}`, data);

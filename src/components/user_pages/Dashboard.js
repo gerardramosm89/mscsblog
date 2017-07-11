@@ -45,7 +45,6 @@ class Dashboard extends Component {
       return <div>No posts loaded, have you written any posts?</div>
     }
     return this.state.blogs.map(blog => {
-      // Need to make this safer, right now vulnerable to XSS
       function createMarkUp() {
         return {__html: blog.content}
       }

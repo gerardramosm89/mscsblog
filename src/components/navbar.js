@@ -83,7 +83,6 @@ class Navbar extends Component {
   showContent(e) {
     this.current = !this.current;
     this.current ? (this.accountContent.classList.add('show')) : (this.accountContent.classList.remove('show'))
-    console.log('this.current is: ', this.current);
   }
   render() {
     return(

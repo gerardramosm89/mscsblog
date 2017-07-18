@@ -29,7 +29,7 @@ $ltbluebg: #f2f6f8;
 
 
 * {
-  font-family: 'Lato';
+  font-family: 'Raleway';
 }
 h1 {
   color: $text-color;
@@ -39,6 +39,7 @@ h1 {
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 @import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 @import 'navbar.scss';
 @import 'user_pages.scss';

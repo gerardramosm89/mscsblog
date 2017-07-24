@@ -13,6 +13,7 @@ class Home extends Component {
       <div>
         <header className="home-header__wrapper">
           <div className="home-header__text-container">
+            
             <h1>Machine Learning Headquarters</h1>
             <p className="home-header--subheading">
               Need to have some kind of subheading here, right now just going to keep this as a placeholder
@@ -25,6 +26,7 @@ class Home extends Component {
               </div>
             </div>
           </div>
+          <video className="home-header__video" width="100%" height="100%" src="../../img/mlhqheader.mp4" autoPlay loop ></video>
         </header>
       </div>
     );

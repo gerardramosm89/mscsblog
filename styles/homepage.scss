@@ -6,15 +6,33 @@
   background-size: cover;
   background-position: center;
   height:75vh;
+  overflow: hidden;
+}
+.home-header__video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%; 
+  min-height: 100%; 
+  
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+  
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .home-header__text-container {
+  z-index: 100;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
   height: 100%;
   width: 100%;
-
+  background: rgba(49, 49, 49, 0.34);
+  
   & h1 {
     font-size: 4.4375rem;
     color: white;

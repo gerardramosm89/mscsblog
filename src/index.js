@@ -42,7 +42,7 @@ ReactDOM.render(
   <Provider store={store}>  
     <BrowserRouter>
       <div>
-        <Navbar />
+        <Navbar /> 
         <Switch>
           <Route path="/blogs/new" component={BlogsNew} />
           <Route path="/blogs/edit/:id" component={EditBlog} />

@@ -1,18 +1,39 @@
 .jumbotron {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
   margin-bottom: 0;
   background-color: rgb(204, 204, 204);
+  color: white;
 }
 
 .jumbotron p:last-child {
   margin-bottom: 0;
 }
 
-.jumbotron-heading {
-  font-weight: 300;
+.home-heading {
+  font-weight: 600;
+  color: white;
 }
-
+.jumbotron-subheading {
+  color: #dedede !important;
+}
 .jumbotron .container {
   max-width: 40rem;
+}
+
+.home-header-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.38);
+}
+
+.home-header-main-text {
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/img/mlhq-header-bg-v2.jpg');
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }

@@ -11,14 +11,16 @@ class Home extends Component {
   }
   render() {
     return(
-      <div>
-        <section className="jumbotron text-center">
+      <div style={{position: 'relative'}}>
+        <div className='home-header-bg'>
+
+        </div>
+        <section className="jumbotron text-center home-header-main-text">
           <div className="container">
-            <h1 className="jumbotron-heading">Machine Learning Headquarters</h1>
-            <p className="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <h1 className="jumbotron-heading home-heading">Machine Learning Headquarters</h1>
+            <p className="lead text-muted jumbotron-subheading">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
             <p>
               <Link to="#" className="btn btn-primary">Sample Post</Link>
-              {/* <Link to="#" className="btn btn-secondary">Secondary action</Link> */}
             </p>
           </div>
         </section>

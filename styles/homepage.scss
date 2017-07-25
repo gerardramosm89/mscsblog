@@ -1,113 +1,18 @@
-.home-header__wrapper {
-  position: relative;
-  // background: url('/img/mscs-header.jpg');
-  background: $darkblue;
-  
-  background-size: cover;
-  background-position: center;
-  height:75vh;
-  overflow: hidden;
+.jumbotron {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  margin-bottom: 0;
+  background-color: rgb(204, 204, 204);
 }
-.home-header__video {
-  /* Make video to at least 100% wide and tall */
-  min-width: 100%; 
-  min-height: 100%; 
-  
-  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
-  width: auto;
-  height: auto;
-  
-  /* Center the video */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-.home-header__text-container {
-  z-index: 100;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  background: rgba(49, 49, 49, 0.34);
-  
-  & h1 {
-    font-size: 4.4375rem;
-    color: white;
-    padding-top: 9%;
-    font-weight: 500;
-    text-shadow: 0 3px 17px rgba(0,0,0,.6);
-  }
 
+.jumbotron p:last-child {
+  margin-bottom: 0;
 }
-.home-header--subheading {
-  font-size: 1.75rem;
-  font-weight: 200;
-  color: white;
-  text-shadow: 0 3px 17px rgba(0,0,0,.6);
-  width: 40rem;
-  margin: auto;
-  line-height: 2rem;
-  padding-top: 1.5rem;
-}
-.btns__container {
 
+.jumbotron-heading {
+  font-weight: 300;
 }
-.btn__border {
-  border-style: solid;
-  border-width: .25rem;
-  border-radius: 10px;
-  border-color: white;
-  display:inline-block;
-  margin: auto;
-  margin-top:2rem;
-}
-.btn__text {
-  color: white;
-  font-size:1.2rem;
-  margin:.5rem;
-}
-.arrow-lg {
-  font-size:1.5rem;
-}
-.team-trial-btn {
-  margin-right:1rem;
-  background-color: $gold;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.03);
-  }
-}
-.free-trial-btn {
-  margin-left: 1rem;
-  background-color: $aqua;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.03);
-  }
-}
-.info-section__inner {
-  text-align: center;
-  max-width: 45rem;
-  margin: auto;
 
-  & h1 {
-    font-size:2rem;
-    margin: 2.5rem 0;
-  }
-  & p {
-    font-size: .9rem;
-    color: $text-color-lighter;
-    padding-bottom: 3rem;
-  }
-}
-.card-header {
-  background-color: white;
-}
-.home-header__text-container h1 {
-  margin: 0;
+.jumbotron .container {
+  max-width: 40rem;
 }

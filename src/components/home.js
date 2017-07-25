@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   constructor(props) {
@@ -11,23 +12,16 @@ class Home extends Component {
   render() {
     return(
       <div>
-        <header className="home-header__wrapper">
-          <div className="home-header__text-container">
-            
-            <h1>Machine Learning Headquarters</h1>
-            <p className="home-header--subheading">
-              Need to have some kind of subheading here, right now just going to keep this as a placeholder
+        <section className="jumbotron text-center">
+          <div className="container">
+            <h1 className="jumbotron-heading">Machine Learning Headquarters</h1>
+            <p className="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <p>
+              <Link to="#" className="btn btn-primary">Sample Post</Link>
+              {/* <Link to="#" className="btn btn-secondary">Secondary action</Link> */}
             </p>
-            <div className="btns__container">
-              <div className="btn__border">
-                <div className="btn__text">
-                  View a sample post <i className="fa fa-arrow-circle-right arrow-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
           </div>
-          <video className="home-header__video" width="100%" height="100%" src="../../img/mlhqheader.mp4" autoPlay loop ></video>
-        </header>
+        </section>
       </div>
     );
   }

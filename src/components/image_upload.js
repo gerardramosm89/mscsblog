@@ -36,11 +36,13 @@ class ImageUpload extends Component {
     let reader = new FileReader();
     reader.addEventListener('load', function() {
         var image = new Image();
-        image.height = 300;
+        // image.height = 300;
         image.title = file.name;
         image.src = this.result;
         image.class = 'col-xs-3';
         var preview = document.querySelector('#preview');
+        image.className += 'col-xs-6';
+        console.log('image is: ', image);
         preview.appendChild(image);
       }, false);
       reader.readAsDataURL(file);
@@ -66,7 +68,7 @@ class ImageUpload extends Component {
     return (
       <div>
         <form onChange={this.previewFiles.bind(this)}>
-          <input 
+          <input
           ref={(files => { this.files = files })}
           id="browse" 
           type="file"
@@ -79,11 +81,15 @@ class ImageUpload extends Component {
           ></div>
         </section>
 
-        <button onClick={this.consoleLog.bind(this)}>console log preview</button>
         <button
+        className='btn btn-primary'
+        onClick={this.consoleLog.bind(this)}>Console Log Preview</button>
+        <button
+        className='btn btn-primary'
         onClick={this.logFiles.bind(this)}
-        >Console Log Files</button>
+        >Preview Files</button>
         <button
+        className='btn btn-primary'
         onClick={this.uploadFiles.bind(this)}
         >Submit Files to API</button>
       </div>

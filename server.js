@@ -39,7 +39,7 @@ app.get('*', function(req, res) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/Users/frameworkjs/Projects/mscsblog/img')
+    cb(null, path.join(__dirname, 'img'));
   }, 
   filename: function (req, file, cb) {
     cb(null, file.originalname)

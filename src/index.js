@@ -23,7 +23,9 @@ import Dashboard from './components/user_pages/Dashboard';
 import EditBlog from './components/blogs/blogs_edit.js';
 import ViewBlog from './components/blogs/ViewBlog';
 import StatisticalLearning from './components/blogs/StatisticalLearning';
+import StatisticalLearning2 from './components/blogs/StatisticalLearningv2';
 import Playground from './components/playground';
+import Navbar2 from './components/navbar2';
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -42,7 +44,8 @@ ReactDOM.render(
   <Provider store={store}>  
     <BrowserRouter>
       <div>
-        <Navbar /> 
+        {/* <Navbar /> */}
+        <Navbar2 />
         <Switch>
           <Route path="/blogs/new" component={BlogsNew} />
           <Route path="/blogs/edit/:id" component={EditBlog} />
@@ -53,7 +56,7 @@ ReactDOM.render(
           <Route path="/blogs" component={BlogsIndex} />
           <Route path="/learningpaths" component={LearningPaths} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/statistical-learning" component={StatisticalLearning} />
+          <Route path="/statistical-learning" component={StatisticalLearning2} />
           <Route path="/playground" component={Playground} />
           <Route path="/" component={Home} />
         </Switch>

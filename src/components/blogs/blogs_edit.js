@@ -13,7 +13,9 @@ class EditBlog extends Component {
     };
   }
   componentDidMount() {
-    let data = { token: this.props.token.token, postId: this.props.match.params.id }; 
+    // let data = { token: this.props.token.token, postId: this.props.match.params.id };
+    let data = { token: this.props.token.token, postId: this.props.match.params.id };
+    
     axios.post('http://mlhq.io:3050/api/fetchone', data)
       .then(res => {
         let post = res.data[0]
@@ -123,7 +125,6 @@ class EditBlog extends Component {
                 <option  value="Algorithms">Algorithms</option>
               </select>
             </div>
-            {/*<div className="alert alert-info">Don't forget to select a path</div>*/}
             <button className="button btn btn-primary" onClick={this.updateBlog.bind(this)}>Submit changes to blog</button>
           </form>
         </section>

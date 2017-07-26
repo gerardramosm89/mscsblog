@@ -22,7 +22,7 @@ class StatisticalLearning extends Component {
     else
     return this.props.learningPathPosts.map(post => {
       return (
-        <div className="col-8 offset-2" key={post._id}>
+        <div className="col-md-8 col-sm-10 offset-md-2 offset-sm-1 col-lg-6 offset-lg-3" key={post._id}>
           <div className="card mb-3">
             <img className="card-img-top statistical-learning__card-img-top" src="/img/linear-regression.jpg" alt="Card image cap" />
             <div className="card-block">

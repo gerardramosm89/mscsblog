@@ -61,10 +61,18 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
+        <div className="col-sm-6 offset-sm-3">
+          <div className="card text-center">
+            <h3 className="card-header">Welcome to your Dashboard</h3>
+            <div className="card-block">
+              <h4 className="card-title">All your posts will be stored here</h4>
+              <p className="card-text">Feel free to make changes as you wish</p>
+            </div>
+          </div>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-10 offset-1 text-center">
-              <h1>Your Dashboard</h1>
               <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
             </div>
             <h2 className="col-10 offset-1">Your Posts</h2>

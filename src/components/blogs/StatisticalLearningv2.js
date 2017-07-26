@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchByLearningPath } from '../../actions/index';
 import { Link } from 'react-router-dom';
-
+import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 
 class StatisticalLearning extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class StatisticalLearning extends Component {
           <div className="card mb-3">
             <img className="card-img-top statistical-learning__card-img-top" src="/img/linear-regression.jpg" alt="Card image cap" />
             <div className="card-block">
-              <Link className="statistical-learning__post-title" to={"/blogs/" + post._id}><h4 className="card-title">{post.title}</h4></Link>
+              <Link className="statistical-learning__post-title" to={"/blogs/" + safeURLify(post.title)}><h4 className="card-title">{post.title}</h4></Link>
               <p className="card-text">{post.subheading}</p>
               <p className="card-text"><small className="text-muted">Date: {post.createdAt.slice(0,10)}</small></p>
             </div>

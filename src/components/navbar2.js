@@ -19,9 +19,9 @@ export default class Navbar2 extends Component {
             <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link>
           </li>
           <li className="nav-item dropdown">
-            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
-            </Link>
+            </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <Link className="dropdown-item" to="/dashboard">Dashboard</Link>              
               <Link className="dropdown-item" to="/signin">Sign In</Link>

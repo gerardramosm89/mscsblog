@@ -4,6 +4,8 @@ import { signIn } from '../../actions/index';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +49,7 @@ class Dashboard extends Component {
     return this.state.blogs.map(blog => {
       return (
         <div className="col-10 offset-1" key={blog._id}>
-            <Link to={`/blogs/${blog._id}`}><h5>{blog.title}</h5></Link>
+            <Link to={`/blogs/${safeURLify(blog.title)}`}><h5>{blog.title}</h5></Link>
             <Link to={`/blogs/edit/${blog._id}`}><button className="btn btn-warning">Edit Post</button></Link>          
             <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
         </div>

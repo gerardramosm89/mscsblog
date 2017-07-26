@@ -16,7 +16,6 @@ import BlogsNew from './components/blogs/blogs_new';
 import ImageUpload from './components/image_upload';
 import SignIn from './components/user_pages/SignIn';
 import SignUp from './components/user_pages/SignUp';
-import Navbar from './components/navbar';
 import Home from './components/home';
 import LearningPaths from './components/learning_paths';
 import Dashboard from './components/user_pages/Dashboard';
@@ -44,7 +43,6 @@ ReactDOM.render(
   <Provider store={store}>  
     <BrowserRouter>
       <div>
-        {/* <Navbar /> */}
         <Navbar2 />
         <Switch>
           <Route path="/blogs/new" component={BlogsNew} />

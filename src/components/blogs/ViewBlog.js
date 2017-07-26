@@ -41,7 +41,7 @@ class ViewBlog extends Component {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-8 offset-2 viewblog__content">
+            <div className="col-10 offset-1 viewblog__content">
               <div dangerouslySetInnerHTML={this.dangerousInnerHTML()} />
             </div>
           </div>

@@ -1,8 +1,6 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import '../styles/main.scss';
-
 import {
   BrowserRouter,
   BrowserHistory,
@@ -10,6 +8,10 @@ import {
   Switch, 
   Link
 } from 'react-router-dom';
+
+import '../styles/main.scss';
+
+
 
 // Components
 import BlogsIndex from './components/blogs/blogs_index';
@@ -26,17 +28,14 @@ import StatisticalLearning from './components/blogs/StatisticalLearning';
 import StatisticalLearning2 from './components/blogs/StatisticalLearningv2';
 import Playground from './components/playground';
 import Navbar2 from './components/navbar2';
+
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 import reducers from './reducers/index';
 
-
-// const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
-
-
-// react-router-redux
+// React Router Redux
 import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 const history = createHistory();
@@ -47,7 +46,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(
   applyMiddleware(middlewareForReduxRouter, promise)
 ));
-store.dispatch(push('/blogs/post-number-1'));
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

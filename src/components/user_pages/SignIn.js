@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn, routePush } from '../../actions/index';
+import { signIn, routePush, toggleModal } from '../../actions/index';
 
 class SignIn extends Component {
   constructor(props) {
@@ -27,8 +27,10 @@ class SignIn extends Component {
       username: this.state.username, 
       password: this.state.password
     }).then(response => {
-        if (response.payload.request.status == 200) {
-          this.props.history.push('/dashboard');
+        console.log('response is: ', response);
+        if (response.payload.data.token) {
+          this.props.toggleModal();
+          this.props.routePush('/dashboard');
         }
     });
   }
@@ -54,9 +56,6 @@ class SignIn extends Component {
     }
   }
 
-  reduxRoutePush() {
-    this.props.routePush('/learningpaths');
-  }
   render() {
     return (
       <div>
@@ -91,10 +90,6 @@ class SignIn extends Component {
                 <button className="btn btn-block btn-primary">Submit</button>
               </div>
           </form>
-
-          <button onClick={this.reduxRoutePush.bind(this)}>redux route push</button>
-          
-          
           </div>
         </div>
       </div>
@@ -106,4 +101,4 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, { signIn, routePush })(SignIn);
+export default connect(mapStateToProps, { signIn, routePush, toggleModal })(SignIn);

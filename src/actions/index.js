@@ -22,8 +22,6 @@ export function createBlog(data) {
 }
 export function fetchByLearningPath(data) {
   const request = axios.post(`${rootUrl}/api/learningpath`, data);
-  // let response = await request;
-  // console.log(await request);
   return {
     type: 'FETCH_BY_LEARNING_PATH',
     payload: request
@@ -45,6 +43,16 @@ export function signOut(data) {
   }
 }
 
+// Routing action, takes in a string as route i.e. route = 'blogs/post-title';
+
 export function routePush(route) {
   return push(route)
+}
+
+// Modal Actions
+
+export function toggleModal() {
+  return {
+    type: 'TOGGLE_MODAL'
+  }
 }

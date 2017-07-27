@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions/index';
+import { signIn, routePush } from '../../actions/index';
 
 class SignIn extends Component {
   constructor(props) {
@@ -10,11 +10,6 @@ class SignIn extends Component {
       password: '',
       error: null
     };
-  }
-
-  componentDidMount() {
-  }
-  componentDidUpdate() {
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -58,11 +53,15 @@ class SignIn extends Component {
       return null;
     }
   }
+
+  reduxRoutePush() {
+    this.props.routePush('/learningpaths');
+  }
   render() {
     return (
       <div>
         <div className="signin__wrapper">
-          <div className="signin__inner col-8 offset-2">
+          <div className="signin__inner">
           <h1 className="text-center">Sign In Page</h1>
           {this.renderPasswordError()}
           <form onSubmit={this.handleSubmit.bind(this)}>
@@ -92,6 +91,10 @@ class SignIn extends Component {
                 <button className="btn btn-block btn-primary">Submit</button>
               </div>
           </form>
+
+          <button onClick={this.reduxRoutePush.bind(this)}>redux route push</button>
+          
+          
           </div>
         </div>
       </div>
@@ -103,4 +106,4 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, { signIn })(SignIn);
+export default connect(mapStateToProps, { signIn, routePush })(SignIn);

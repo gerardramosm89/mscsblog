@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import SignIn from './user_pages/SignIn';
 
 export default class Navbar2 extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      modal: false
+    }
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+
+    console.log(this.props);
+  }
+
+  componentDidMount() {
+    console.log(this.props.className);
   }
 
   render() {
@@ -30,6 +48,20 @@ export default class Navbar2 extends Component {
           </li>
         </ul>
       </div>
+
+        <Button color="danger" onClick={this.toggle}>Sign In</Button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}></ModalHeader>
+          <ModalBody>
+             <SignIn /> 
+          </ModalBody>
+          {/* <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter> */}
+        </Modal>
+
+
     </nav>
     );
   }

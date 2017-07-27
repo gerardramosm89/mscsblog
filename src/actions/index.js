@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { push } from 'react-router-redux';
 // const Variables
 const rootUrl = 'http://mlhq.io:3050';
 const signInUrl = 'http://mlhq.io:3050/api/userauth'
+
 
 // Posts actions
 export function fetchPosts(testData) {
@@ -13,7 +15,6 @@ export function fetchPosts(testData) {
 }
 export function createBlog(data) {
   const request = axios.post(`${rootUrl}/api/blogs/create`, data);
-  console.log('data sent through create blog is: ', data);
   return {
     type: 'NEW_BLOG',
     payload: request
@@ -42,4 +43,8 @@ export function signOut(data) {
     type: 'SIGN_OUT',
     payload: { message: 'signing out', token: null}
   }
+}
+
+export function routePush(route) {
+  return push(route)
 }

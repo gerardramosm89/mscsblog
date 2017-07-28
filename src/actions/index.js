@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { push } from 'react-router-redux';
+
 // const Variables
 const rootUrl = 'http://mlhq.io:3050';
 const signInUrl = 'http://mlhq.io:3050/api/userauth'
@@ -42,15 +43,20 @@ export function signOut(data) {
     payload: { message: 'signing out', token: null}
   }
 }
+export function fetchToken() {
+  let token = localStorage.getItem('token');
+  return {
+    type: 'FETCH_TOKEN',
+    payload: { token }
+  }
+}
 
 // Routing action, takes in a string as route i.e. route = 'blogs/post-title';
-
 export function routePush(route) {
   return push(route)
 }
 
 // Modal Actions
-
 export function toggleModal() {
   return {
     type: 'TOGGLE_MODAL'

@@ -1,8 +1,4 @@
-
-
-
 // Adding a prototype to string to replace all occurrences using regex
-
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
@@ -10,7 +6,6 @@ String.prototype.replaceAll = function(search, replacement) {
 
 // This is to help fix the issue of URL's currently having spaces and having upper case characters
 export function safeURLify(curString) {
-  console.log('curString from safeURLify is: ', curString);
   const lowered = curString.toLowerCase();
   const removedSpaces = lowered.replaceAll(' ', '-');
   return removedSpaces

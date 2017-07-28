@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import DisqusThread from './DisqusThread';
+import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 
 class ViewBlog extends Component {
   constructor(props) {
@@ -31,6 +33,7 @@ class ViewBlog extends Component {
     return { __html: this.state.post.content }
   }
   render() {
+    if (this.state.post.title) console.log(safeURLify(this.state.post.title));
     return (
       <div className="viewblog__container">
         <div className="viewblog__header">
@@ -43,9 +46,20 @@ class ViewBlog extends Component {
           <div className="row">
             <div className="col-10 offset-1 viewblog__content">
               <div dangerouslySetInnerHTML={this.dangerousInnerHTML()} />
+              {this.state.post.title ? (
+                <DisqusThread id={this.state.post._id}
+                  title={this.state.post.title}
+                  path={`/blog/${this.state.post.title}`} />
+              ) : ''}
             </div>
           </div>
         </div>
+        {/* {this.state.post.title ? (
+          <DisqusThread id={this.state.post._id}
+            title={this.state.post.title}
+            path={`/blog/${this.state.post.title}`} />
+        ) : ''} */}
+
       </div>
     );
   }

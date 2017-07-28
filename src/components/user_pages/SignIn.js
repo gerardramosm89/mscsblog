@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions/index';
+import { signIn, routePush, toggleModal } from '../../actions/index';
 
 class SignIn extends Component {
   constructor(props) {
@@ -10,11 +10,6 @@ class SignIn extends Component {
       password: '',
       error: null
     };
-  }
-
-  componentDidMount() {
-  }
-  componentDidUpdate() {
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -32,8 +27,10 @@ class SignIn extends Component {
       username: this.state.username, 
       password: this.state.password
     }).then(response => {
-        if (response.payload.request.status == 200) {
-          this.props.history.push('/dashboard');
+        console.log('response is: ', response);
+        if (response.payload.data.token) {
+          this.props.toggleModal();
+          this.props.routePush('/dashboard');
         }
     });
   }
@@ -58,11 +55,12 @@ class SignIn extends Component {
       return null;
     }
   }
+
   render() {
     return (
       <div>
         <div className="signin__wrapper">
-          <div className="signin__inner col-8 offset-2">
+          <div className="signin__inner">
           <h1 className="text-center">Sign In Page</h1>
           {this.renderPasswordError()}
           <form onSubmit={this.handleSubmit.bind(this)}>
@@ -103,4 +101,4 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, { signIn })(SignIn);
+export default connect(mapStateToProps, { signIn, routePush, toggleModal })(SignIn);

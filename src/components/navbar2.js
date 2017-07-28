@@ -55,8 +55,7 @@ class Navbar2 extends Component {
             Account
           </a>
           <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <Link className="dropdown-item" to="/dashboard">Dashboard</Link>              
-            <Link className="dropdown-item" to="/signin">Sign In</Link>
+            <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
             <Link className="dropdown-item" to="/signup">Sign Up</Link>
             <a
             onClick={this.props.signOut} 

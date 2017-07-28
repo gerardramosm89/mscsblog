@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { toggleModal, signOut } from '../actions/index';
+import { toggleModal, signOut, routePush } from '../actions/index';
 
 import { connect } from 'react-redux';
 
@@ -20,8 +20,9 @@ class Navbar2 extends Component {
     this.props.toggleModal();
   }
 
-  componentDidMount() {
-
+  onSignOut() {
+    this.props.signOut;
+    this.props.routePush('/');
   }
 
   render() {
@@ -58,7 +59,7 @@ class Navbar2 extends Component {
             <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
             <Link className="dropdown-item" to="/signup">Sign Up</Link>
             <a
-            onClick={this.props.signOut} 
+            onClick={this.onSignOut.bind(this)} 
             className="dropdown-item">Logout</a>
           </div>
         </div>
@@ -85,4 +86,4 @@ class Navbar2 extends Component {
 function mapStateToProps(state) {
   return { modal: state.modalStatus.modal }
 }
-export default connect(mapStateToProps, { toggleModal, signOut })(Navbar2);
+export default connect(mapStateToProps, { toggleModal, signOut, routePush })(Navbar2);

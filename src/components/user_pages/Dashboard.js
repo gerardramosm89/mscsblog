@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn, fetchToken } from '../../actions/index';
+import { signIn, fetchToken, toggleModal } from '../../actions/index';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -22,11 +22,9 @@ class Dashboard extends Component {
       });
     });
     this.props.fetchToken();
-  }
-
-  componentDidUpdate() {
     if (!this.props.token.token) {
-      this.props.history.push('/signin');
+      this.props.history.push('/');
+      this.props.toggleModal();
     }
   }
 
@@ -93,4 +91,4 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, { signIn, fetchToken })(Dashboard);
+export default connect(mapStateToProps, { signIn, fetchToken, toggleModal })(Dashboard);

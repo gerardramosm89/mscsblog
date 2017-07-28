@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { toggleModal } from '../actions/index';
+import { toggleModal, signOut } from '../actions/index';
 
 import { connect } from 'react-redux';
 
@@ -37,7 +37,7 @@ class Navbar2 extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link>
           </li>
-          <li className="nav-item dropdown">
+          {/* <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </a>
@@ -46,11 +46,26 @@ class Navbar2 extends Component {
               <Link className="dropdown-item" to="/signin">Sign In</Link>
               <Link className="dropdown-item" to="/signup">Sign Up</Link>
             </div>
-          </li>
+          </li> */}
+
         </ul>
+        <Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>
+        <div className="dropdown" style={{color: 'white', cursor: 'pointer'}}>
+          <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <Link className="dropdown-item" to="/dashboard">Dashboard</Link>              
+            <Link className="dropdown-item" to="/signin">Sign In</Link>
+            <Link className="dropdown-item" to="/signup">Sign Up</Link>
+            <a
+            onClick={this.props.signOut} 
+            className="dropdown-item">Logout</a>
+          </div>
+        </div>
       </div>
 
-        <Button color="danger" onClick={this.toggle}>Sign In</Button>
+        
         <Modal isOpen={this.props.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}></ModalHeader>
           <ModalBody>
@@ -71,4 +86,4 @@ class Navbar2 extends Component {
 function mapStateToProps(state) {
   return { modal: state.modalStatus.modal }
 }
-export default connect(mapStateToProps, { toggleModal })(Navbar2);
+export default connect(mapStateToProps, { toggleModal, signOut })(Navbar2);

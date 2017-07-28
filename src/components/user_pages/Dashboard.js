@@ -21,7 +21,6 @@ class Dashboard extends Component {
         blogs: response.data.blogs
       });
     });
-    console.log('fetching token');
     this.props.fetchToken();
   }
 
@@ -67,7 +66,7 @@ class Dashboard extends Component {
       <div>
         <div className="col-sm-6 offset-sm-3">
           <div className="card text-center">
-            <h3 className="card-header">Welcome to your Dashboard test</h3>
+            <h3 className="card-header">Welcome to your Dashboard</h3>
             <div className="card-block">
               <h4 className="card-title">All your posts will be stored here</h4>
               <p className="card-text">Feel free to make changes as you wish</p>

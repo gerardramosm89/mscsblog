@@ -21,7 +21,7 @@ class Navbar2 extends Component {
   }
 
   onSignOut() {
-    this.props.signOut;
+    this.props.signOut();
     this.props.routePush('/');
   }
 

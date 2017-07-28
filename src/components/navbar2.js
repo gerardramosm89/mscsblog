@@ -28,7 +28,6 @@ class Navbar2 extends Component {
   render() {
     return(
       <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -38,52 +37,38 @@ class Navbar2 extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link>
           </li>
-          {/* <li className="nav-item dropdown">
+        </ul>
+        { this.props.token ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) }
+        {this.props.token ? (
+          <div className="dropdown" style={{color: 'white', cursor: 'pointer'}}>
             <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link className="dropdown-item" to="/dashboard">Dashboard</Link>              
-              <Link className="dropdown-item" to="/signin">Sign In</Link>
+              <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
               <Link className="dropdown-item" to="/signup">Sign Up</Link>
+              <a
+              onClick={this.onSignOut.bind(this)} 
+              className="dropdown-item">Logout</a>
             </div>
-          </li> */}
-
-        </ul>
-        <Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>
-        <div className="dropdown" style={{color: 'white', cursor: 'pointer'}}>
-          <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
-            <Link className="dropdown-item" to="/signup">Sign Up</Link>
-            <a
-            onClick={this.onSignOut.bind(this)} 
-            className="dropdown-item">Logout</a>
           </div>
-        </div>
+        ) : ('')}
       </div>
-
-        
         <Modal isOpen={this.props.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}></ModalHeader>
           <ModalBody>
              <SignIn /> 
           </ModalBody>
-          {/* <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter> */}
         </Modal>
-
-
     </nav>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return { modal: state.modalStatus.modal }
+  return {
+    modal: state.modalStatus.modal,
+    token: state.token.token
+  }
 }
 export default connect(mapStateToProps, { toggleModal, signOut, routePush })(Navbar2);

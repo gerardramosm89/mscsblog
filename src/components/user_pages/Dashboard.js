@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions/index';
+import { signIn, fetchToken } from '../../actions/index';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -21,6 +21,7 @@ class Dashboard extends Component {
         blogs: response.data.blogs
       });
     });
+    this.props.fetchToken();
   }
 
   componentDidUpdate() {
@@ -92,4 +93,4 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, { signIn })(Dashboard);
+export default connect(mapStateToProps, { signIn, fetchToken })(Dashboard);

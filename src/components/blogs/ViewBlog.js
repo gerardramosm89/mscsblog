@@ -23,11 +23,6 @@ class ViewBlog extends Component {
         return console.log('res from edit is: ', res);
       });
   }
-  componentDidUpdate() {
-    if (!this.props.token.token) {
-      this.props.history.push('/signin');
-    }
-  }
 
   dangerousInnerHTML() {
     return { __html: this.state.post.content }
@@ -54,12 +49,6 @@ class ViewBlog extends Component {
             </div>
           </div>
         </div>
-        {/* {this.state.post.title ? (
-          <DisqusThread id={this.state.post._id}
-            title={this.state.post.title}
-            path={`/blog/${this.state.post.title}`} />
-        ) : ''} */}
-
       </div>
     );
   }

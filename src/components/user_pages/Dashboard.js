@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn, fetchToken, toggleModal } from '../../actions/index';
+import { signIn, fetchToken, toggleModal, fetchBlogs } from '../../actions/index';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -14,18 +14,14 @@ class Dashboard extends Component {
     };
   }
 
-  componentDidMount() {
-    axios.post('http://mlhq.io:3050/api/queryblogs', { token: this.props.token.token })
-    .then(response => {
-      this.setState({
-        blogs: response.data.blogs
-      });
-    });
-    this.props.fetchToken();
-    if (!this.props.token.token) {
+  componentWillMount() {
+    if (!localStorage.getItem('token')) {
       this.props.history.push('/');
       this.props.toggleModal();
     }
+  }
+  componentDidMount() {
+    this.props.fetchBlogs();
   }
 
   newPost() {
@@ -42,10 +38,10 @@ class Dashboard extends Component {
     });  
   }
   renderBlogs() {
-    if (!this.state.blogs) {
+    if (this.props.blogs.length === 0) {
       return <div>No posts loaded, have you written any posts?</div>
     }
-    return this.state.blogs.map(blog => {
+    return this.props.blogs.map(blog => {
       return (
         <div className="col-10 offset-1" key={blog._id}>
             <Link to={`/blogs/${safeURLify(blog.title)}`}><h5>{blog.title}</h5></Link>
@@ -89,6 +85,6 @@ class Dashboard extends Component {
 
 
 function mapStateToProps(state) {
-  return { token: state.token };
+  return { token: state.token, blogs: state.blogs.blogs };
 }
-export default connect(mapStateToProps, { signIn, fetchToken, toggleModal })(Dashboard);
+export default connect(mapStateToProps, { signIn, fetchToken, toggleModal, fetchBlogs })(Dashboard);

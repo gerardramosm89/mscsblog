@@ -25,6 +25,11 @@ const config = {
       }
     ]
   },
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty'
+  },
   plugins: [
     // new webpack.DefinePlugin({
     //   'process.env': {

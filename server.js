@@ -88,3 +88,8 @@ io.on('connection', (socket) => {
 server.listen(port, function(){
     console.log(`Express server is up on port ${port}`);
 });
+
+// Set environment variables
+
+process.env.secret = 'secret';
+console.log(process.env.secret);

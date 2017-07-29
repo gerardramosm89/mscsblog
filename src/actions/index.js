@@ -1,10 +1,32 @@
 import axios from 'axios';
 import { push } from 'react-router-redux';
-
 // const Variables
 const rootUrl = 'http://mlhq.io:3050';
-const signInUrl = 'http://mlhq.io:3050/api/userauth'
+const signInUrl = 'http://mlhq.io:3050/api/userauth';
 
+
+// Following function verifies if the current 
+
+export function verifyToken() {
+  let currentToken = localStorage.getItem('token');
+  let data = { token: currentToken };
+  let request = axios.post(`${rootUrl}/api/verifytoken`, data);
+  return {
+    type: 'VERIFY_TOKEN',
+    payload: request
+  }
+}
+
+// Blogs actions
+export function fetchBlogs() {
+  let token = localStorage.getItem('token');
+  let request = axios.post(`http://mlhq.io:3050/api/queryblogs`, { token });
+
+  return {
+    type: 'FETCH_BLOGS',
+    payload: request
+  }
+}
 
 // Posts actions
 export function fetchPosts(testData) {

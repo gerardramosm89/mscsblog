@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { toggleModal, signOut, routePush } from '../actions/index';
+import { toggleModal, signOut, routePush, verifyToken, refreshToken } from '../actions/index';
 
 import { connect } from 'react-redux';
 
@@ -15,7 +15,9 @@ class Navbar2 extends Component {
     }
     this.toggle = this.toggle.bind(this);
   }
-
+  componentDidMount() {
+    this.props.verifyToken();
+  }
   toggle() {
     this.props.toggleModal();
   }
@@ -38,7 +40,7 @@ class Navbar2 extends Component {
             <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link>
           </li>
         </ul>
-        { this.props.token ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) }
+        { false ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) }
         {this.props.token ? (
           <div className="dropdown" style={{color: 'white', cursor: 'pointer'}}>
             <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,4 +73,4 @@ function mapStateToProps(state) {
     token: state.token.token
   }
 }
-export default connect(mapStateToProps, { toggleModal, signOut, routePush })(Navbar2);
+export default connect(mapStateToProps, { toggleModal, signOut, routePush, verifyToken, refreshToken })(Navbar2);

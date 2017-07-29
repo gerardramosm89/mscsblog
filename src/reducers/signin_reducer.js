@@ -13,7 +13,6 @@ export default function(state = { message: '', token: null}, action) {
     case 'FETCH_TOKEN':
       return { ...state, token: action.payload.token }
     case 'VERIFY_TOKEN':
-      console.log('token from verify token is: ', action.payload.data.token);
       return { ...state, token: action.payload.data.token }
     default:
       return state;

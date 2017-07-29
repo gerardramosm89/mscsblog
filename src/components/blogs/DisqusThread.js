@@ -38,9 +38,8 @@ class DisqusThread extends React.Component{
   }
 
   render() {
-    console.log(this.props.other);
-    // let { id, title, path, ...other} = this.props;
-    let { id, title, path} = this.props;
+    let { id, title, path, ...other} = this.props;
+    // let { id, title, path} = this.props;
     
 
     if (process.env.BROWSER) {
@@ -50,8 +49,8 @@ class DisqusThread extends React.Component{
       window.disqus_url = WEBSITE_URL + path;
     }
 
-    // return <div {...other} id="disqus_thread" />;
-    return <div id="disqus_thread" />;
+    return <div {...other} id="disqus_thread" />;
+    // return <div id="disqus_thread" />;
     
   }
 

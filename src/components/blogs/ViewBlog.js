@@ -20,7 +20,6 @@ class ViewBlog extends Component {
         this.setState({
           post: res.data[0]
         });
-        return console.log('res from edit is: ', res);
       });
   }
 
@@ -28,7 +27,7 @@ class ViewBlog extends Component {
     return { __html: this.state.post.content }
   }
   render() {
-    if (this.state.post.title) console.log(safeURLify(this.state.post.title));
+    // if (this.state.post.title) console.log(safeURLify(this.state.post.title));
     return (
       <div className="viewblog__container">
         <div className="viewblog__header">

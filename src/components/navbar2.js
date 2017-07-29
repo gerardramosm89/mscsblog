@@ -40,7 +40,7 @@ class Navbar2 extends Component {
             <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link>
           </li>
         </ul>
-        { false ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) }
+        { this.props.token ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) }
         {this.props.token ? (
           <div className="dropdown" style={{color: 'white', cursor: 'pointer'}}>
             <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

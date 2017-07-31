@@ -21,7 +21,6 @@ class BlogsIndex extends Component {
   }
 
   handleUpload(e) {
-    console.log(e);
   }
 
   render() {

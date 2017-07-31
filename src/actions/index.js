@@ -4,7 +4,25 @@ import { push } from 'react-router-redux';
 const rootUrl = 'http://mlhq.io:3050';
 const signInUrl = 'http://mlhq.io:3050/api/userauth';
 
+/*---------------------------
+Note for Redux-Thunk usage
 
+function increment() {
+  return {
+    type: INCREMENT_COUNTER
+  };
+}
+
+function incrementAsync() {
+  return dispatch => {
+    setTimeout(() => {
+      // Yay! Can invoke sync or async actions with `dispatch`
+      dispatch(increment());
+    }, 1000);
+  };
+}
+
+-------------------------*/
 // Following function verifies if the current 
 
 export function verifyToken() {

@@ -31,28 +31,6 @@ class StatisticalLearning extends Component {
               <p className="card-text"><small className="text-muted">Date: {post.createdAt.slice(0,10)}</small></p>
             </div>
           </div>
-          {/* <div className="statistical-learning__card--container">
-            <div className="statistical-learning__card--image">
-              
-            </div>
-            <div className="statistical-learning__card--text">
-              <Link to={"/blogs/" + post._id}><h1>{post.title}</h1></Link>
-              <p>{post.subheading}</p>
-            </div>
-            <div className="statistical-learning__author-date__container">
-              <div>
-                <p className="statistical-learning__card--author">
-                  {post.author}
-                </p>
-              </div>
-              <div>
-                <p className="statistical-learning__card--date">
-                  Created: {post.createdAt.slice(0,10)}
-                </p>
-              </div>
-            </div>
-
-          </div> */}
         </div>
       );
     });

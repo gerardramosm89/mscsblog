@@ -4,6 +4,7 @@ import { signIn, fetchToken, toggleModal, fetchBlogs, fetchImages } from '../../
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
+import ImageUpload from '../image_upload';
 
 class Dashboardv2 extends Component {
   constructor(props) {
@@ -128,6 +129,9 @@ class Dashboardv2 extends Component {
         <main className="col-sm-9 col-md-10 pt-3">
           <h1>Dashboard</h1>
           <div className="container">
+            <div className="row">
+              <ImageUpload />
+            </div>
             <div className="row">
               {this.renderImages()}
             </div>

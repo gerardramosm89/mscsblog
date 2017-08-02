@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchImages } from '../actions/index';
 
 class ImageUpload extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    const token = localStorage.getItem('token');
   }
 
   previewFiles(e) {
@@ -16,12 +14,9 @@ class ImageUpload extends Component {
 
   consoleLog(e){
     e.preventDefault();
-    console.log(this.preview);
   }
   logFiles(e) {
     e.preventDefault();
-    console.log('this.files is: ', this.files);
-    console.log('this.files.files is: ', this.files.files);
     [].forEach.call(this.files.files, this.readAndPreview);
   }
 
@@ -30,33 +25,35 @@ class ImageUpload extends Component {
     for (let i = 0; i < this.files.files.length; i++) {
       this.uploadFile(this.files.files[i]);
     }
+    this.props.fetchImages();
+    var preview = document.querySelector('#preview');
+    preview.innerHTML = '';    
   }
 
   readAndPreview(file) {
     let reader = new FileReader();
     reader.addEventListener('load', function() {
         var image = new Image();
-        // image.height = 300;
+        image.height = 200;
         image.title = file.name;
         image.src = this.result;
         image.class = 'col-xs-3';
         var preview = document.querySelector('#preview');
         image.className += 'col-xs-6';
-        console.log('image is: ', image);
         preview.appendChild(image);
       }, false);
       reader.readAsDataURL(file);
   }
 
   uploadFile(file){
-      var url = "http://localhost:8081/api/upload";
+      var url = "http://mlhq.io:8081/api/upload";
       var xhr = new XMLHttpRequest();
       var fd = new FormData();
       xhr.open("POST", url, true);
       xhr.onreadystatechange = function() {
           if (xhr.readyState == 4 && xhr.status == 200) {
               // Every thing ok, file uploaded
-              console.log(xhr.responseText); // handle response.
+              // console.log(xhr.responseText); // handle response.
           }
       };
       fd.append('uploaded_file', file);
@@ -64,11 +61,11 @@ class ImageUpload extends Component {
   }
 
   render() {
-    console.log('this.preview is: ', this.preview);
     return (
       <div>
         <form onChange={this.previewFiles.bind(this)}>
           <input
+          onChange={this.logFiles.bind(this)}
           ref={(files => { this.files = files })}
           id="browse" 
           type="file"
@@ -81,20 +78,25 @@ class ImageUpload extends Component {
           ></div>
         </section>
 
-        <button
+        {/* <button
         className='btn btn-primary'
         onClick={this.consoleLog.bind(this)}>Console Log Preview</button>
         <button
         className='btn btn-primary'
         onClick={this.logFiles.bind(this)}
-        >Preview Files</button>
+        >Preview Files</button> */}
         <button
         className='btn btn-primary'
         onClick={this.uploadFiles.bind(this)}
-        >Submit Files to API</button>
+        >Upload!</button>
       </div>
     );
   }
 }
 
-export default ImageUpload;
+function mapStateToProps(state) {
+  return {
+    images: state.images.images
+  };
+}
+export default connect(mapStateToProps, { fetchImages })(ImageUpload);

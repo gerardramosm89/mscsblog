@@ -7,7 +7,7 @@ const cors = require('cors');
 const socketIO = require('socket.io');
 const fs = require('fs');
 
-fs.unlink('./img/ay.gif', (err) => {
+fs.unlink('./img/creating.gif', (err) => {
   if (err) {
     return console.log("no file to delete");
   };
@@ -31,6 +31,43 @@ app.use(bodyParser.urlencoded({limit: '500mb', extended: false}));
 //serve our static files
 const port = process.env.PORT || 8081;
 app.use(express.static(__dirname + '/'));
+
+
+
+// ------>>>> Get Images from server <<<<<<<<-----
+// Grab images
+app.get('/images', function(req, res) {
+    const imgFolder = __dirname + '/img/';
+    const fs = require('fs');
+    fs.readdir(imgFolder, function(err, files) {
+        if (err) {
+            return console.log(err);
+        }
+        // Create empty array
+        const filesArr = [];
+        var i = 1;
+        files.forEach(function(file) {
+            filesArr.push( { name: file });
+            i++
+        });
+        res.json(filesArr);
+    })
+});
+// Delete images
+app.post('/images/:name', function(req, res) {
+    fs.unlink(`./img/${req.params.name}`, (err) => {
+    if (err) {
+        res.send({ message: `failed to delete ${req.params.name}`})
+        return console.log("no file to delete");
+    };
+    console.log(`successfully deleted ${req.params.name}`);
+    res.send({ message: `successfully deleted ${req.params.name}`})
+    });
+});
+// End image API
+
+
+
 
 // viewed at http://localhost:8081
 app.get('*', function(req, res) {

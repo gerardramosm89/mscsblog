@@ -13,4 +13,15 @@
   &__sidebar {
     padding: 1rem .2rem 1rem .2rem;
   }
+  &__card {
+    width: 15rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  &__card--top {
+    height:10rem;
+  }
+  &__images--container {
+    height: 20rem;
+  }
 }

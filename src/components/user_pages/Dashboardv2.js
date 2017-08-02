@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn, fetchToken, toggleModal, fetchBlogs } from '../../actions/index';
+import { signIn, fetchToken, toggleModal, fetchBlogs, fetchImages } from '../../actions/index';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
@@ -20,6 +20,7 @@ class Dashboardv2 extends Component {
     }
   }
   componentDidMount() {
+    this.props.fetchImages();
     this.props.fetchBlogs();
   }
 
@@ -49,6 +50,25 @@ class Dashboardv2 extends Component {
         </div>
       );
     });
+  }
+  renderImages() {
+    return this.props.images.map(image => {
+      return (
+        <div key={image.name} className="card dashboard__card">
+          <img className="card-img-top dashboard__card--top" src={`/img/${image.name}`}alt="Card image cap" />
+          <div className="card-block">
+            <h4 className="card-title">{image.name}</h4>
+            <button
+            onClick={() => {
+              axios.post(`/images/${image.name}`)
+                .then(res => this.props.fetchImages());
+            }} 
+            className="btn btn-danger"
+            >Delete Image</button>
+          </div>
+        </div>
+      );
+    })
   }
   newPost(e) {
     e.preventDefault();
@@ -107,30 +127,11 @@ class Dashboardv2 extends Component {
 
         <main className="col-sm-9 col-md-10 pt-3">
           <h1>Dashboard</h1>
-
-          <section className="row text-center placeholders">
-            <div className="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" className="img-fluid rounded-circle" alt="Generic placeholder thumbnail" />
-              <h4>Label</h4>
-              <div className="text-muted">Something else</div>
+          <div className="container">
+            <div className="row">
+              {this.renderImages()}
             </div>
-            <div className="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" className="img-fluid rounded-circle" alt="Generic placeholder thumbnail" />
-              <h4>Label</h4>
-              <span className="text-muted">Something else</span>
-            </div>
-            <div className="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" className="img-fluid rounded-circle" alt="Generic placeholder thumbnail" />
-              <h4>Label</h4>
-              <span className="text-muted">Something else</span>
-            </div>
-            <div className="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" className="img-fluid rounded-circle" alt="Generic placeholder thumbnail" />
-              <h4>Label</h4>
-              <span className="text-muted">Something else</span>
-            </div>
-          </section>
-
+          </div>
           <h2>Section title</h2>
           <div className="table-responsive">
             <table className="table table-striped">
@@ -193,6 +194,10 @@ class Dashboardv2 extends Component {
 
 
 function mapStateToProps(state) {
-  return { token: state.token, blogs: state.blogs.blogs };
+  return {
+    token: state.token,
+    blogs: state.blogs.blogs,
+    images: state.images.images
+  };
 }
-export default connect(mapStateToProps, { signIn, fetchToken, toggleModal, fetchBlogs })(Dashboardv2);
+export default connect(mapStateToProps, { fetchImages, signIn, fetchToken, toggleModal, fetchBlogs })(Dashboardv2);

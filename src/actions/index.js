@@ -23,6 +23,16 @@ function incrementAsync() {
 }
 
 -------------------------*/
+
+// Action to grab images from the server
+export function fetchImages() {
+  return dispatch => {
+    axios.get(`http://mlhq.io:8081/images`)
+      .then((images) => {
+        dispatch({ type: 'FETCH_IMAGES', payload: { images } })
+      })
+  }
+}
 // Following function verifies if the current 
 
 export function verifyToken() {

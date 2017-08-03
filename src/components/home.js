@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import BadgeExampleSimple from './testing_grounds/materialBadge';
-import ListExampleSimple from './testing_grounds/materialList';
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -29,18 +25,6 @@ class Home extends Component {
               </p>
             </div>
           </section>
-        </div>
-        <div className="container">
-          <div className="row">
-          <div className="col-3" style={{ background: 'white !important'}}>
-            <MuiThemeProvider>
-              <BadgeExampleSimple />
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <ListExampleSimple />
-            </MuiThemeProvider>              
-          </div>
-          </div>
         </div>
       </div>
     );

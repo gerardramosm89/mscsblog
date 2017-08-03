@@ -18,7 +18,7 @@ class Dashboardv2 extends Component {
     super(props);
     this.state = {
       blogs: [],
-      selectedMenuItem: null
+      selectedMenuItem: 'Posts'
     };
   }
 
@@ -88,10 +88,25 @@ class Dashboardv2 extends Component {
     menuItems.map(menuItem => {
       if (menuItem.innerHTML == e.target.innerHTML) {
         menuItem.classList.add('active');
+        this.setState({
+          selectedMenuItem: menuItem.innerHTML
+        });
       } else {
         if (menuItem.classList.contains('active')) menuItem.classList.remove('active');
       }
     });
+  }
+  renderImageComponent() {
+    return(
+      <div>
+            <div className="row">
+              <ImageUpload />
+            </div>
+              <div className="row">
+                {this.renderImages()}
+              </div>
+      </div>
+    );
   }
   render() {
     return(
@@ -102,24 +117,24 @@ class Dashboardv2 extends Component {
               <li
               onClick={this.manageMenu.bind(this)} 
               ref={posts => this.posts = posts}
-              className="list-group-item">
+              className="dashboard__list-group-item list-group-item active">
                 Posts
               </li>
               <li
               onClick={this.manageMenu.bind(this)}
-              ref={images => this.images = images}                            
-              className="list-group-item">
+              ref={images => this.images = images}
+              className="dashboard__list-group-item list-group-item">
                 Images
               </li>
             </ul>
           </div>
           <div className="col-9">
-            <div className="row">
-              <ImageUpload />
-            </div>
-            <div className="row">
-              {this.renderImages()}
-            </div>
+            {(this.state.selectedMenuItem === 'Images' ?this.renderImageComponent(): null)}
+            {this.state.selectedMenuItem === 'Posts' ? (
+              <div className="col-9">
+                {this.renderBlogs()}
+              </div>
+            ): null}
           </div>
         </div>
       </div>

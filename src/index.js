@@ -60,16 +60,16 @@ ReactDOM.render(
           <Switch>
             <Route path="/blogs/new" component={BlogsNew} />
             <Route path="/blogs/edit/:id" component={EditBlog} />
-            <Route path="/blogs/:id" component={ViewBlog} />          
+            <Route path="/blogs/:id" component={ViewBlog} />
             <Route path="/imageupload" component={ImageUpload} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/blogs" component={BlogsIndex} />
             <Route path="/learningpaths" component={LearningPaths} />
-            <Route path="/dashboard" component={Dashboard} />
+            {/* <Route path="/dashboard" component={Dashboard} /> */}
             <Route path="/statistical-learning" component={StatisticalLearning2} />
             <Route path="/playground" component={Playground} />
-            <Route path='/dashboard2' component={Dashboardv2} />
+            <Route path='/dashboard' component={Dashboardv2} />
             <Route path="/" component={Home} />
           </Switch>
         </div>

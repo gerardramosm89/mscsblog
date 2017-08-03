@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 
 import { connect } from 'react-redux';
-import { signIn, fetchToken, toggleModal, fetchBlogs, fetchImages } from '../../actions/index';
+import { routePush, signIn, fetchToken, toggleModal, fetchBlogs, fetchImages } from '../../actions/index';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
@@ -37,25 +37,43 @@ class Dashboardv2 extends Component {
   }
   deletePost(postId) {
     const data = { token: this.props.token.token, postId: postId };
-    axios.post('http://mlhq.io:3050/api/deleteOne', data).then((response) => {
-      axios.post('http://mlhq.io:3050/api/queryblogs', { token: this.props.token.token })
-      .then(response => {
-        this.setState({
-          blogs: response.data.blogs
-        });
+    // axios.post('http://mlhq.io:3050/api/deleteOne', data).then((response) => {
+    //   axios.post('http://mlhq.io:3050/api/queryblogs', { token: this.props.token.token })
+    //   .then(response => {
+    //     // this.setState({
+    //     //   blogs: response.data.blogs
+    //     // });
+    //   });
+    // });
+
+    axios.post('http://mlhq.io:3050/api/deleteOne', data)
+      .then((response) => {
+        this.props.fetchBlogs();
       });
-    });  
+  }
+  route(path) {
+    this.props.routePush(path);
   }
   renderBlogs() {
     if (this.props.blogs.length === 0) {
       return <div>No posts loaded, have you written any posts?</div>
     }
     return this.props.blogs.map(blog => {
+      let date = blog.updatedAt.slice(2,10);
       return (
-        <div className="col-10 offset-1" key={blog._id}>
-            <Link to={`/blogs/${safeURLify(blog.title)}`}><h5>{blog.title}</h5></Link>
-            <Link to={`/blogs/edit/${safeURLify(blog.title)}`}><button className="btn btn-warning">Edit Post</button></Link>          
-            <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
+        <div 
+        key={blog._id} href="#" className="list-group-item list-group-item-action flex-column align-items-start">
+          <div className="d-flex w-100 justify-content-between">
+            <h3 className="mb-1">{blog.title}</h3>
+            <small className="text-muted">Updated: {date}</small>
+          </div>
+          <p className="mb-1">{blog.subheading}</p>
+          <small className="text-muted">Path: {blog.learningPath.path}</small>
+          <Link to={`/blogs/edit/${safeURLify(blog.title)}`}><button className="btn btn-warning">Edit Post</button></Link>          
+          <button className="btn btn-danger" onClick={this.deletePost.bind(this, blog._id)}>Delete Post</button>
+          <button 
+          onClick={this.route.bind(this, `/blogs/${safeURLify(blog.title)}`)}
+          className="btn btn-primary">View Post</button>
         </div>
       );
     });
@@ -131,7 +149,10 @@ class Dashboardv2 extends Component {
           <div className="col-9">
             {(this.state.selectedMenuItem === 'Images' ?this.renderImageComponent(): null)}
             {this.state.selectedMenuItem === 'Posts' ? (
-              <div className="col-9">
+              <div className="col-9 list-group">
+                <div className="col-10 offset-1 text-center">
+                  <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
+                </div>
                 {this.renderBlogs()}
               </div>
             ): null}
@@ -204,4 +225,4 @@ function mapStateToProps(state) {
     images: state.images.images
   };
 }
-export default connect(mapStateToProps, { fetchImages, signIn, fetchToken, toggleModal, fetchBlogs })(Dashboardv2);
+export default connect(mapStateToProps, { routePush, fetchImages, signIn, fetchToken, toggleModal, fetchBlogs })(Dashboardv2);

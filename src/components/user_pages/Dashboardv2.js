@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
+
 import { connect } from 'react-redux';
 import { signIn, fetchToken, toggleModal, fetchBlogs, fetchImages } from '../../actions/index';
 import axios from 'axios';
@@ -6,11 +8,17 @@ import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 import ImageUpload from '../image_upload';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import BadgeExampleSimple from '../testing_grounds/materialBadge';
+import ListExampleSimple from '../testing_grounds/materialList';
+
+
 class Dashboardv2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blogs: []
+      blogs: [],
+      selectedMenuItem: null
     };
   }
 
@@ -75,60 +83,102 @@ class Dashboardv2 extends Component {
     e.preventDefault();
     this.props.history.push('/blogs/new');
   }
+  manageMenu(e) {
+    let menuItems = [this.posts, this.images]
+    menuItems.map(menuItem => {
+      if (menuItem.innerHTML == e.target.innerHTML) {
+        menuItem.classList.add('active');
+      } else {
+        if (menuItem.classList.contains('active')) menuItem.classList.remove('active');
+      }
+    });
+  }
   render() {
-    return (
-      <div>
-        <div className="container-fluid">
-          <div className="row">
-            <nav className="dashboard__sidebar col-2 bg-faded sidebar">
-              <ul className="nav nav-pills flex-column">
-                <li className="nav-item">
-                  <a className="nav-link dashboard__nav-link">Your Posts<span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link dashboard__nav-link">Your Images</a>
-                </li>
-              </ul>
-            </nav>
-            <main className="col-10">
-              <h1>Dashboard</h1>
-              <div className="container">
-                <div className="row">
-                  <ImageUpload />
-                </div>
-                <div className="row">
-                  {this.renderImages()}
-                </div>
-              </div>
-              <h2>Section title</h2>
-              <div className="table-responsive">
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Title</th>
-                      <th>Subheading</th>
-                      <th>Author</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1,001</td>
-                      <td>Lorem</td>
-                      <td>ipsum</td>
-                      <td>dolor</td>
-                      <td>sit</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </main>
+    return(
+      <div className='container-fluid' style={{marginTop: '2rem'}}>
+        <div className="row">
+          <div className="col-3">
+            <ul className="list-group">
+              <li
+              onClick={this.manageMenu.bind(this)} 
+              ref={posts => this.posts = posts}
+              className="list-group-item">
+                Posts
+              </li>
+              <li
+              onClick={this.manageMenu.bind(this)}
+              ref={images => this.images = images}                            
+              className="list-group-item">
+                Images
+              </li>
+            </ul>
+          </div>
+          <div className="col-9">
+            <div className="row">
+              <ImageUpload />
+            </div>
+            <div className="row">
+              {this.renderImages()}
+            </div>
           </div>
         </div>
       </div>
     );
   }
+  // render() {
+  //   return (
+  //     <div>
+  //       <div className="container-fluid">
+  //         <div className="row">
+  //           <nav className="dashboard__sidebar col-2 bg-faded sidebar">
+  //             <ul className="nav nav-pills flex-column">
+  //               <li className="nav-item">
+  //                 <a className="nav-link dashboard__nav-link">Your Posts<span className="sr-only">(current)</span></a>
+  //               </li>
+  //               <li className="nav-item">
+  //                 <a className="nav-link dashboard__nav-link">Your Images</a>
+  //               </li>
+  //             </ul>
+  //           </nav>
+  //           <main className="col-10">
+  //             <h1>Dashboard</h1>
+  //             <div className="container">
+  //               <div className="row">
+  //                 <ImageUpload />
+  //               </div>
+  //               <div className="row">
+  //                 {this.renderImages()}
+  //               </div>
+  //             </div>
+  //             <h2>Section title</h2>
+  //             <div className="table-responsive">
+  //               <table className="table table-striped">
+  //                 <thead>
+  //                   <tr>
+  //                     <th>#</th>
+  //                     <th>Title</th>
+  //                     <th>Subheading</th>
+  //                     <th>Author</th>
+  //                     <th>Actions</th>
+  //                   </tr>
+  //                 </thead>
+  //                 <tbody>
+  //                   <tr>
+  //                     <td>1,001</td>
+  //                     <td>Lorem</td>
+  //                     <td>ipsum</td>
+  //                     <td>dolor</td>
+  //                     <td>sit</td>
+  //                   </tr>
+  //                  </tbody>
+  //               </table>
+  //             </div>
+  //           </main>
+  //         </div>
+  //       </div>
+  //      </div>  
+  //   );
+  // }
 }
 
 

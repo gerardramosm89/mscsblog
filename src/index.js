@@ -11,8 +11,9 @@ import {
 
 import '../styles/main.scss';
 
-
-
+// Material Design
+import injectTabEventPlugin from 'react-tap-event-plugin';
+injectTabEventPlugin();
 // Components
 import BlogsIndex from './components/blogs/blogs_index';
 import BlogsNew from './components/blogs/blogs_new';

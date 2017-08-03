@@ -64,8 +64,9 @@ export function fetchPosts(testData) {
     payload: request
   };
 }
-export function createBlog(data) {
+export function createBlog(data, cb) {
   const request = axios.post(`${rootUrl}/api/blogs/create`, data);
+  cb();
   return {
     type: 'NEW_BLOG',
     payload: request

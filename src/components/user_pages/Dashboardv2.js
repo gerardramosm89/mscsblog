@@ -78,119 +78,54 @@ class Dashboardv2 extends Component {
   render() {
     return (
       <div>
-
-
-    <div className="container-fluid">
-      <div className="row">
-        <nav className="dashboard__sidebar col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-          <ul className="nav nav-pills flex-column">
-            <li className="nav-item">
-              <a className="nav-link active" href="#">Overview <span className="sr-only">(current)</span></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Reports</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Analytics</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Export</a>
-            </li>
-          </ul>
-
-          <ul className="nav nav-pills flex-column">
-            <li className="nav-item">
-              <a className="nav-link" href="#">Nav item</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Nav item again</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">One more nav</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Another nav item</a>
-            </li>
-          </ul>
-
-          <ul className="nav nav-pills flex-column">
-            <li className="nav-item">
-              <a className="nav-link" href="#">Nav item again</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">One more nav</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Another nav item</a>
-            </li>
-          </ul>
-        </nav>
-
-        <main className="col-sm-9 col-md-10 pt-3">
-          <h1>Dashboard</h1>
-          <div className="container">
-            <div className="row">
-              <ImageUpload />
-            </div>
-            <div className="row">
-              {this.renderImages()}
-            </div>
-          </div>
-          <h2>Section title</h2>
-          <div className="table-responsive">
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </main>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-        {/* <div className="col-sm-6 offset-sm-3">
-          <div className="card text-center">
-            <h3 className="card-header">Welcome to your Dashboard</h3>
-            <div className="card-block">
-              <h4 className="card-title">All your posts will be stored here</h4>
-              <p className="card-text">Feel free to make changes as you wish</p>
-            </div>
+        <div className="container-fluid">
+          <div className="row">
+            <nav className="dashboard__sidebar col-2 bg-faded sidebar">
+              <ul className="nav nav-pills flex-column">
+                <li className="nav-item">
+                  <a className="nav-link dashboard__nav-link">Your Posts<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link dashboard__nav-link">Your Images</a>
+                </li>
+              </ul>
+            </nav>
+            <main className="col-10">
+              <h1>Dashboard</h1>
+              <div className="container">
+                <div className="row">
+                  <ImageUpload />
+                </div>
+                <div className="row">
+                  {this.renderImages()}
+                </div>
+              </div>
+              <h2>Section title</h2>
+              <div className="table-responsive">
+                <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Title</th>
+                      <th>Subheading</th>
+                      <th>Author</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1,001</td>
+                      <td>Lorem</td>
+                      <td>ipsum</td>
+                      <td>dolor</td>
+                      <td>sit</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </main>
           </div>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-10 offset-1 text-center">
-              <button className="btn btn-info" onClick={this.newPost.bind(this)}>New Post</button>
-            </div>
-            <h2 className="col-10 offset-1">Your Posts</h2>
-              {this.renderBlogs()}
-          </div>
-        </div> */}
-
-
       </div>
     );
   }

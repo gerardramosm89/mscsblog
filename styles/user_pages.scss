@@ -9,6 +9,7 @@
 .newblog__header {
   font-size: 2.8rem;
 }
+
 .dashboard {
   &__sidebar {
     padding: 1rem .2rem 1rem .2rem;
@@ -23,5 +24,10 @@
   }
   &__images--container {
     height: 20rem;
+  }
+  &__nav-link {
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 300;
   }
 }

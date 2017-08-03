@@ -36,13 +36,14 @@ class BlogsNew extends Component {
         difficulty: this.state.difficulty,
         subheading: this.state.subheading
       }
-    });
-    this.setState({
-      postResponse: 'Message submitted! Redirecting to dashboard'
-    });
-    setTimeout(function() {
-      self.props.history.push('/dashboard');
-    }, 1000);
+    }, function() {
+      this.setState({
+        postResponse: 'Message submitted! Redirecting to dashboard'
+      });
+      setTimeout(function() {
+        self.props.history.push('/dashboard');
+      }, 1000);
+    }.bind(this));
   }
   renderPostMessage() {
     if (this.state.postResponse) {
@@ -98,10 +99,6 @@ class BlogsNew extends Component {
 
   consoleLogPublish(e) {
     console.log('this.state is: ', this.state);
-  }
-
-  componentDidUpdate() {
-    console.log('newpost updated');
   }
 
   postOrder(e) {

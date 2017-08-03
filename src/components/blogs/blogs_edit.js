@@ -19,7 +19,6 @@ class EditBlog extends Component {
     axios.post('http://mlhq.io:3050/api/fetchone', data)
       .then(res => {
         let post = res.data[0]
-        console.log('res.data[0] is: ', post);
         this.setState({
           title: post.title,
           content: post.content,
@@ -36,7 +35,6 @@ class EditBlog extends Component {
     if (!this.props.token.token) {
       this.props.history.push('/signin');
     }
-    console.log('this.state on update is: ', this.state);
   }
   updateBlog(e) {
     e.preventDefault();

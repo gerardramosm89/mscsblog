@@ -55,7 +55,7 @@ class LearningPaths extends Component {
   }
   render() {
     return(
-      <div>
+      <div style={{ paddingBottom: '3rem'}}>
         {/* <header className="learning-paths__header-container">
           <h1 className="learning-paths__heading">Topics we cover</h1>
           <p className="learning-paths__subheading">This is our current collection as we go through the journey of learning these different topics.</p>

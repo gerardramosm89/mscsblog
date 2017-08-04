@@ -29,7 +29,6 @@ import StatisticalLearning2 from './components/blogs/StatisticalLearningv2';
 import Playground from './components/playground';
 import Navbar2 from './components/navbar2';
 import Dashboardv2 from './components/user_pages/Dashboardv2';
-import Footer from './components/footer';
 
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -73,7 +72,6 @@ ReactDOM.render(
             <Route path='/dashboard' component={Dashboardv2} />
             <Route path="/" component={Home} />
           </Switch>
-          <Footer />
         </div>
       </ConnectedRouter>
     </BrowserRouter>

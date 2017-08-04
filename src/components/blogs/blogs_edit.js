@@ -13,7 +13,6 @@ class EditBlog extends Component {
     };
   }
   componentDidMount() {
-    // let data = { token: this.props.token.token, postId: this.props.match.params.id };
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
     
     axios.post('http://mlhq.io:3050/api/fetchone', data)
@@ -48,7 +47,6 @@ class EditBlog extends Component {
         path: this.state.learningPath
       }
     }};
-    console.log('attempting to update, updates we are passing in is: ', updates);
     axios.post('http://mlhq.io:3050/api/updateOne', updates)
       .then(response => {
       });
@@ -83,7 +81,6 @@ class EditBlog extends Component {
       learningPath: e.target.value
     });
     e.preventDefault();
-    console.log('this.state.learningPath is: ', this.state.learningPath);
   }
   render() {
     return (

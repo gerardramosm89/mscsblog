@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import LearningPaths from './learning_paths';
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +26,7 @@ class Home extends Component {
             </div>
           </section>
         </div>
+        <LearningPaths />
       </div>
     );
   }

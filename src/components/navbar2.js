@@ -37,7 +37,7 @@ class Navbar2 extends Component {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link>
+             {/* <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link> */}
           </li>
         </ul>
         {/* { this.props.token ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) } */}

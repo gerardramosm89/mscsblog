@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchByLearningPath } from '../actions/index';
+import { fetchByLearningPath, routePush } from '../actions/index';
 
 class LearningPaths extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class LearningPaths extends Component {
   renderTopics() {
     return this.topics.map(topic => {
       return (
-        <div onClick={() => this.props.history.push(`/${topic.path}`)}key={topic.title} className="col-4">
+        <div onClick={() => this.props.routePush(`/${topic.path}`)}key={topic.title} className="col-4">
           <div className="topic-card">
             <div className="topic-card--top">
               <div className="topic-icon">
@@ -56,10 +56,10 @@ class LearningPaths extends Component {
   render() {
     return(
       <div>
-        <header className="learning-paths__header-container">
+        {/* <header className="learning-paths__header-container">
           <h1 className="learning-paths__heading">Topics we cover</h1>
           <p className="learning-paths__subheading">This is our current collection as we go through the journey of learning these different topics.</p>
-        </header>
+        </header> */}
         
         <section className="container topic-container">
           <div className="row">
@@ -81,4 +81,4 @@ class LearningPaths extends Component {
 function mapStateToProps(state) {
   return { learningPathPosts: state.learningPathPosts };
 }
-export default connect(mapStateToProps, { fetchByLearningPath })(LearningPaths);
+export default connect(mapStateToProps, { fetchByLearningPath, routePush })(LearningPaths);

@@ -77,14 +77,6 @@ class ImageUpload extends Component {
           ref={(preview) => {this.preview = preview}}
           ></div>
         </section>
-
-        {/* <button
-        className='btn btn-primary'
-        onClick={this.consoleLog.bind(this)}>Console Log Preview</button>
-        <button
-        className='btn btn-primary'
-        onClick={this.logFiles.bind(this)}
-        >Preview Files</button> */}
         <button
         className='btn btn-primary'
         onClick={this.uploadFiles.bind(this)}

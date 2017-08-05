@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LearningPaths from './learning_paths';
+import GModal from './utils/gmodal';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ class Home extends Component {
           <section className="jumbotron text-center home-header-main-text">
             <div className="container">
               <h1 className="jumbotron-heading home-heading">Machine Learning Headquarters</h1>
-              <p className="lead text-muted jumbotron-subheading">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+              <p className="lead text-muted jumbotron-subheading">While exciting and dynamic, machine learning can be intimidating and frustrating. Our goal is to make machine learning accessible to as many people as possible, regardless of background or education.</p>
               <p>
                 <Link to="#" className="btn btn-primary">Sample Post</Link>
               </p>

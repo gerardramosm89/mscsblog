@@ -24,7 +24,7 @@ class StatisticalLearning extends Component {
       return (
         <div className="col-md-8 col-sm-10 offset-md-2 offset-sm-1 col-lg-6 offset-lg-3" key={post._id}>
           <div className="card mb-3">
-            <img className="card-img-top statistical-learning__card-img-top" src="/img/linear-regression.jpg" alt="Card image cap" />
+            <img className="card-img-top statistical-learning__card-img-top" src={post.titleImageName ? `/img/${post.titleImageName}`: `/img/linear-regression.jpg`} alt="Card image cap" />
             <div className="card-block">
               <Link className="statistical-learning__post-title" to={"/blogs/" + safeURLify(post.title)}><h4 className="card-title">{post.title}</h4></Link>
               <p className="card-text">{post.subheading}</p>

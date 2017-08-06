@@ -18,7 +18,8 @@ class BlogsNew extends Component {
       editorState: '',
       editorHTML: '',
       difficulty: '',
-      subheading: ''
+      subheading: '',
+      coverImageName: ''
     }
   }
 
@@ -34,7 +35,8 @@ class BlogsNew extends Component {
         publish: this.state.publish,
         learningPath: { orderNum: this.state.postOrder, path: this.state.learningPath },
         difficulty: this.state.difficulty,
-        subheading: this.state.subheading
+        subheading: this.state.subheading,
+        titleImageName: this.state.coverImageName
       }
     }, function() {
       this.setState({
@@ -115,7 +117,11 @@ class BlogsNew extends Component {
     });
   }
 
-
+  coverImageName(e) {
+    this.setState({
+      coverImageName: e.target.value
+    });
+  }
   render() {
     return (
       <div>
@@ -123,6 +129,13 @@ class BlogsNew extends Component {
           {this.renderPostMessage()}
           <form onSubmit={this.newBlogButton.bind(this)}>
             <h1>{this.props.newBlog.title}</h1>
+
+           <div className="form-group">
+              <label>Title Cover Image File Name</label>
+              <input className="form-control newblog__header"type="text" onChange={this.coverImageName.bind(this)} value={this.state.coverImageName} />
+            </div>
+
+
             <div className="form-group">
               <label>Title</label>
               <input className="form-control newblog__header"type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />

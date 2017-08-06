@@ -9,7 +9,8 @@ class EditBlog extends Component {
       title: '',
       content: '',
       subheading: '',
-      learningPath: 'Learning path must be selected'
+      learningPath: 'Learning path must be selected',
+      postId: ''
     };
   }
   componentDidMount() {
@@ -19,13 +20,15 @@ class EditBlog extends Component {
       .then(res => {
         let post = res.data[0]
         this.setState({
+          postId: post._id,
           title: post.title,
           content: post.content,
           subheading: post.subheading,
           difficulty: post.difficulty,
           learningPath: post.learningPath.path,
           postOrder: post.learningPath.orderNum,
-          publish: post.publish
+          publish: post.publish,
+          titleImageName: post.titleImageName || ''
         });
         return res;
       });
@@ -37,7 +40,8 @@ class EditBlog extends Component {
   }
   updateBlog(e) {
     e.preventDefault();
-    const updates = { postId: this.props.match.params.id, 
+    const updates = { 
+    postId: this.state.postId, 
     updates: { 
       title: this.state.title, 
       subheading: this.state.subheading,
@@ -45,7 +49,8 @@ class EditBlog extends Component {
       learningPath: { 
         orderNum: this.state.postOrder, 
         path: this.state.learningPath
-      }
+      },
+      titleImageName: this.state.titleImageName
     }};
     axios.post('http://mlhq.io:3050/api/updateOne', updates)
       .then(response => {
@@ -82,11 +87,22 @@ class EditBlog extends Component {
     });
     e.preventDefault();
   }
+  titleImageNameInput(e) {
+    this.setState({
+      titleImageName: e.target.value
+    });
+  }
   render() {
     return (
       <div>
         <section className="col-8 offset-2">
           <form onSubmit={this.updateBlog.bind(this)}>
+
+            <div className="form-group">
+              <label>Title Image Name</label>
+              <input className="form-control newblog__header"type="text" onChange={this.titleImageNameInput.bind(this)} value={this.state.titleImageName} />
+            </div>
+
             <div className="form-group">
               <label>Title</label>
               <input className="form-control newblog__header"type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />

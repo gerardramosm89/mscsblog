@@ -93,14 +93,12 @@ class BlogsNew extends Component {
   handlePublish(e) {
     const target = e.target;
     const value = target.checked;
-    console.log('this.state.publish is: ', this.state.publish);
     this.setState({
       [e.target.name]: value
     });
   }
 
   consoleLogPublish(e) {
-    console.log('this.state is: ', this.state);
   }
 
   postOrder(e) {
@@ -138,7 +136,7 @@ class BlogsNew extends Component {
 
             <div className="form-group">
               <label>Title</label>
-              <input className="form-control newblog__header"type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
+              <input name="title" className="form-control newblog__header" type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
             </div>
 
             <div className="form-group">
@@ -183,15 +181,15 @@ class BlogsNew extends Component {
               </label>
             </div>
 
-            <Editor
+            {/* <Editor
             ref={node => this.input = node} 
             onChange={this.onEditorStateChange.bind(this)} 
-            />
+            /> */}
 
             <button className="btn btn-lg btn-info" onClick={this.newBlogButton.bind(this)}>Post Blog</button>
           </form>
         </section>
-            <button onClick={this.consoleLogPublish.bind(this)} className="btn btn-lg">Console log this.state.publish</button>
+            {/* <button onClick={this.consoleLogPublish.bind(this)} className="btn btn-lg">Console log this.state.publish</button> */}
 
       </div>
     );

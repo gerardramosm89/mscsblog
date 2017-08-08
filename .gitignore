@@ -1,3 +1,6 @@
 node_modules
 build
 .DS_Store
+img
+.vscode
+package-lock.json

@@ -46,7 +46,7 @@ class ImageUpload extends Component {
   }
 
   uploadFile(file){
-      var url = "http://mlhq.io:8081/api/upload";
+      var url = "http://mlhq.io/api/upload";
       var xhr = new XMLHttpRequest();
       var fd = new FormData();
       xhr.open("POST", url, true);

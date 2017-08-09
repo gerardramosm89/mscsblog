@@ -22,9 +22,6 @@ class Home extends Component {
             <div className="container">
               <h1 className="jumbotron-heading home-heading">Machine Learning Headquarters</h1>
               <p className="lead text-muted jumbotron-subheading">While exciting and dynamic, machine learning can be intimidating and frustrating. Our goal is to make machine learning accessible to as many people as possible, regardless of background or education.</p>
-              <p>
-                <Link to="#" className="btn btn-primary">Sample Post</Link>
-              </p>
             </div>
           </section>
         </div>

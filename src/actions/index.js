@@ -3,7 +3,7 @@ import { push } from 'react-router-redux';
 // const Variables
 const rootUrl = 'http://mlhq.io:3050';
 const signInUrl = 'http://mlhq.io:3050/api/userauth';
-
+const env = 'dev';
 /*---------------------------
 Note for Redux-Thunk usage
 
@@ -23,11 +23,15 @@ function incrementAsync() {
 }
 
 -------------------------*/
+export function getEnvHostname() {
+  if (env == 'dev') return 'http://localhost:8081'
+  else return 'http://mlhq.io';    
+}
 
 // Action to grab images from the server
 export function fetchImages() {
   return dispatch => {
-    axios.get(`http://mlhq.io/images`)
+    axios.get(`${getEnvHostname()}/images`)
       .then((images) => {
         dispatch({ type: 'FETCH_IMAGES', payload: { images } })
       })

@@ -87,7 +87,7 @@ class BlogsNew extends Component {
   handleLearningPathChange(e) {
     e.preventDefault();
     this.setState({
-      learningPath: !e.target.value
+      learningPath: e.target.value
     });
   }
   handlePublish(e) {
@@ -121,6 +121,7 @@ class BlogsNew extends Component {
     });
   }
   render() {
+    console.log(this.state);
     return (
       <div>
         <section className="col-6 offset-3">
@@ -162,6 +163,9 @@ class BlogsNew extends Component {
               value={this.state.learningPath}
               >
                 <option  value="Statistical Learning">Statistical Learning</option>
+                <option  value="Algorithms">Algorithms</option>
+                <option  value="Data Structures">Data Structures</option>
+ 
               </select>
             </div>
             <div className="form-group">

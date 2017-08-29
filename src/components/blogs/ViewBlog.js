@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import DisqusThread from './DisqusThread';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
-
+import Prism from 'prismjs';
 class ViewBlog extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +22,9 @@ class ViewBlog extends Component {
         });
       });
   }
-
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
   dangerousInnerHTML() {
     return { __html: this.state.post.content }
   }

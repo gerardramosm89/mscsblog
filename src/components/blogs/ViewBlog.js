@@ -17,16 +17,19 @@ class ViewBlog extends Component {
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
     
     // Grab Post
-    axios.post('http://mlhq.io:3050/api/fetchone', data)
-      .then(res => {
-        this.setState({
-          post: res.data[0]
-        });
-      });
+    // axios.post('http://mlhq.io:3050/api/fetchone', data)
+    //   .then(res => {
+    //     this.setState({
+    //       post: res.data[0]
+    //     });
+    //   });
     this.props.fetchOneBlog(data);
   }
   componentDidUpdate() {
     Prism.highlightAll();
+    if (this.props.blog) {
+      this.setState({ post: this.props.blog })
+    }
   }
   dangerousInnerHTML() {
     return { __html: this.state.post.content }
@@ -58,6 +61,6 @@ class ViewBlog extends Component {
 }
 
 function mapStateToProps(state) {
-  return { token: state.token };
+  return { token: state.token, blog: state.blogs.blog };
 }
 export default connect(mapStateToProps, { fetchOneBlog })(ViewBlog);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { updateBlog } from '../../actions/index';
 
 class EditBlog extends Component {
   constructor(props) {
@@ -52,9 +53,10 @@ class EditBlog extends Component {
       },
       titleImageName: this.state.titleImageName
     }};
-    axios.post('http://mlhq.io:3050/api/updateOne', updates)
-      .then(response => {
-      });
+    // axios.post('http://mlhq.io:3050/api/updateOne', updates)
+    //   .then(response => {
+    //   });
+    this.props.updateBlog(updates);
   }
   titleInput(e) {
     this.setState({
@@ -147,4 +149,4 @@ class EditBlog extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, {  })(EditBlog);
+export default connect(mapStateToProps, { updateBlog })(EditBlog);

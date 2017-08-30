@@ -4,6 +4,8 @@ import axios from 'axios';
 import DisqusThread from './DisqusThread';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 import Prism from 'prismjs';
+import { fetchOneBlog} from '../../actions/index';
+
 class ViewBlog extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +23,7 @@ class ViewBlog extends Component {
           post: res.data[0]
         });
       });
+    this.props.fetchOneBlog(data);
   }
   componentDidUpdate() {
     Prism.highlightAll();
@@ -57,4 +60,4 @@ class ViewBlog extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, {  })(ViewBlog);
+export default connect(mapStateToProps, { fetchOneBlog })(ViewBlog);

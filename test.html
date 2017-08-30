@@ -6,24 +6,70 @@
     <script src="./libs/prism.js"></script>
   </head>
   <body>
-    <pre id='test' class="language-javascript">
-        for (let j = 1; j < A.length; j++) {
-          var key = A[j];
-          console.log('our array is right now: ', A);
-          console.log(`Currently, i is: ${j}`);
-          // console.log('key we are checking right now is: ', key);
-          console.log(`key we are checking right now is: A[i]=A[${j}]=${A[j]}`);
-          var i = j - 1;
-          while (i >= 0 && A[i] > key) {
-            console.log(`Looking back at our sorted array`);
-            console.log('Part of the sorted array we are looking at now is: ', A[i]);
-            console.log(`We find that ${A[i]} is greater than our key(${key})`);
-            console.log(`so we swap: ${A[i + 1]} and ${A[i]}`);
-            A[i + 1] = A[i];
-            console.log(`array is now [${A}]`);
-            i--;
-          }
+
+
+
+
+
+
+
+      A linked list usually only contains 2 attributes, it will have the head node, and the length of the current linked list
+      <ul>
+        <li><strong>Head</strong> - The very first Node in the linked list</li>
+        <li><strong>Length</strong> - Keeps track of how many nodes are in the Linked List, usually starts at 1</li>
+      </ul>
+      <pre>
+      <code class="language-javascript">
+      function LinkedList () {
+        this.head = null;
+        this.length = 0; // Keeps track of length
+      }
+      </code>
       </pre>
+      
+      Each node in a singly linked list only contains two properties,
+      <ul>
+        <li><strong>Value</strong> - The Node's value</li>
+        <li><strong>Next</strong> - The Node that comes after it</li>
+      </ul>
+      <pre>
+        <code class="language-javascript">
+      function Node (value, next) {
+        this.value = value;
+        this.next = next;
+      }
+        </code>
+      </pre>
+      now for example if we were to create a new linked list from our constructor
+      <pre>
+        <code class="language-javascript">
+      var ll = new LinkedList();
+      console.log(ll);
+        </code>
+      </pre>
+      
+      we would get:
+      <pre>
+        <code class="language-javascript">
+      LinkedList { head: null, length: 0 }
+        </code>
+      </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!--prismjs-->
     <link href="./libs/prism.css" rel="stylesheet" />
     <script src="./libs/prism.js"></script>

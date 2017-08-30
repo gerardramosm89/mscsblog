@@ -29,7 +29,6 @@ class ViewBlog extends Component {
     return { __html: this.state.post.content }
   }
   render() {
-    // if (this.state.post.title) console.log(safeURLify(this.state.post.title));
     return (
       <div className="viewblog__container">
         <div className="viewblog__header">

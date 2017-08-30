@@ -4,7 +4,7 @@ import { push } from 'react-router-redux';
 let rootUrl = 'http://mlhq.io:3050';
 let signInUrl = 'http://mlhq.io:3050/api/userauth';
 
-const env = 'dev';
+const env = '';
 
 export function getEnvHostname() {
   if (env == 'dev') {
@@ -71,12 +71,11 @@ export function fetchByLearningPath(data) {
   }
 }
 
-export function updateBlog(updates) {
-  const request = axios.post(`${rootUrl}/api/updateOne`, updates)
-  .then(response => console.log('response from updates is: ', response));
+export async function updateBlog(updates) {
+  const request = await axios.post(`${rootUrl}/api/updateOne`, updates);
   return {
     type: 'UPDATE_POST',
-    payload: request
+    payload: request.data
   }
 }
 

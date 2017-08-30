@@ -82,7 +82,7 @@ export function updateBlog(updates) {
 
 export async function fetchOneBlog(data) {
   const request = await axios.post('http://mlhq.io:3050/api/fetchone', data);
-  console.log('request.data', request.data);
+  // const request = axios.post(`${rootUrl}/api/fetchone`, data);  
   return {
     type: 'FETCH_ONE_POST',
     payload: request.data

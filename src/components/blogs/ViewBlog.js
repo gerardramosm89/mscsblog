@@ -23,13 +23,15 @@ class ViewBlog extends Component {
     //       post: res.data[0]
     //     });
     //   });
-    this.props.fetchOneBlog(data);
+
+    this.props.fetchOneBlog(data).then(() => {
+      this.setState({
+        post: this.props.blog
+      })
+    });
   }
   componentDidUpdate() {
     Prism.highlightAll();
-    if (this.props.blog) {
-      this.setState({ post: this.props.blog })
-    }
   }
   dangerousInnerHTML() {
     return { __html: this.state.post.content }

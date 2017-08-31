@@ -53,10 +53,8 @@ class EditBlog extends Component {
       },
       titleImageName: this.state.titleImageName
     }};
-    // axios.post('http://mlhq.io:3050/api/updateOne', updates)
-    //   .then(response => {
-    //   });
-    this.props.updateBlog(updates);
+    this.props.updateBlog(updates)
+      .then(() => { this.props.history.push('/dashboard')});
   }
   titleInput(e) {
     this.setState({

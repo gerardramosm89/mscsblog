@@ -4,7 +4,7 @@ import { fetchByLearningPath } from '../../actions/index';
 import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 
-class AlgorithmsPath extends Component {
+class DataStructuresPath extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +38,7 @@ class AlgorithmsPath extends Component {
 
         <section className="jumbotron text-center statistical-learning__header">
           <div className="container">
-            <h1 className="jumbotron-heading">Statistical Learning</h1>
+            <h1 className="jumbotron-heading">Data Structures</h1>
             <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
           </div>
         </section>
@@ -57,4 +57,4 @@ class AlgorithmsPath extends Component {
 function mapStateToProps(state) {
   return { learningPathPosts: state.learningPathPosts, token: state.token };
 }
-export default connect(mapStateToProps, { fetchByLearningPath })(AlgorithmsPath);
+export default connect(mapStateToProps, { fetchByLearningPath })(DataStructuresPath);

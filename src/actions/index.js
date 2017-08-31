@@ -4,15 +4,16 @@ import { push } from 'react-router-redux';
 let rootUrl = 'http://mlhq.io:3050';
 let signInUrl = 'http://mlhq.io:3050/api/userauth';
 
-const env = '';
-
+const env = 'dev';
+if (env === 'dev') {
+  rootUrl = 'http://localhost:3050';
+  signInUrl = 'http://localhost:3050/api/userauth';
+}
 export function getEnvHostname() {
-  if (env == 'dev') {
-    rootUrl = 'http://localhost:3050';
-    signInUrl = 'http://localhost:3050/api/userauth';
+  if (env === 'dev') {
     return 'http://localhost:8081';
   }
-  else return 'http://mlhq.io';    
+  else return 'http://mlhq.io';
 }
 
 // Action to grab images from the server
@@ -64,6 +65,7 @@ export function createBlog(data, cb) {
   }
 }
 export function fetchByLearningPath(data) {
+  console.log('rootUrl is: ', rootUrl);
   const request = axios.post(`${rootUrl}/api/learningpath`, data);
   return {
     type: 'FETCH_BY_LEARNING_PATH',
@@ -80,7 +82,7 @@ export async function updateBlog(updates) {
 }
 
 export async function fetchOneBlog(data) {
-  const request = await axios.post('http://mlhq.io:3050/api/fetchone', data);
+  const request = await axios.post(`${rootUrl}/api/fetchone`, data);
   // const request = axios.post(`${rootUrl}/api/fetchone`, data);  
   return {
     type: 'FETCH_ONE_POST',

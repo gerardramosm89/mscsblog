@@ -17,7 +17,7 @@ class EditBlog extends Component {
   componentDidMount() {
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
     
-    axios.post('http://mlhq.io:3050/api/fetchone', data)
+    axios.post('http://localhost:3050/api/fetchone', data)
       .then(res => {
         let post = res.data[0]
         this.setState({
@@ -133,6 +133,7 @@ class EditBlog extends Component {
               >
                 <option  value={null}>You need to select a path</option>              
                 <option  value="Statistical Learning">Statistical Learning</option>
+                <option  value="Data Structures">Data Structures</option>
                 <option  value="Algorithms">Algorithms</option>
               </select>
             </div>

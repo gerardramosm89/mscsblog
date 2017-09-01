@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import DisqusThread from './DisqusThread';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
+import Prism from 'prismjs';
+import { fetchOneBlog} from '../../actions/index';
 
 class ViewBlog extends Component {
   constructor(props) {
@@ -13,21 +15,19 @@ class ViewBlog extends Component {
   }
   componentDidMount() {
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
-    
-    // Grab Post
-    axios.post('http://mlhq.io:3050/api/fetchone', data)
-      .then(res => {
-        this.setState({
-          post: res.data[0]
-        });
-      });
+    this.props.fetchOneBlog(data).then(() => {
+      this.setState({
+        post: this.props.blog
+      })
+    });
   }
-
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
   dangerousInnerHTML() {
     return { __html: this.state.post.content }
   }
   render() {
-    // if (this.state.post.title) console.log(safeURLify(this.state.post.title));
     return (
       <div className="viewblog__container">
         <div className="viewblog__header">
@@ -54,6 +54,6 @@ class ViewBlog extends Component {
 }
 
 function mapStateToProps(state) {
-  return { token: state.token };
+  return { token: state.token, blog: state.blogs.blog };
 }
-export default connect(mapStateToProps, {  })(ViewBlog);
+export default connect(mapStateToProps, { fetchOneBlog })(ViewBlog);

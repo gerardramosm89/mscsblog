@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { fetchImages } from '../actions/index';
+import { fetchImages, getEnvHostname } from '../actions/index';
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class ImageUpload extends Component {
   }
 
   uploadFile(file){
-      var url = "http://mlhq.io/api/upload";
+      var url = `${getEnvHostname()}/api/upload`;
       var xhr = new XMLHttpRequest();
       var fd = new FormData();
       xhr.open("POST", url, true);

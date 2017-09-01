@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { updateBlog } from '../../actions/index';
 
 class EditBlog extends Component {
   constructor(props) {
@@ -52,9 +53,8 @@ class EditBlog extends Component {
       },
       titleImageName: this.state.titleImageName
     }};
-    axios.post('http://mlhq.io:3050/api/updateOne', updates)
-      .then(response => {
-      });
+    this.props.updateBlog(updates)
+      .then(() => { this.props.history.push('/dashboard')});
   }
   titleInput(e) {
     this.setState({
@@ -133,6 +133,7 @@ class EditBlog extends Component {
               >
                 <option  value={null}>You need to select a path</option>              
                 <option  value="Statistical Learning">Statistical Learning</option>
+                <option  value="Data Structures">Data Structures</option>
                 <option  value="Algorithms">Algorithms</option>
               </select>
             </div>
@@ -147,4 +148,4 @@ class EditBlog extends Component {
 function mapStateToProps(state) {
   return { token: state.token };
 }
-export default connect(mapStateToProps, {  })(EditBlog);
+export default connect(mapStateToProps, { updateBlog })(EditBlog);

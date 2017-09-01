@@ -29,7 +29,8 @@ import StatisticalLearning2 from './components/blogs/StatisticalLearningv2';
 import Playground from './components/playground';
 import Navbar2 from './components/navbar2';
 import Dashboardv2 from './components/user_pages/Dashboardv2';
-
+import AlgorithmsPath from './components/blogs/AlgorithmsPath';
+import DataStructuresPath from './components/blogs/DataStructuresPath';
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -66,6 +67,8 @@ ReactDOM.render(
             <Route path="/signup" component={SignUp} />
             <Route path="/blogs" component={BlogsIndex} />
             <Route path="/learningpaths" component={LearningPaths} />
+            <Route path="/algorithms" component={AlgorithmsPath} />
+            <Route path="/data-structures" component={DataStructuresPath} />            
             {/* <Route path="/dashboard" component={Dashboard} /> */}
             <Route path="/statistical-learning" component={StatisticalLearning2} />
             <Route path="/playground" component={Playground} />

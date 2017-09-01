@@ -21,7 +21,6 @@ class Dashboardv2 extends Component {
       selectedMenuItem: 'Posts'
     };
   }
-
   componentWillMount() {
     if (!localStorage.getItem('token')) {
       this.props.history.push('/');
@@ -32,20 +31,8 @@ class Dashboardv2 extends Component {
     this.props.fetchImages();
     this.props.fetchBlogs();
   }
-
-  newPost() {
-  }
   deletePost(postId) {
     const data = { token: this.props.token.token, postId: postId };
-    // axios.post('http://mlhq.io:3050/api/deleteOne', data).then((response) => {
-    //   axios.post('http://mlhq.io:3050/api/queryblogs', { token: this.props.token.token })
-    //   .then(response => {
-    //     // this.setState({
-    //     //   blogs: response.data.blogs
-    //     // });
-    //   });
-    // });
-
     axios.post('http://mlhq.io:3050/api/deleteOne', data)
       .then((response) => {
         this.props.fetchBlogs();

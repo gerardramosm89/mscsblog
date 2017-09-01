@@ -1,33 +1,25 @@
 import axios from 'axios';
 import { push } from 'react-router-redux';
 // const Variables
-const rootUrl = 'http://mlhq.io:3050';
-const signInUrl = 'http://mlhq.io:3050/api/userauth';
+let rootUrl = 'http://mlhq.io:3050';
+let signInUrl = 'http://mlhq.io:3050/api/userauth';
 
-/*---------------------------
-Note for Redux-Thunk usage
-
-function increment() {
-  return {
-    type: INCREMENT_COUNTER
-  };
+const env = '';
+if (env === 'dev') {
+  rootUrl = 'http://localhost:3050';
+  signInUrl = 'http://localhost:3050/api/userauth';
 }
-
-function incrementAsync() {
-  return dispatch => {
-    setTimeout(() => {
-      // Yay! Can invoke sync or async actions with `dispatch`
-      dispatch(increment());
-    }, 1000);
-  };
+export function getEnvHostname() {
+  if (env === 'dev') {
+    return 'http://localhost:8081';
+  }
+  else return 'http://mlhq.io';
 }
-
--------------------------*/
 
 // Action to grab images from the server
 export function fetchImages() {
   return dispatch => {
-    axios.get(`http://mlhq.io/images`)
+    axios.get(`${getEnvHostname()}/images`)
       .then((images) => {
         dispatch({ type: 'FETCH_IMAGES', payload: { images } })
       })
@@ -48,7 +40,7 @@ export function verifyToken() {
 // Blogs actions
 export function fetchBlogs() {
   let token = localStorage.getItem('token');
-  let request = axios.post(`http://mlhq.io:3050/api/queryblogs`, { token });
+  let request = axios.post(`${rootUrl}/api/queryblogs`, { token });
 
   return {
     type: 'FETCH_BLOGS',
@@ -77,6 +69,23 @@ export function fetchByLearningPath(data) {
   return {
     type: 'FETCH_BY_LEARNING_PATH',
     payload: request
+  }
+}
+
+export async function updateBlog(updates) {
+  const request = await axios.post(`${rootUrl}/api/updateOne`, updates);
+  return {
+    type: 'UPDATE_POST',
+    payload: request.data
+  }
+}
+
+export async function fetchOneBlog(data) {
+  const request = await axios.post(`${rootUrl}/api/fetchone`, data);
+  // const request = axios.post(`${rootUrl}/api/fetchone`, data);  
+  return {
+    type: 'FETCH_ONE_POST',
+    payload: request.data
   }
 }
 
@@ -113,3 +122,27 @@ export function toggleModal() {
     type: 'TOGGLE_MODAL'
   }
 }
+
+
+
+
+
+/*---------------------------
+Note for Redux-Thunk usage
+
+function increment() {
+  return {
+    type: INCREMENT_COUNTER
+  };
+}
+
+function incrementAsync() {
+  return dispatch => {
+    setTimeout(() => {
+      // Yay! Can invoke sync or async actions with `dispatch`
+      dispatch(increment());
+    }, 1000);
+  };
+}
+
+-------------------------*/

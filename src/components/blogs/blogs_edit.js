@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { updateBlog } from '../../actions/index';
+import { updateBlog, fetchOneBlog } from '../../actions/index';
 
 class EditBlog extends Component {
   constructor(props) {
@@ -16,10 +16,9 @@ class EditBlog extends Component {
   }
   componentDidMount() {
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
-    
-    axios.post('http://mlhq.io:3050/api/fetchone', data)
-      .then(res => {
-        let post = res.data[0]
+    this.props.fetchOneBlog(data)
+      .then(() => {
+        let post = this.props.blog;
         this.setState({
           postId: post._id,
           title: post.title,
@@ -30,8 +29,7 @@ class EditBlog extends Component {
           postOrder: post.learningPath.orderNum,
           publish: post.publish,
           titleImageName: post.titleImageName || ''
-        });
-        return res;
+        })
       });
   }
   componentDidUpdate() {
@@ -146,6 +144,9 @@ class EditBlog extends Component {
 }
 
 function mapStateToProps(state) {
-  return { token: state.token };
+  return ({
+    token: state.token,
+    blog: state.blogs.blog
+  });
 }
-export default connect(mapStateToProps, { updateBlog })(EditBlog);
+export default connect(mapStateToProps, { updateBlog, fetchOneBlog })(EditBlog);

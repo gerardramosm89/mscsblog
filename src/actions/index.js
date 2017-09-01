@@ -65,7 +65,6 @@ export function createBlog(data, cb) {
   }
 }
 export function fetchByLearningPath(data) {
-  console.log('rootUrl is: ', rootUrl);
   const request = axios.post(`${rootUrl}/api/learningpath`, data);
   return {
     type: 'FETCH_BY_LEARNING_PATH',

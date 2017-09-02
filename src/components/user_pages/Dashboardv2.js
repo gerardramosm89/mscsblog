@@ -148,60 +148,6 @@ class Dashboardv2 extends Component {
       </div>
     );
   }
-  // render() {
-  //   return (
-  //     <div>
-  //       <div className="container-fluid">
-  //         <div className="row">
-  //           <nav className="dashboard__sidebar col-2 bg-faded sidebar">
-  //             <ul className="nav nav-pills flex-column">
-  //               <li className="nav-item">
-  //                 <a className="nav-link dashboard__nav-link">Your Posts<span className="sr-only">(current)</span></a>
-  //               </li>
-  //               <li className="nav-item">
-  //                 <a className="nav-link dashboard__nav-link">Your Images</a>
-  //               </li>
-  //             </ul>
-  //           </nav>
-  //           <main className="col-10">
-  //             <h1>Dashboard</h1>
-  //             <div className="container">
-  //               <div className="row">
-  //                 <ImageUpload />
-  //               </div>
-  //               <div className="row">
-  //                 {this.renderImages()}
-  //               </div>
-  //             </div>
-  //             <h2>Section title</h2>
-  //             <div className="table-responsive">
-  //               <table className="table table-striped">
-  //                 <thead>
-  //                   <tr>
-  //                     <th>#</th>
-  //                     <th>Title</th>
-  //                     <th>Subheading</th>
-  //                     <th>Author</th>
-  //                     <th>Actions</th>
-  //                   </tr>
-  //                 </thead>
-  //                 <tbody>
-  //                   <tr>
-  //                     <td>1,001</td>
-  //                     <td>Lorem</td>
-  //                     <td>ipsum</td>
-  //                     <td>dolor</td>
-  //                     <td>sit</td>
-  //                   </tr>
-  //                  </tbody>
-  //               </table>
-  //             </div>
-  //           </main>
-  //         </div>
-  //       </div>
-  //      </div>  
-  //   );
-  // }
 }
 
 

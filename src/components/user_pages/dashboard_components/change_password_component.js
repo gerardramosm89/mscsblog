@@ -7,7 +7,8 @@ class ChangePasswordComponent extends Component {
     this.state = {
       token: '',
       currentPassword: '',
-      newPassword: ''
+      newPassword: '',
+      confirmPassword: ''
     }
   }
 
@@ -23,11 +24,13 @@ class ChangePasswordComponent extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="col-6">
         <h1>Change your password</h1>
         <form>
-          <label>Current Password</label>
-          <input name="currentPassword" onChange={this.inputChange.bind(this)} />
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">Current Password</label>
+          <input className="form-control" name="currentPassword" onChange={this.inputChange.bind(this)} placeholder="Current Password" />
+        </div>
         </form>
       </div>
     );

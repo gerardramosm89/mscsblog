@@ -19,13 +19,16 @@ class ChangePasswordComponent extends Component {
   inputChange(e) {
     this.setState({
       [e.target.name]: e.target.value
-    });
+    }, () => console.log(this.state));
   }
   render() {
     return (
       <div>
         <h1>Change your password</h1>
-        <input name="currentPassword" onChange={this.inputChange.bind(this)} />
+        <form>
+          <label>Current Password</label>
+          <input name="currentPassword" onChange={this.inputChange.bind(this)} />
+        </form>
       </div>
     );
   }

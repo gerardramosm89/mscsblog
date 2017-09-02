@@ -16,6 +16,18 @@ export function getEnvHostname() {
   else return 'http://mlhq.io';
 }
 
+
+// Action for changing password
+export async function changeUserPassword(currentPassword, currentToken, newPassword) {
+  let options = { currentPassword, currentToken, newPassword };
+  console.log(`Options we are trying to pass into password change are: ${options}`)
+  let request = await axios.post(`${rootUrl}/api/changepassword`, options);
+
+  return {
+    type: 'CHANGE_PASSWORD',
+    payload: request.data
+  }
+}
 // Action to grab images from the server
 export function fetchImages() {
   return dispatch => {
@@ -25,8 +37,8 @@ export function fetchImages() {
       })
   }
 }
-// Following function verifies if the current 
 
+// Following function verifies if the current 
 export function verifyToken() {
   let currentToken = localStorage.getItem('token');
   let data = { token: currentToken };

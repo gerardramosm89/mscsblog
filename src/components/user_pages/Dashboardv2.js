@@ -134,7 +134,7 @@ class Dashboardv2 extends Component {
             </ul>
           </div>
           <div className="col-9">
-            {(this.state.selectedMenuItem === 'Images' ?this.renderImageComponent(): null)}
+            {(this.state.selectedMenuItem === 'Images' ? this.renderImageComponent() : null)}
             {this.state.selectedMenuItem === 'Posts' ? (
               <div className="col-9 list-group">
                 <div className="col-10 offset-1 text-center">

@@ -4,7 +4,7 @@ import { push } from 'react-router-redux';
 let rootUrl = 'http://mlhq.io:3050';
 let signInUrl = 'http://mlhq.io:3050/api/userauth';
 
-const env = '';
+const env = 'dev';
 if (env === 'dev') {
   rootUrl = 'http://localhost:3050';
   signInUrl = 'http://localhost:3050/api/userauth';

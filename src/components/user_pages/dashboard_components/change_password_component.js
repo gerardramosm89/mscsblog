@@ -8,7 +8,8 @@ class ChangePasswordComponent extends Component {
       token: '',
       currentPassword: '',
       newPassword: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      hasError: null
     }
   }
   componentDidMount() {
@@ -21,12 +22,28 @@ class ChangePasswordComponent extends Component {
     if (newPassword !== confirmPassword) {
       return console.log('Passwords and confirmation must match');
     }
-    this.props.changeUserPassword(this.state);
+    this.props.changeUserPassword(this.state)
+      .then(res => console.log('response from changepass is: ', res));
   }
   inputChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     }, () => console.log(this.state));
+  }
+
+  renderError() {
+    if (this.state.confirmPassword !== this.state.newPassword && (this.state.confirmPassword.length === this.state.newPassword.length)) {
+      return(
+        <div>
+          <div className="alert alert-danger" role="alert">
+            Make sure the new passwords match
+          </div>
+        </div>
+      );
+    } else {
+      return null
+    }
+    
   }
   render() {
     return (
@@ -35,15 +52,16 @@ class ChangePasswordComponent extends Component {
         <form onSubmit={this.changePass.bind(this)} >
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Current Password</label>
-          <input className="form-control" name="currentPassword" onChange={this.inputChange.bind(this)} placeholder="Current Password" />
+          <input type="password" className="form-control" name="currentPassword" onChange={this.inputChange.bind(this)} placeholder="Current Password" />
         </div>
+        {this.renderError()}
         <div className="form-group">
           <label>New Password</label>
-          <input className="form-control" name="newPassword" onChange={this.inputChange.bind(this)} placeholder="New Password" />
+          <input type="password" className="form-control" name="newPassword" onChange={this.inputChange.bind(this)} placeholder="New Password" />
         </div>
         <div className="form-group">
           <label>Confirm Password</label>
-          <input className="form-control" name="confirmPassword" onChange={this.inputChange.bind(this)} placeholder="Confirm Password" />
+          <input type="password" className="form-control" name="confirmPassword" onChange={this.inputChange.bind(this)} placeholder="Confirm Password" />
         </div>
         <button className="btn btn-primary">Submit</button>
         </form>

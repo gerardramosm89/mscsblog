@@ -9,7 +9,8 @@ class ChangePasswordComponent extends Component {
       currentPassword: '',
       newPassword: '',
       confirmPassword: '',
-      hasError: null
+      hasError: null,
+      isSuccessful: null
     }
   }
   componentDidMount() {
@@ -23,14 +24,25 @@ class ChangePasswordComponent extends Component {
       return console.log('Passwords and confirmation must match');
     }
     this.props.changeUserPassword(this.state)
-      .then(res => console.log('response from changepass is: ', res));
+      .then(res => {
+        console.log('response from changepass is: ', res)
+        if (res.payload.passwordChangeResponse === 'success') {
+          this.setState({
+            isSuccessful: true
+          });
+        } else {
+          this.setState({ isSuccessful: false })
+        }
+      });
   }
   inputChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     }, () => console.log(this.state));
   }
+  renderSuccess() {
 
+  }
   renderError() {
     if (this.state.confirmPassword !== this.state.newPassword && (this.state.confirmPassword.length === this.state.newPassword.length)) {
       return(
@@ -49,6 +61,11 @@ class ChangePasswordComponent extends Component {
     return (
       <div className="col-6">
         <h1>Change your password</h1>
+        {this.state.isSuccessful ? (
+          <div className="alert alert-success" role="alert">
+            Password changed <strong>successfully</strong>
+          </div>
+        ) : null}
         <form onSubmit={this.changePass.bind(this)} >
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Current Password</label>

@@ -3,13 +3,15 @@ import { push } from 'react-router-redux';
 // const Variables
 let rootUrl = 'http://mlhq.io:3050';
 let signInUrl = 'http://mlhq.io:3050/api/userauth';
+let uiUrl = 'http://mlhq.io';
 
 const env = '';
 if (env === 'dev') {
   rootUrl = 'http://localhost:3050';
   signInUrl = 'http://localhost:3050/api/userauth';
+  uiUrl = 'http://localhost:8081';
 }
-export function getEnvHostname() {
+export function getEnvHostname(env) {
   if (env === 'dev') {
     return 'http://localhost:8081';
   }
@@ -31,7 +33,7 @@ export async function changeUserPassword(options) {
 // Action to grab images from the server
 export function fetchImages() {
   return dispatch => {
-    axios.get(`${getEnvHostname()}/images`)
+    axios.get(`${uiUrl}/images`)
       .then((images) => {
         dispatch({ type: 'FETCH_IMAGES', payload: { images } })
       })

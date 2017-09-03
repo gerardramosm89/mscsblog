@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createBlog } from '../../actions/index';
 import _ from 'lodash';
 import { Editor } from 'react-draft-wysiwyg';
+import ImageUpload from '../image_upload';
 
 class BlogsNew extends Component {
   constructor(props) {
@@ -79,6 +80,7 @@ class BlogsNew extends Component {
   render() {
     return (
       <div>
+        <ImageUpload />
         <section className="col-6 offset-3">
           {this.renderPostMessage()}
           <form onSubmit={this.newBlogButton.bind(this)}>

@@ -28,10 +28,10 @@ class ChangePasswordComponent extends Component {
         console.log('response from changepass is: ', res)
         if (res.payload.passwordChangeResponse === 'success') {
           this.setState({
-            isSuccessful: true
+            isSuccessful: 2
           });
         } else {
-          this.setState({ isSuccessful: false })
+          this.setState({ isSuccessful: 3 })
         }
       });
   }
@@ -61,9 +61,14 @@ class ChangePasswordComponent extends Component {
     return (
       <div className="col-6">
         <h1>Change your password</h1>
-        {this.state.isSuccessful ? (
+        {this.state.isSuccessful == 2 ? (
           <div className="alert alert-success" role="alert">
             Password changed <strong>successfully</strong>
+          </div>
+        ) : null}
+        {this.state.isSuccessful == 3 ? (
+          <div className="alert alert-danger" role="alert">
+            <strong>Error: </strong>make sure your password is correct
           </div>
         ) : null}
         <form onSubmit={this.changePass.bind(this)} >

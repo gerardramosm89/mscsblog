@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 import ImageUpload from '../image_upload';
+import ChangePasswordComponent from './dashboard_components/change_password_component';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import BadgeExampleSimple from '../testing_grounds/materialBadge';
@@ -89,13 +90,13 @@ class Dashboardv2 extends Component {
     this.props.history.push('/blogs/new');
   }
   manageMenu(e) {
-    let menuItems = [this.posts, this.images]
+    let menuItems = [this.posts, this.images, this.changePassword];
     menuItems.map(menuItem => {
       if (menuItem.innerHTML == e.target.innerHTML) {
         menuItem.classList.add('active');
         this.setState({
           selectedMenuItem: menuItem.innerHTML
-        });
+        }, () => console.log(`current selected menu is: ${this.state.selectedMenuItem}`));
       } else {
         if (menuItem.classList.contains('active')) menuItem.classList.remove('active');
       }
@@ -112,6 +113,14 @@ class Dashboardv2 extends Component {
               </div>
       </div>
     );
+  }
+  renderChangePassword() {
+    console.log('rendering change pass');
+    return(
+      <div>
+        <ChangePasswordComponent />
+      </div>
+    )
   }
   render() {
     return(
@@ -131,10 +140,17 @@ class Dashboardv2 extends Component {
               className="dashboard__list-group-item list-group-item">
                 Images
               </li>
+              <li
+              onClick={this.manageMenu.bind(this)}
+              ref={changePassword => this.changePassword = changePassword}
+              className="dashboard__list-group-item list-group-item">
+                Change your password
+              </li>
             </ul>
           </div>
           <div className="col-9">
-            {(this.state.selectedMenuItem === 'Images' ?this.renderImageComponent(): null)}
+            {(this.state.selectedMenuItem === 'Images' ? this.renderImageComponent() : null)}
+            {(this.state.selectedMenuItem === 'Change your password' ? this.renderChangePassword() : null)}
             {this.state.selectedMenuItem === 'Posts' ? (
               <div className="col-9 list-group">
                 <div className="col-10 offset-1 text-center">
@@ -148,60 +164,6 @@ class Dashboardv2 extends Component {
       </div>
     );
   }
-  // render() {
-  //   return (
-  //     <div>
-  //       <div className="container-fluid">
-  //         <div className="row">
-  //           <nav className="dashboard__sidebar col-2 bg-faded sidebar">
-  //             <ul className="nav nav-pills flex-column">
-  //               <li className="nav-item">
-  //                 <a className="nav-link dashboard__nav-link">Your Posts<span className="sr-only">(current)</span></a>
-  //               </li>
-  //               <li className="nav-item">
-  //                 <a className="nav-link dashboard__nav-link">Your Images</a>
-  //               </li>
-  //             </ul>
-  //           </nav>
-  //           <main className="col-10">
-  //             <h1>Dashboard</h1>
-  //             <div className="container">
-  //               <div className="row">
-  //                 <ImageUpload />
-  //               </div>
-  //               <div className="row">
-  //                 {this.renderImages()}
-  //               </div>
-  //             </div>
-  //             <h2>Section title</h2>
-  //             <div className="table-responsive">
-  //               <table className="table table-striped">
-  //                 <thead>
-  //                   <tr>
-  //                     <th>#</th>
-  //                     <th>Title</th>
-  //                     <th>Subheading</th>
-  //                     <th>Author</th>
-  //                     <th>Actions</th>
-  //                   </tr>
-  //                 </thead>
-  //                 <tbody>
-  //                   <tr>
-  //                     <td>1,001</td>
-  //                     <td>Lorem</td>
-  //                     <td>ipsum</td>
-  //                     <td>dolor</td>
-  //                     <td>sit</td>
-  //                   </tr>
-  //                  </tbody>
-  //               </table>
-  //             </div>
-  //           </main>
-  //         </div>
-  //       </div>
-  //      </div>  
-  //   );
-  // }
 }
 
 

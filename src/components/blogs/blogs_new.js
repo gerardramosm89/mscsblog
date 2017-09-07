@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { createBlog } from '../../actions/index';
 import _ from 'lodash';
 import { Editor } from 'react-draft-wysiwyg';
+import ImageUpload from '../image_upload';
 
 class BlogsNew extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      categories: '',
       content: '',
       postResponse: null,
       learningPath: 'Statistical Learning',
@@ -58,38 +58,6 @@ class BlogsNew extends Component {
       return null;
     }
   }
-  titleInput(e) {
-    this.setState({
-      title: e.target.value
-    });
-  }
-  categoriesInput(e) {
-    this.setState({
-      categories: e.target.value
-    });
-  }
-  contentInput(e) {
-    this.setState({
-      content: e.target.value
-    });
-  }
-
-  subheadingInput(e) {
-    this.setState({
-      subheading: e.target.value
-    });
-  }
-  difficultyInput(e) {
-    this.setState({
-      difficulty: e.target.value
-    });
-  }
-  handleLearningPathChange(e) {
-    e.preventDefault();
-    this.setState({
-      learningPath: e.target.value
-    });
-  }
   handlePublish(e) {
     const target = e.target;
     const value = target.checked;
@@ -97,33 +65,22 @@ class BlogsNew extends Component {
       [e.target.name]: value
     });
   }
-
-  consoleLogPublish(e) {
-  }
-
-  postOrder(e) {
-    const postOrder = e.target.value;
-    this.setState({
-      postOrder
-    });
-  }
-
   onEditorStateChange(editorState) {
     this.setState({
       editorState,
       editorHTML: this.input.editor.refs.editor.innerHTML
     });
   }
-
-  coverImageName(e) {
+  inputChange(e) {
+    e.preventDefault();
     this.setState({
-      coverImageName: e.target.value
-    });
+      [e.target.name]: e.target.value
+    }, () => console.log(this.state));
   }
   render() {
-    console.log(this.state);
     return (
       <div>
+        <ImageUpload />
         <section className="col-6 offset-3">
           {this.renderPostMessage()}
           <form onSubmit={this.newBlogButton.bind(this)}>
@@ -131,35 +88,36 @@ class BlogsNew extends Component {
 
            <div className="form-group">
               <label>Title Cover Image File Name</label>
-              <input className="form-control newblog__header"type="text" onChange={this.coverImageName.bind(this)} value={this.state.coverImageName} />
+              <input name="coverImageName" className="form-control newblog__header"type="text" onChange={this.inputChange.bind(this)} value={this.state.coverImageName} />
             </div>
 
 
             <div className="form-group">
               <label>Title</label>
-              <input name="title" className="form-control newblog__header" type="text" onChange={this.titleInput.bind(this)} value={this.state.title} />
+              <input name="title" className="form-control newblog__header" type="text" onChange={this.inputChange.bind(this)} value={this.state.title} />
             </div>
 
             <div className="form-group">
               <label>Subheading</label>
-              <input className="form-control newblog__header"type="text" onChange={this.subheadingInput.bind(this)} value={this.state.subheading} />
+              <input name="subheading" className="form-control newblog__header"type="text" onChange={this.inputChange.bind(this)} value={this.state.subheading} />
             </div>
 
             <div className="form-group">
               <label>Difficulty</label>
-              <input className="form-control newblog__header"type="text" onChange={this.difficultyInput.bind(this)} value={this.state.difficulty} />
+              <input name="difficulty" className="form-control newblog__header"type="text" onChange={this.inputChange.bind(this)} value={this.state.difficulty} />
             </div>
 
             <h1>{this.props.newBlog.content}</h1>
             <div className="form-group">
               <label>Content</label>
-              <textarea rows="5" className="form-control" onChange={this.contentInput.bind(this)} value={this.state.content} />
+              <textarea name="content" rows="5" className="form-control" onChange={this.inputChange.bind(this)} value={this.state.content} />
             </div>
             <div className="form-group">
               <label>Learning Path</label>
               <select
+              name="learningPath"
               className="form-control" 
-              onChange={this.handleLearningPathChange.bind(this)}
+              onChange={this.inputChange.bind(this)}
               value={this.state.learningPath}
               >
                 <option  value="Statistical Learning">Statistical Learning</option>
@@ -170,7 +128,7 @@ class BlogsNew extends Component {
             </div>
             <div className="form-group">
               <label>Post Order</label>
-              <input className="form-control" type="number" onChange={this.postOrder.bind(this)} />  
+              <input name="postOrder" className="form-control" type="number" onChange={this.inputChange.bind(this)} />  
             </div>
             <div className="form-check">
               <label className="form-check-label">

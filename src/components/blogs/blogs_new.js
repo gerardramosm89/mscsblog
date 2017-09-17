@@ -123,7 +123,7 @@ class BlogsNew extends Component {
                 <option  value="Statistical Learning">Statistical Learning</option>
                 <option  value="Algorithms">Algorithms</option>
                 <option  value="Data Structures">Data Structures</option>
- 
+                <option  value="Artificial Intelligence">Artificial Intelligence</option>
               </select>
             </div>
             <div className="form-group">

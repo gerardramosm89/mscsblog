@@ -23,6 +23,12 @@ class LearningPaths extends Component {
         subheading: 'From Linked Lists, to Hash tables, to Binary trees, etc.',
         path: 'data-structures',
         icon: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.5rem" height="12.5rem" viewBox="0 0 64 66" version="1.1"> <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch --> <title>big-data</title> <desc>Created with Sketch.</desc> <defs/> <g id="techno" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="big-data" transform="translate(1.000000, 1.000000)" stroke-width="2"> <circle id="Oval" stroke="#009AAD" cx="31" cy="32" r="15"/> <circle id="Oval" stroke="#082947" cx="31" cy="4" r="4"/> <circle id="Oval" stroke="#082947" cx="31" cy="60" r="4"/> <circle id="Oval" stroke="#082947" cx="4" cy="17" r="4"/> <circle id="Oval" stroke="#082947" cx="58" cy="17" r="4"/> <circle id="Oval" stroke="#082947" cx="4" cy="47" r="4"/> <circle id="Oval" stroke="#082947" cx="58" cy="47" r="4"/> <path d="M31,17 L31,47" id="Shape" stroke="#009AAD"/> <path d="M31.2,17 C36,20.2 39.2,25.7 39.2,32 C39.2,38.3 36,43.8 31.2,47" id="Shape" stroke="#009AAD"/> <path d="M30.8,47 C26,43.8 22.8,38.3 22.8,32 C22.8,25.7 26,20.2 30.8,17" id="Shape" stroke="#009AAD"/> <path d="M46,32 L16,32" id="Shape" stroke="#009AAD"/> <path d="M41.1,20.9 C38.2,22.9 34.7,24 31,24 C27.3,24 23.8,22.9 20.9,20.9" id="Shape" stroke="#009AAD"/> <path d="M41.1,43.1 C38.2,41.1 34.7,40 31,40 C27.3,40 23.8,41.1 20.9,43.1" id="Shape" stroke="#009AAD"/> <path d="M35,60 L55.1,49.7" id="Shape" stroke="#082947"/> <path d="M58,43 L58,21" id="Shape" stroke="#082947"/> <path d="M55.9,13.6 L35,5.4" id="Shape" stroke="#082947"/> <path d="M27,4.6 L6.9,14.2" id="Shape" stroke="#082947"/> <path d="M4,21 L4,43" id="Shape" stroke="#082947"/> <path d="M6.2,50.3 L27,58.9" id="Shape" stroke="#082947"/> <path d="M47.9,41.4 L54.5,45" id="Shape" stroke="#082947"/> <path d="M7.3,19.3 L13.7,22.8" id="Shape" stroke="#082947"/> <path d="M31,51 L31,56" id="Shape" stroke="#082947"/> <path d="M31,8 L31,13" id="Shape" stroke="#082947"/> <path d="M48.4,22.6 L54.5,19.3" id="Shape" stroke="#082947"/> <path d="M7.3,44.8 L13.7,41.1" id="Shape" stroke="#082947"/> </g> </g> </svg>'
+      },
+      {
+        title: 'Artificial Intelligence',
+        subheading: 'From Linked Lists, to Hash tables, to Binary trees, etc.',
+        path: 'artificial-intelligence',
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.5rem" height="12.5rem" viewBox="0 0 64 66" version="1.1"> <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch --> <title>big-data</title> <desc>Created with Sketch.</desc> <defs/> <g id="techno" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="big-data" transform="translate(1.000000, 1.000000)" stroke-width="2"> <circle id="Oval" stroke="#009AAD" cx="31" cy="32" r="15"/> <circle id="Oval" stroke="#082947" cx="31" cy="4" r="4"/> <circle id="Oval" stroke="#082947" cx="31" cy="60" r="4"/> <circle id="Oval" stroke="#082947" cx="4" cy="17" r="4"/> <circle id="Oval" stroke="#082947" cx="58" cy="17" r="4"/> <circle id="Oval" stroke="#082947" cx="4" cy="47" r="4"/> <circle id="Oval" stroke="#082947" cx="58" cy="47" r="4"/> <path d="M31,17 L31,47" id="Shape" stroke="#009AAD"/> <path d="M31.2,17 C36,20.2 39.2,25.7 39.2,32 C39.2,38.3 36,43.8 31.2,47" id="Shape" stroke="#009AAD"/> <path d="M30.8,47 C26,43.8 22.8,38.3 22.8,32 C22.8,25.7 26,20.2 30.8,17" id="Shape" stroke="#009AAD"/> <path d="M46,32 L16,32" id="Shape" stroke="#009AAD"/> <path d="M41.1,20.9 C38.2,22.9 34.7,24 31,24 C27.3,24 23.8,22.9 20.9,20.9" id="Shape" stroke="#009AAD"/> <path d="M41.1,43.1 C38.2,41.1 34.7,40 31,40 C27.3,40 23.8,41.1 20.9,43.1" id="Shape" stroke="#009AAD"/> <path d="M35,60 L55.1,49.7" id="Shape" stroke="#082947"/> <path d="M58,43 L58,21" id="Shape" stroke="#082947"/> <path d="M55.9,13.6 L35,5.4" id="Shape" stroke="#082947"/> <path d="M27,4.6 L6.9,14.2" id="Shape" stroke="#082947"/> <path d="M4,21 L4,43" id="Shape" stroke="#082947"/> <path d="M6.2,50.3 L27,58.9" id="Shape" stroke="#082947"/> <path d="M47.9,41.4 L54.5,45" id="Shape" stroke="#082947"/> <path d="M7.3,19.3 L13.7,22.8" id="Shape" stroke="#082947"/> <path d="M31,51 L31,56" id="Shape" stroke="#082947"/> <path d="M31,8 L31,13" id="Shape" stroke="#082947"/> <path d="M48.4,22.6 L54.5,19.3" id="Shape" stroke="#082947"/> <path d="M7.3,44.8 L13.7,41.1" id="Shape" stroke="#082947"/> </g> </g> </svg>'
       }
     ]
   }
@@ -33,7 +39,7 @@ class LearningPaths extends Component {
   renderTopics() {
     return this.topics.map(topic => {
       return (
-        <div onClick={() => this.props.routePush(`/${topic.path}`)}key={topic.title} className="col-4">
+        <div onClick={() => this.props.routePush(`/${topic.path}`)}key={topic.title} className="card-row col-6">
           <div className="topic-card">
             <div className="topic-card--top">
               <div className="topic-icon">
@@ -56,17 +62,11 @@ class LearningPaths extends Component {
   render() {
     return(
       <div style={{ paddingBottom: '1rem'}}>
-        {/* <header className="learning-paths__header-container">
-          <h1 className="learning-paths__heading">Topics we cover</h1>
-          <p className="learning-paths__subheading">This is our current collection as we go through the journey of learning these different topics.</p>
-        </header> */}
-        
         <section className="container topic-container">
           <div className="row">
             {this.renderTopics()}
           </div>
         </section>
-
         <section>
           <div className="quote-container">
             <div className="quote-inner">

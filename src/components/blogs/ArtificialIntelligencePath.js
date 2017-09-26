@@ -35,7 +35,6 @@ class ArtificialIntelligencePath extends Component {
   render() {
     return (
       <div>
-
         <section className="jumbotron text-center statistical-learning__header">
           <div className="container">
             <h1 className="jumbotron-heading">Artificial Intelligence</h1>
@@ -43,8 +42,6 @@ class ArtificialIntelligencePath extends Component {
           </div>
         </section>
         <hr />
-
-
         <section className="statistical-learning__body">
           <div className="statistical-learning__body--inner">
             {this.renderPosts()}

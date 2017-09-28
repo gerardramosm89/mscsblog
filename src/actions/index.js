@@ -1,15 +1,20 @@
 import axios from 'axios';
 import { push } from 'react-router-redux';
 // const Variables
-let rootUrl = 'http://mlhq.io:3050';
-let signInUrl = 'http://mlhq.io:3050/api/userauth';
-let uiUrl = 'http://mlhq.io';
+
+let rootUrl;
+let signInUrl;
+let uiUrl;
 
 const env = '';
 if (env === 'dev') {
   rootUrl = 'http://localhost:3050';
   signInUrl = 'http://localhost:3050/api/userauth';
   uiUrl = 'http://localhost:8081';
+} else {
+  rootUrl = 'http://mlhq.io:3050';
+  signInUrl = 'http://mlhq.io:3050/api/userauth';
+  uiUrl = 'http://mlhq.io';
 }
 export function getEnvHostname(env) {
   if (env === 'dev') {
@@ -22,7 +27,6 @@ export function getEnvHostname(env) {
 // Action for changing password
 export async function changeUserPassword(options) {
   let { currentPassword, currentToken, newPassword, token } = options;
-  console.log('Options we are trying to pass into password change are: ', options)
   let request = await axios.post(`${rootUrl}/api/changepassword`, options);
 
   return {
@@ -86,6 +90,14 @@ export function fetchByLearningPath(data) {
   }
 }
 
+export async function fetchNumPostsByLearningPath(data) {
+  const request = await axios.post(`${rootUrl}/api/learningpath`, data);
+  return {
+    type: 'FETCH_NUM_POSTS_BY_LEARNING_PATH',
+    payload: { request, learningPath: data.learningPath, short: data.short }
+  }
+}
+
 export async function updateBlog(updates) {
   const request = await axios.post(`${rootUrl}/api/updateOne`, updates);
   return {
@@ -96,7 +108,6 @@ export async function updateBlog(updates) {
 
 export async function fetchOneBlog(data) {
   const request = await axios.post(`${rootUrl}/api/fetchone`, data);
-  // const request = axios.post(`${rootUrl}/api/fetchone`, data);  
   return {
     type: 'FETCH_ONE_POST',
     payload: request.data

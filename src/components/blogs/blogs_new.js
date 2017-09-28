@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createBlog } from '../../actions/index';
+import { createBlog, fetchNumPostsByLearningPath } from '../../actions/index';
 import _ from 'lodash';
 import { Editor } from 'react-draft-wysiwyg';
 import ImageUpload from '../image_upload';
@@ -19,8 +19,27 @@ class BlogsNew extends Component {
       editorHTML: '',
       difficulty: '',
       subheading: '',
-      coverImageName: ''
+      coverImageName: '',
+      SLLength: '',
+      DSLength: '',
+      AlgorithmsLength: '',
+      AILength: ''
     }
+  }
+  componentWillMount() {
+    let num1 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Statistical Learning', short: 'SLLength' });
+    let num2 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Data Structures', short: 'DSLength' });
+    let num3 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Algorithms', short: 'AlgorithmsLength' });
+    let num4 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Artificial Intelligence', short: 'AILength' });
+
+    Promise.all([num1,num2,num3,num4])
+      .then(data => {
+        data.map((data, i) => {
+          this.setState({
+            [data.payload.short]: data.payload.request.data.length
+          });
+        });
+      });
   }
 
   newBlogButton(e) {
@@ -75,7 +94,7 @@ class BlogsNew extends Component {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
-    }, () => console.log(this.state));
+    });
   }
   render() {
     return (
@@ -120,10 +139,10 @@ class BlogsNew extends Component {
               onChange={this.inputChange.bind(this)}
               value={this.state.learningPath}
               >
-                <option  value="Statistical Learning">Statistical Learning</option>
-                <option  value="Algorithms">Algorithms</option>
-                <option  value="Data Structures">Data Structures</option>
-                <option  value="Artificial Intelligence">Artificial Intelligence</option>
+                <option  value="Statistical Learning">Statistical Learning ({this.state.SLLength})</option>
+                <option  value="Algorithms">Algorithms ({this.state.AlgorithmsLength})</option>
+                <option  value="Data Structures">Data Structures ({this.state.DSLength})</option>
+                <option  value="Artificial Intelligence">Artificial Intelligence ({this.state.AILength})</option>
               </select>
             </div>
             <div className="form-group">
@@ -163,4 +182,4 @@ function mapStateToProps(state) {
   return { newBlog: state.newBlog, token: state.token };
 }
 
-export default connect(mapStateToProps, { createBlog })(BlogsNew);
+export default connect(mapStateToProps, { createBlog, fetchNumPostsByLearningPath })(BlogsNew);

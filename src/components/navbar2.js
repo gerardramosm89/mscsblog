@@ -37,10 +37,8 @@ class Navbar2 extends Component {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-             {/* <Link className="nav-link" to="/learningpaths">Learning Paths<span className="sr-only">(current)</span></Link> */}
           </li>
         </ul>
-        {/* { this.props.token ? '': (<Button color="primary" onClick={this.props.toggleModal}>Sign In</Button>) } */}
         {this.props.token ? (
           <div className="dropdown" style={{color: 'white', cursor: 'pointer'}}>
             <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +46,6 @@ class Navbar2 extends Component {
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
-              {/* <Link className="dropdown-item" to="/signup">Sign Up</Link> */}
               <a
               onClick={this.onSignOut.bind(this)} 
               className="dropdown-item">Logout</a>

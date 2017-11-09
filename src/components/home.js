@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import LearningPaths from './learning_paths';
-import GModal from './utils/gmodal';
 
 class Home extends Component {
   constructor(props) {

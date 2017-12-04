@@ -32,6 +32,7 @@ import Dashboardv2 from './components/user_pages/Dashboardv2';
 import AlgorithmsPath from './components/blogs/AlgorithmsPath';
 import DataStructuresPath from './components/blogs/DataStructuresPath';
 import ArtificialIntelligencePath from './components/blogs/ArtificialIntelligencePath';
+import HomeV2 from './components/homeV2'
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -70,12 +71,11 @@ ReactDOM.render(
             <Route path="/learningpaths" component={LearningPaths} />
             <Route path="/algorithms" component={AlgorithmsPath} />
             <Route path="/artificial-intelligence" component={ArtificialIntelligencePath} />
-            <Route path="/data-structures" component={DataStructuresPath} />        
-            {/* <Route path="/dashboard" component={Dashboard} /> */}
+            <Route path="/data-structures" component={DataStructuresPath} />
             <Route path="/statistical-learning" component={StatisticalLearning2} />
             <Route path="/playground" component={Playground} />
             <Route path='/dashboard' component={Dashboardv2} />
-            <Route path="/" component={Home} />
+            <Route path="/" component={HomeV2} />
           </Switch>
         </div>
       </ConnectedRouter>

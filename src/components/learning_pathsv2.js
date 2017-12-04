@@ -58,8 +58,10 @@ export default class LearningPaths extends Component {
   }
   render() {
     return(
-      <div className="paths-container">
-        { this.renderCards() }
+      <div className="paths-row">
+        <div className="paths-container">
+          { this.renderCards() }
+        </div>
       </div>
     );
   };

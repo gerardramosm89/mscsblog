@@ -2,7 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media (min-width: 1700px) {
+    width: 1900px;
+  }
+  @media (max-width: 1120px) {
+    width: 1400px;
+  }
+}
+.paths-row {
   background-color: #212025;
+  display: flex;
+  justify-content: center;
 }
 .card-container {
   font-family: 'Roboto';

@@ -32,7 +32,7 @@ import Dashboardv2 from './components/user_pages/Dashboardv2';
 import AlgorithmsPath from './components/blogs/AlgorithmsPath';
 import DataStructuresPath from './components/blogs/DataStructuresPath';
 import ArtificialIntelligencePath from './components/blogs/ArtificialIntelligencePath';
-import HomeV2 from './components/homeV2'
+import HomeV2 from './components/homev2'
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';

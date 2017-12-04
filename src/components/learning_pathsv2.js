@@ -50,7 +50,7 @@ export default class LearningPaths extends Component {
             <p>{path.subheading}</p>
           </div>
           <div className="card-button">
-            <Link className={`learning-path-button ${path.btnColor}`} to={`${path.path}`}>Learn this</Link>
+            <Link className={`learning-path-button ${path.btnColor}`} to={`${path.path}`}>Begin</Link>
           </div>
         </div>
       );

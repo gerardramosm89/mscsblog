@@ -8,14 +8,46 @@
   font-family: 'Roboto';
   width: 500px;
   margin: 20px;
-  padding: 20px;
   color: white;
   background-color: #2d2c33;
   border-radius: 7px;
   & h1 {
     color: white;
+    margin-top: 7px;
   }
   & p {
     color: rgba(255, 255, 255, 0.75);
   }
+}
+.card-header-image {
+  & img {
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+  }
+}
+.card-text-learning {
+  margin: 0 20px;
+}
+.card-button {
+  margin: 0 20px 20px 20px;
+}
+.learning-path-button {
+  display: block;
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+  outline: 0px;
+  background-color: #70c7be;
+  border-radius: 4px;
+  border: 0;
+  color: #ffffff !important;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  height: 2.85em;
+  line-height: 2.95em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none !important;
+  white-space: nowrap;
 }

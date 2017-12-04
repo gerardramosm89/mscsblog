@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+/*
+background-main: #212025
+background-card: #2d2c33
+button-teal: #70C8BE
+button-lavander: #7F92CF
+button-orchid: #9d7ed0
+subheading-white: #e4e5e7
+*/
+// Home CSS
+// .home-body {
+
+// }
+.home-container {
+  display: flex;
+  font-family: 'Roboto';
+  background-image: url('http://mlhq.io/img/slide03.jpg');
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+.home-header-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+.home-header-text h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.home-header-text p {
+  max-width: 650px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.4em;
+  font-weight: 300;
+}
+.home-container:before {
+    content: '';
+    background-color: #42424f;
+    display: block;
+    height: 500px;
+    opacity: 0.45;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}

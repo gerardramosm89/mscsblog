@@ -61,7 +61,7 @@ class LearningPaths extends Component {
   }
   render() {
     return(
-      <div style={{ paddingBottom: '1rem'}}>
+      <div style={{ paddingBottom: '1rem'}} className=".learning-paths-container">
         <section className="container topic-container">
           <div className="row">
             {this.renderTopics()}

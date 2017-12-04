@@ -9,7 +9,29 @@ export default class LearningPaths extends Component {
         title: 'Statistical Learning',
         subheading: 'Interesting in learning about Machine Learning? So are we, this is for the people who want to dive into deeper learning and data analysis',
         path: 'statistical-learning',
-        image: 'http://mlhq.io/img/pic02.jpg'
+        image: 'http://mlhq.io/img/pic02.jpg',
+        btnColor: 'learning-path-button-lavander'
+      },
+      {
+        title: 'Algorithms',
+        subheading: '"Why do I need to learn how to sort?!" It’s built into programing languages!” We know, we are right there with you, but the importance of good computer science fundamentals is undeniable',
+        path: 'algorithms',
+        image: 'http://mlhq.io/img/pic01.jpg',
+        btnColor: 'learning-path-button-orchid'
+      },
+      {
+        title: 'Data Structures',
+        subheading: 'From Linked Lists, to Hash tables, to Binary trees, etc.',
+        path: 'data-structures',
+        image: 'http://mlhq.io/img/pic03.jpg',
+        btnColor: 'learning-path-button-teal'
+      },
+      {
+        title: 'Artificial Intelligence',
+        subheading: 'Theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.',
+        path: 'artificial-intelligence',
+        image: 'http://mlhq.io/img/pic04.jpg',
+        btnColor: 'learning-path-button-lavander'
       }
     ];
     this.state = {
@@ -21,14 +43,14 @@ export default class LearningPaths extends Component {
       return(
         <div className="card-container">
           <div className="card-header-image">
-            <img src="http://mlhq.io/img/pic02.jpg" />
+            <img src={`${path.image}`} />
           </div>
           <div className="card-text-learning">
-            <h1>Lorem Ipsum</h1>
-            <p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+            <h1>{path.title}</h1>
+            <p>{path.subheading}</p>
           </div>
           <div className="card-button">
-            <Link to="statistical-learning">Let me learn this</Link>
+            <Link className={`learning-path-button ${path.btnColor}`} to={`${path.path}`}>Learn this</Link>
           </div>
         </div>
       );
@@ -37,7 +59,8 @@ export default class LearningPaths extends Component {
   render() {
     return(
       <div className="paths-container">
-        <div className="card-container">
+        { this.renderCards() }
+        {/* <div className="card-container">
           <div className="card-header-image">
             <img src="http://mlhq.io/img/pic02.jpg" />
           </div>
@@ -100,7 +123,7 @@ export default class LearningPaths extends Component {
           <div className="card-button">
             <button>Click Me</button>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   };

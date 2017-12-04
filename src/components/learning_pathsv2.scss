@@ -11,6 +11,8 @@
   color: white;
   background-color: #2d2c33;
   border-radius: 7px;
+  display: flex;
+  flex-direction: column;
   & h1 {
     color: white;
     margin-top: 7px;
@@ -29,7 +31,7 @@
   margin: 0 20px;
 }
 .card-button {
-  margin: 0 20px 20px 20px;
+  margin: auto 20px 20px 20px;
 }
 .learning-path-button {
   display: block;
@@ -50,4 +52,13 @@
   text-align: center;
   text-decoration: none !important;
   white-space: nowrap;
+  &-teal {
+    background-color: #70c7be;  
+  }
+  &-lavander {
+    background-color: #7F92CF;
+  }
+  &-orchid {
+    background-color: #9d7ed0;
+  }
 }

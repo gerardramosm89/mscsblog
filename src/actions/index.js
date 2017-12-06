@@ -12,9 +12,9 @@ if (env === 'dev') {
   signInUrl = 'http://localhost:3050/api/userauth';
   uiUrl = 'http://localhost:8081';
 } else {
-  rootUrl = 'http://mlhq.io:3050';
-  signInUrl = 'http://mlhq.io:3050/api/userauth';
-  uiUrl = 'http://mlhq.io';
+  rootUrl = 'https://mlhq.io';
+  signInUrl = 'https://mlhq.io/api/userauth';
+  uiUrl = 'https://mlhq.io';
 }
 export function getEnvHostname(env) {
   if (env === 'dev') {

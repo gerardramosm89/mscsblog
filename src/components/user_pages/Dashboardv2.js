@@ -34,7 +34,7 @@ class Dashboardv2 extends Component {
   }
   deletePost(postId) {
     const data = { token: this.props.token.token, postId: postId };
-    axios.post('http://mlhq.io:3050/api/deleteOne', data)
+    axios.post('https://mlhq.io/api/deleteOne', data)
       .then((response) => {
         this.props.fetchBlogs();
       });

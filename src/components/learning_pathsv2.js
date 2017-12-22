@@ -9,28 +9,28 @@ export default class LearningPaths extends Component {
         title: 'Statistical Learning',
         subheading: 'Interesting in learning about Machine Learning? So are we, this is for the people who want to dive into deeper learning and data analysis',
         path: 'statistical-learning',
-        image: 'http://mlhq.io/img/pic02.jpg',
+        image: 'https://mlhq.io/img/pic02.jpg',
         btnColor: 'learning-path-button-lavander'
       },
       {
         title: 'Algorithms',
         subheading: '"Why do I need to learn how to sort?!" It’s built into programing languages!” We know, we are right there with you, but the importance of good computer science fundamentals is undeniable',
         path: 'algorithms',
-        image: 'http://mlhq.io/img/pic01.jpg',
+        image: 'https://mlhq.io/img/pic01.jpg',
         btnColor: 'learning-path-button-orchid'
       },
       {
         title: 'Data Structures',
         subheading: 'From Linked Lists, to Hash tables, to Binary trees, etc.',
         path: 'data-structures',
-        image: 'http://mlhq.io/img/pic03.jpg',
+        image: 'https://mlhq.io/img/pic03.jpg',
         btnColor: 'learning-path-button-teal'
       },
       {
         title: 'Artificial Intelligence',
         subheading: 'Theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.',
         path: 'artificial-intelligence',
-        image: 'http://mlhq.io/img/pic04.jpg',
+        image: 'https://mlhq.io/img/pic04.jpg',
         btnColor: 'learning-path-button-lavander'
       }
     ];

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SHORTNAME = 'mlhq';
-const WEBSITE_URL = 'http://www.mlhq.io';
+const WEBSITE_URL = 'https://mlhq.io';
 
 function renderDisqus() {
   if (window.DISQUS === undefined) {
@@ -16,12 +16,6 @@ function renderDisqus() {
 }
 
 class DisqusThread extends React.Component{
-
-  // const propTypes = {
-  //   id: PropTypes.string.isRequired,
-  //   title: PropTypes.string.isRequired,
-  //   path: PropTypes.string.isRequired
-  // };
 
   shouldComponentUpdate(nextProps) {
     return this.props.id !== nextProps.id ||
@@ -39,8 +33,6 @@ class DisqusThread extends React.Component{
 
   render() {
     let { id, title, path, ...other} = this.props;
-    // let { id, title, path} = this.props;
-    
 
     if (process.env.BROWSER) {
       window.disqus_shortname = SHORTNAME;
@@ -50,8 +42,7 @@ class DisqusThread extends React.Component{
     }
 
     return <div {...other} id="disqus_thread" />;
-    // return <div id="disqus_thread" />;
-    
+  
   }
 
 }

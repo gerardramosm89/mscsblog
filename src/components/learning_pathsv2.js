@@ -32,7 +32,21 @@ export default class LearningPaths extends Component {
         path: 'artificial-intelligence',
         image: 'https://mlhq.io/img/pic04.jpg',
         btnColor: 'learning-path-button-lavander'
-      }
+      },
+      {
+        title: 'Deep Learning',
+        subheading: 'Theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.',
+        path: 'deep-learning',
+        image: 'https://mlhq.io/img/pic04.jpg',
+        btnColor: 'learning-path-button-lavander'
+      },
+      {
+        title: 'Natural Language Processing',
+        subheading: 'Theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.',
+        path: 'natural-language-processing',
+        image: 'https://mlhq.io/img/pic04.jpg',
+        btnColor: 'learning-path-button-lavander'
+      },
     ];
     this.state = {
       paths
@@ -41,7 +55,7 @@ export default class LearningPaths extends Component {
   renderCards() {
     return this.state.paths.map(path => {
       return(
-        <div className="card-container">
+        <div key={path.title}className="card-container">
           <div className="card-header-image">
             <img src={`${path.image}`} />
           </div>

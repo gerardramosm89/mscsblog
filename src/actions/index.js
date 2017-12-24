@@ -20,7 +20,7 @@ export function getEnvHostname(env) {
   if (env === 'dev') {
     return 'http://localhost:8081';
   }
-  else return 'http://mlhq.io';
+  else return 'https://mlhq.io';
 }
 
 

@@ -23,7 +23,9 @@ class BlogsNew extends Component {
       SLLength: '',
       DSLength: '',
       AlgorithmsLength: '',
-      AILength: ''
+      AILength: '',
+      DeepLearningLength: '',
+      NLPLength: ''
     }
   }
   componentWillMount() {
@@ -31,9 +33,11 @@ class BlogsNew extends Component {
     let num2 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Data Structures', short: 'DSLength' });
     let num3 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Algorithms', short: 'AlgorithmsLength' });
     let num4 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Artificial Intelligence', short: 'AILength' });
-
-    Promise.all([num1,num2,num3,num4])
+    let num5 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Deep Learning', short: 'DeepLearningLength' });
+    let num6 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Natural Language Processing', short: 'NLPLength' });
+    Promise.all([num1,num2,num3,num4, num5, num6])
       .then(data => {
+        console.log('data is: ', data);
         data.map((data, i) => {
           this.setState({
             [data.payload.short]: data.payload.request.data.length
@@ -139,10 +143,12 @@ class BlogsNew extends Component {
               onChange={this.inputChange.bind(this)}
               value={this.state.learningPath}
               >
-                <option  value="Statistical Learning">Statistical Learning ({this.state.SLLength})</option>
-                <option  value="Algorithms">Algorithms ({this.state.AlgorithmsLength})</option>
-                <option  value="Data Structures">Data Structures ({this.state.DSLength})</option>
-                <option  value="Artificial Intelligence">Artificial Intelligence ({this.state.AILength})</option>
+                <option value="Statistical Learning">Statistical Learning ({this.state.SLLength})</option>
+                <option value="Algorithms">Algorithms ({this.state.AlgorithmsLength})</option>
+                <option value="Data Structures">Data Structures ({this.state.DSLength})</option>
+                <option value="Artificial Intelligence">Artificial Intelligence ({this.state.AILength})</option>
+                <option value="Deep Learning">Deep Learning ({this.state.DeepLearningLength})</option>
+                <option value="Natural Language Processing">Natural Language Processing ({this.state.NLPLength})</option>
               </select>
             </div>
             <div className="form-group">
@@ -161,17 +167,9 @@ class BlogsNew extends Component {
                 Publish now?
               </label>
             </div>
-
-            {/* <Editor
-            ref={node => this.input = node} 
-            onChange={this.onEditorStateChange.bind(this)} 
-            /> */}
-
             <button className="btn btn-lg btn-info" onClick={this.newBlogButton.bind(this)}>Post Blog</button>
           </form>
         </section>
-            {/* <button onClick={this.consoleLogPublish.bind(this)} className="btn btn-lg">Console log this.state.publish</button> */}
-
       </div>
     );
   }

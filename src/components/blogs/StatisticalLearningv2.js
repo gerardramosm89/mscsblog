@@ -38,16 +38,13 @@ class StatisticalLearning extends Component {
   render() {
     return (
       <div>
-
-<section className="jumbotron text-center statistical-learning__header">
-  <div className="container">
-    <h1 className="jumbotron-heading">Statistical Learning</h1>
-    <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
-  </div>
-</section>
-<hr />
-
-
+        <section className="jumbotron text-center statistical-learning__header">
+          <div className="container">
+            <h1 className="jumbotron-heading">Statistical Learning</h1>
+            <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
+          </div>
+        </section>
+        <hr />
         <section className="statistical-learning__body">
           <div className="statistical-learning__body--inner">
             {this.renderPosts()}

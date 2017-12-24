@@ -33,6 +33,7 @@ import AlgorithmsPath from './components/blogs/AlgorithmsPath';
 import DataStructuresPath from './components/blogs/DataStructuresPath';
 import ArtificialIntelligencePath from './components/blogs/ArtificialIntelligencePath';
 import HomeV2 from './components/homev2'
+import StatisticalLearningv3 from './components/blogs/StatisticalLearningv3';
 // Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -72,7 +73,9 @@ ReactDOM.render(
             <Route path="/algorithms" component={AlgorithmsPath} />
             <Route path="/artificial-intelligence" component={ArtificialIntelligencePath} />
             <Route path="/data-structures" component={DataStructuresPath} />
-            <Route path="/statistical-learning" component={StatisticalLearning2} />
+            <Route path="/statistical-learning" component={StatisticalLearningv3} />
+            <Route path="/deep-learning" component={StatisticalLearningv3} />
+            <Route path="/natural-language-processing" component={StatisticalLearningv3} />
             <Route path="/playground" component={Playground} />
             <Route path='/dashboard' component={Dashboardv2} />
             <Route path="/" component={HomeV2} />

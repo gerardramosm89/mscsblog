@@ -134,6 +134,8 @@ class EditBlog extends Component {
                 <option  value="Data Structures">Data Structures</option>
                 <option  value="Algorithms">Algorithms</option>
                 <option  value="Artificial Intelligence">Artificial Intelligence</option>
+                <option  value="Deep Learning">Deep Learning</option>
+                <option  value="Natural Language Processing">Natural Language Processing</option>
               </select>
             </div>
             <button className="button btn btn-primary" onClick={this.updateBlog.bind(this)}>Submit changes to blog</button>

@@ -70,9 +70,9 @@ ReactDOM.render(
             <Route path="/signup" component={SignUp} />
             <Route path="/blogs" component={BlogsIndex} />
             <Route path="/learningpaths" component={LearningPaths} />
-            <Route path="/algorithms" component={AlgorithmsPath} />
-            <Route path="/artificial-intelligence" component={ArtificialIntelligencePath} />
-            <Route path="/data-structures" component={DataStructuresPath} />
+            <Route path="/algorithms" component={StatisticalLearningv3} />
+            <Route path="/artificial-intelligence" component={StatisticalLearningv3} />
+            <Route path="/data-structures" component={StatisticalLearningv3} />
             <Route path="/statistical-learning" component={StatisticalLearningv3} />
             <Route path="/deep-learning" component={StatisticalLearningv3} />
             <Route path="/natural-language-processing" component={StatisticalLearningv3} />

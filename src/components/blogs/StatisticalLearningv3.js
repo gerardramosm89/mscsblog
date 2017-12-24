@@ -17,6 +17,12 @@ class StatisticalLearning extends Component {
       this.props.fetchByLearningPath({ learningPath: "Deep Learning" });      
     } else if (path === '/natural-language-processing') {
       this.props.fetchByLearningPath({ learningPath: "Natural Language Processing" });
+    } else if (path === '/algorithms'){
+      this.props.fetchByLearningPath({ learningPath: "Algorithms" });      
+    } else if (path === '/data-structures') {
+      this.props.fetchByLearningPath({ learningPath: "Data Structures" });      
+    } else if (path === '/artificial-intelligence') {
+      this.props.fetchByLearningPath({ learningPath: "Artificial Intelligence" });      
     } else {
       this.props.fetchByLearningPath({ learningPath: "Statistical Learning" });    
     }
@@ -97,7 +103,27 @@ class StatisticalLearning extends Component {
           <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
         </div>
       );
-      
+    } else if (path === '/algorithms') {
+      return(
+        <div>
+          <h1 className="jumbotron-heading">Algorithms</h1>
+          <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
+        </div>
+      );
+    } else if (path === '/data-structures') {
+      return (
+        <div>
+          <h1 className="jumbotron-heading">Data Structures</h1>
+          <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
+        </div>
+      );
+    } else if (path === '/artificial-intelligence') {
+      return (
+        <div>
+          <h1 className="jumbotron-heading">Artificial Intelligence</h1>
+          <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
+        </div>
+      );
     }
   }
   render() {

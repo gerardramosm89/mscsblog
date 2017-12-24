@@ -61,7 +61,7 @@ class StatisticalLearning extends Component {
             </div>
           </div>
 
-          <hr />
+          {/* <hr />
 
           <div className="card mb-3">
             <img className="card-img-top statistical-learning__card-img-top" src={post.titleImageName ? `/img/${post.titleImageName}`: `/img/linear-regression.jpg`} alt="Card image cap" />
@@ -70,7 +70,7 @@ class StatisticalLearning extends Component {
               <p className="card-text">{post.subheading}</p>
               <p className="card-text"><small className="text-muted">Date: {post.createdAt.slice(0,10)}</small></p>
             </div>
-          </div>
+          </div> */}
         </div>
       );
     });

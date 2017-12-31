@@ -27,7 +27,10 @@ class SignIn extends Component {
       username: this.state.username, 
       password: this.state.password
     }).then(response => {
-        console.log('response is: ', response);
+        const { message } = response.payload.data;
+        this.setState({
+          error: message
+        })
         if (response.payload.data.token) {
           this.props.toggleModal();
           this.props.routePush('/dashboard');

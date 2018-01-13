@@ -148,7 +148,15 @@ export function toggleModal() {
   }
 }
 
-
+// Payment Actions
+export async function handlePayment(token) {
+  const res = await axios.post('/api/stripe', token);
+  console.log('res from payment action is: ', res);
+  return {
+    type: 'PAY_STRIPE',
+    payload: res
+  } 
+}
 
 
 

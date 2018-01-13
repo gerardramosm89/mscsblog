@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const socketIO = require('socket.io');
-
+const keys = require('./config/keys');
+const stripe = require('stripe')(keys.stripeSecretKey)
 // Example for file delete
 // fs.unlink('./img/creating.gif', (err) => {
 //   if (err) {
@@ -94,6 +95,18 @@ app.post('/api/upload', upload.any(), function(req, res) {
     res.sendStatus(200);
 });
 
+app.post('/api/stripe', async (req, res) => {
+    console.log('received api payment to backend');
+    const charge = await stripe.charges.create({
+        amount: 500,
+        currency: 'usd',
+        description: '$5 Per Month',
+        source: req.body.id
+    });
+    console.log('charge is: ', charge);
+    res.send(charge);
+});
+  
 server.listen(port, function(){
     console.log(`Express server is up on port ${port}`);
 });

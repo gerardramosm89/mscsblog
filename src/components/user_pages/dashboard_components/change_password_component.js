@@ -59,7 +59,7 @@ class ChangePasswordComponent extends Component {
   }
   render() {
     return (
-      <div className="col-6">
+      <div className="col-6 pass-change-container">
         <h1>Change your password</h1>
         {this.state.isSuccessful == 2 ? (
           <div className="alert alert-success" role="alert">

@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const socketIO = require('socket.io');
-const keys = require('./config/keys');
-const stripe = require('stripe')(keys.stripeSecretKey);
 // Example for file delete
 // fs.unlink('./img/creating.gif', (err) => {
 //   if (err) {

@@ -57,7 +57,7 @@ class StatisticalLearning extends Component {
             </div>
             <div className="header_image_text_preview_container">
               <div className="statistical-learning__image">
-                <img src={titleImageName ? `/img/${titleImageName}`: `/img/linear-regression.jpg`} />
+                <img src={titleImageName ? `https://mlhq.io/img/${titleImageName}`: `https://mlhq.io/img/linear-regression.jpg`} />
               </div>
             </div>
             <div className="bottom_buttons_container">

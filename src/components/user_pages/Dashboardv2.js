@@ -10,7 +10,6 @@ import ImageUpload from '../image_upload';
 import ChangePasswordComponent from './dashboard_components/change_password_component';
 import Payments from './dashboard_components/payments';
 import { keys } from '../../../config/clientConfigs/keys';
-console.log('keys is: ', keys);
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import BadgeExampleSimple from '../testing_grounds/materialBadge';
 import ListExampleSimple from '../testing_grounds/materialList';

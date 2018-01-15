@@ -65,6 +65,7 @@ class ImageUpload extends Component {
       <div>
         <form onChange={this.previewFiles.bind(this)}>
           <input
+          style={{ 'height': '2rem' }}
           onChange={this.logFiles.bind(this)}
           ref={(files => { this.files = files })}
           id="browse" 

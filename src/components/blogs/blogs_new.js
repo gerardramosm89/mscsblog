@@ -102,9 +102,9 @@ class BlogsNew extends Component {
   }
   render() {
     return (
-      <div>
-        <ImageUpload />
+      <div className="newBlogs">
         <section className="col-6 offset-3">
+          <ImageUpload />
           {this.renderPostMessage()}
           <form onSubmit={this.newBlogButton.bind(this)}>
             <h1>{this.props.newBlog.title}</h1>

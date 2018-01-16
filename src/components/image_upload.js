@@ -46,7 +46,7 @@ class ImageUpload extends Component {
   }
 
   uploadFile(file){
-      var url = `${getEnvHostname('dev')}/api/upload`;
+      var url = `${getEnvHostname('')}/api/upload`;
       var xhr = new XMLHttpRequest();
       var fd = new FormData();
       xhr.open("POST", url, true);

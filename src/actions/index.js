@@ -6,7 +6,7 @@ let rootUrl;
 let signInUrl;
 let uiUrl;
 
-const env = 'dev';
+const env = '';
 if (env === 'dev') {
   rootUrl = 'http://localhost:3050';
   signInUrl = 'http://localhost:3050/api/userauth';

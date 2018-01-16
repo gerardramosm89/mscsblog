@@ -46,7 +46,7 @@ class ImageUpload extends Component {
   }
 
   uploadFile(file){
-      var url = `${getEnvHostname('')}/api/upload`;
+      var url = `${getEnvHostname('dev')}/api/upload`;
       var xhr = new XMLHttpRequest();
       var fd = new FormData();
       xhr.open("POST", url, true);
@@ -65,6 +65,7 @@ class ImageUpload extends Component {
       <div>
         <form onChange={this.previewFiles.bind(this)}>
           <input
+          style={{ 'height': '2rem' }}
           onChange={this.logFiles.bind(this)}
           ref={(files => { this.files = files })}
           id="browse" 

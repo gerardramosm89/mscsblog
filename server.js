@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const socketIO = require('socket.io');
-
 // Example for file delete
 // fs.unlink('./img/creating.gif', (err) => {
 //   if (err) {
@@ -93,7 +92,7 @@ app.post('/api/upload', upload.any(), function(req, res) {
     console.log('req.body is: ', req.body);
     res.sendStatus(200);
 });
-
+  
 server.listen(port, function(){
     console.log(`Express server is up on port ${port}`);
 });

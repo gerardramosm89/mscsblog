@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 import { safeURLify } from '../../utils/stringLowerAndReplaceSpaces';
 import ImageUpload from '../image_upload';
 import ChangePasswordComponent from './dashboard_components/change_password_component';
-
+import Payments from './dashboard_components/payments';
+import { keys } from '../../../config/clientConfigs/keys';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import BadgeExampleSimple from '../testing_grounds/materialBadge';
 import ListExampleSimple from '../testing_grounds/materialList';
@@ -29,6 +30,7 @@ class Dashboardv2 extends Component {
     }
   }
   componentDidMount() {
+    console.log('mounted');
     this.props.fetchImages();
     this.props.fetchBlogs();
   }
@@ -90,7 +92,7 @@ class Dashboardv2 extends Component {
     this.props.history.push('/blogs/new');
   }
   manageMenu(e) {
-    let menuItems = [this.posts, this.images, this.changePassword];
+    let menuItems = [this.posts, this.images, this.changePassword, this.manageSubscription];
     menuItems.map(menuItem => {
       if (menuItem.innerHTML == e.target.innerHTML) {
         menuItem.classList.add('active');
@@ -146,9 +148,16 @@ class Dashboardv2 extends Component {
               className="dashboard__list-group-item list-group-item">
                 Change your password
               </li>
+              <li
+              onClick={this.manageMenu.bind(this)}
+              ref={manageSubscription => this.manageSubscription = manageSubscription}
+              className="dashboard__list-group-item list-group-item">
+                Manage Subscription
+              </li>
             </ul>
           </div>
           <div className="col-9">
+            {(this.state.selectedMenuItem === 'Manage Subscription' ? <Payments /> : null)}          
             {(this.state.selectedMenuItem === 'Images' ? this.renderImageComponent() : null)}
             {(this.state.selectedMenuItem === 'Change your password' ? this.renderChangePassword() : null)}
             {this.state.selectedMenuItem === 'Posts' ? (

@@ -6,7 +6,7 @@ let rootUrl;
 let signInUrl;
 let uiUrl;
 
-const env = '';
+const env = 'dev';
 if (env === 'dev') {
   rootUrl = 'http://localhost:3050';
   signInUrl = 'http://localhost:3050/api/userauth';
@@ -148,7 +148,14 @@ export function toggleModal() {
   }
 }
 
-
+// Payment Actions
+export async function handlePayment(token) {
+  const res = await axios.post(`${rootUrl}/api/stripe`, token);
+  return {
+    type: 'PAY_STRIPE',
+    payload: res
+  } 
+}
 
 
 

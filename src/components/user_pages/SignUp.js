@@ -47,7 +47,7 @@ class SignUp extends Component {
         });
       }
     }
-    axios.post('https://mlhq.io/api/users', this.state)
+    axios.post('http://localhost:3050/api/users', this.state)
       .then(response => {
         this.setState({
           message: response.data.message

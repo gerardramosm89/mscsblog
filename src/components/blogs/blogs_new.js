@@ -4,7 +4,8 @@ import { createBlog, fetchNumPostsByLearningPath } from '../../actions/index';
 import _ from 'lodash';
 import { Editor } from 'react-draft-wysiwyg';
 import ImageUpload from '../image_upload';
-
+import MarkdownComponent from './MarkdownComponent';
+import GModal from '../utils/gmodal';
 class BlogsNew extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,8 @@ class BlogsNew extends Component {
       AlgorithmsLength: '',
       AILength: '',
       DeepLearningLength: '',
-      NLPLength: ''
+      NLPLength: '',
+      markdownChecked: false
     }
   }
   componentWillMount() {
@@ -46,6 +48,9 @@ class BlogsNew extends Component {
       });
   }
 
+  onMarkdownCheck(e) {
+    this.setState({ markdownChecked : !this.state.markdownChecked });
+  }
   newBlogButton(e) {
     e.preventDefault();
     const self = this;
@@ -88,17 +93,19 @@ class BlogsNew extends Component {
       [e.target.name]: value
     });
   }
-  onEditorStateChange(editorState) {
-    this.setState({
-      editorState,
-      editorHTML: this.input.editor.refs.editor.innerHTML
-    });
-  }
+
   inputChange(e) {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+  renderMarkdownComponent() {
+    if (this.state.markdownChecked === true) {
+      return <MarkdownComponent source={this.state.content} />;
+    } else {
+      return <div dangerouslySetInnerHTML={{ __html: this.state.content }}></div>
+    }
   }
   render() {
     return (
@@ -135,6 +142,18 @@ class BlogsNew extends Component {
               <label>Content</label>
               <textarea name="content" rows="5" className="form-control" onChange={this.inputChange.bind(this)} value={this.state.content} />
             </div>
+              <GModal
+              modalTitle={`Preview of the Content`}
+              buttonName={`Preview the Content`}>
+                {this.renderMarkdownComponent()}
+              </GModal>
+              <input
+              type="checkbox"
+              checked={this.state.markdownChecked}
+              onChange={this.onMarkdownCheck.bind(this)}
+              className="markdownCheckbox"
+              />
+              <span className="markdownSelectionText">Use Github Markdown</span>
             <div className="form-group">
               <label>Learning Path</label>
               <select

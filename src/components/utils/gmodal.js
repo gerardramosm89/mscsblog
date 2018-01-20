@@ -12,6 +12,8 @@ import React , { Component } from 'react';
   modalTitle={`This is the test title`} 
   buttonName={`TheButton`}>
     This is going to be the content of the modal
+  primaryButtonText={`Save Changes`}
+  secondaryButtonText={`Close`}
   </GModal>
 */
 export default class GModal extends Component {
@@ -39,8 +41,9 @@ export default class GModal extends Component {
                 {this.props.children}
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Save changes</button>
+                {this.props.secondaryButtonText ? <button type="button" className="btn btn-secondary" data-dismiss="modal">{this.props.secondaryButtonText}</button> : <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>}
+                
+                {this.props.primaryButtonText ? <button type="button" className="btn btn-primary">{this.props.primaryButtonText}</button>: null}
               </div>
             </div>
           </div>

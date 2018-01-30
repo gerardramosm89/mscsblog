@@ -35,17 +35,24 @@ export default class LearningPaths extends Component {
       },
       {
         title: 'Deep Learning',
-        subheading: 'Theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.',
+        subheading: 'Practical application of machine learning using neural networks, simulating neural responses to understand and process complex data representations.',
         path: 'deep-learning',
+        image: 'https://mlhq.io/img/pic04.jpg',
+        btnColor: 'learning-path-button-orchid'
+      },
+      {
+        title: 'Natural Language Processing',
+        subheading: 'Explore a subset of artificial intelligence involving teaching computers to accept, interpret, and react to human communication.',
+        path: 'natural-language-processing',
         image: 'https://mlhq.io/img/pic04.jpg',
         btnColor: 'learning-path-button-lavander'
       },
       {
-        title: 'Natural Language Processing',
-        subheading: 'Theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.',
+        title: 'Computational Science',
+        subheading: 'Understand the methods with which computer simulations are used to map, model, and solve natural systems spanning many scientific disciplines.',
         path: 'natural-language-processing',
         image: 'https://mlhq.io/img/pic04.jpg',
-        btnColor: 'learning-path-button-lavander'
+        btnColor: 'learning-path-button-teal'
       },
     ];
     this.state = {

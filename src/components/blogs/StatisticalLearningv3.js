@@ -13,16 +13,18 @@ class StatisticalLearning extends Component {
   }
   componentDidMount() {
     const path = this.props.match.path;
-    if (path == '/deep-learning') {
-      this.props.fetchByLearningPath({ learningPath: "Deep Learning" });      
+    if (path == '/computational-science') {
+      this.props.fetchByLearningPath({ learningPath: "Computational Science" });
+    } else if (path == '/deep-learning') {
+      this.props.fetchByLearningPath({ learningPath: "Deep Learning" });
     } else if (path === '/natural-language-processing') {
       this.props.fetchByLearningPath({ learningPath: "Natural Language Processing" });
     } else if (path === '/algorithms'){
-      this.props.fetchByLearningPath({ learningPath: "Algorithms" });      
+      this.props.fetchByLearningPath({ learningPath: "Algorithms" });
     } else if (path === '/data-structures') {
-      this.props.fetchByLearningPath({ learningPath: "Data Structures" });      
+      this.props.fetchByLearningPath({ learningPath: "Data Structures" });
     } else if (path === '/artificial-intelligence') {
-      this.props.fetchByLearningPath({ learningPath: "Artificial Intelligence" });      
+      this.props.fetchByLearningPath({ learningPath: "Artificial Intelligence" });     
     } else {
       this.props.fetchByLearningPath({ learningPath: "Statistical Learning" });    
     }
@@ -122,6 +124,13 @@ class StatisticalLearning extends Component {
         <div>
           <h1 className="jumbotron-heading">Artificial Intelligence</h1>
           <p className="lead text-muted">Here is where we talk about linear and polynomial regression, logistic regression and linear discriminant analysis; cross-validation and the bootstrap, model selection and regularization methods (ridge and lasso); nonlinear models, splines and generalized additive models; tree-based methods.</p>
+        </div>
+      );
+    } else if (path === '/computational-science') {
+      return (
+        <div>
+          <h1 className="jumbotron-heading">Computational Science</h1>
+          <p className="lead text-muted">Understand the methods with which computer simulations are used to map, model, and solve natural systems spanning many scientific disciplines.</p>
         </div>
       );
     }

@@ -76,6 +76,7 @@ ReactDOM.render(
             <Route path="/statistical-learning" component={StatisticalLearningv3} />
             <Route path="/deep-learning" component={StatisticalLearningv3} />
             <Route path="/natural-language-processing" component={StatisticalLearningv3} />
+            <Route path="/computational-science" component={StatisticalLearningv3} />
             <Route path="/playground" component={Playground} />
             <Route path='/dashboard' component={Dashboardv2} />
             <Route path="/" component={HomeV2} />

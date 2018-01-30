@@ -50,7 +50,7 @@ export default class LearningPaths extends Component {
       {
         title: 'Computational Science',
         subheading: 'Understand the methods with which computer simulations are used to map, model, and solve natural systems spanning many scientific disciplines.',
-        path: 'natural-language-processing',
+        path: 'computational-science',
         image: 'https://mlhq.io/img/pic04.jpg',
         btnColor: 'learning-path-button-teal'
       },

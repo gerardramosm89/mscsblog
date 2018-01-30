@@ -27,6 +27,7 @@ class BlogsNew extends Component {
       AILength: '',
       DeepLearningLength: '',
       NLPLength: '',
+      CSLength: '',
       markdownChecked: false
     }
   }
@@ -37,7 +38,8 @@ class BlogsNew extends Component {
     let num4 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Artificial Intelligence', short: 'AILength' });
     let num5 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Deep Learning', short: 'DeepLearningLength' });
     let num6 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Natural Language Processing', short: 'NLPLength' });
-    Promise.all([num1,num2,num3,num4, num5, num6])
+    let num7 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Computational Science', short: 'CSLength' });
+    Promise.all([num1,num2,num3,num4, num5, num6, num7])
       .then(data => {
         console.log('data is: ', data);
         data.map((data, i) => {
@@ -168,6 +170,7 @@ class BlogsNew extends Component {
                 <option value="Artificial Intelligence">Artificial Intelligence ({this.state.AILength})</option>
                 <option value="Deep Learning">Deep Learning ({this.state.DeepLearningLength})</option>
                 <option value="Natural Language Processing">Natural Language Processing ({this.state.NLPLength})</option>
+                <option value="Computational Science">Computational Science ({ this.state.CSLength })</option>
               </select>
             </div>
             <div className="form-group">

@@ -129,13 +129,13 @@ class EditBlog extends Component {
               onChange={this.handleLearningPathChange.bind(this)}
               value={this.state.learningPath}
               >
-                <option  value={null}>You need to select a path</option>              
-                <option  value="Statistical Learning">Statistical Learning</option>
-                <option  value="Data Structures">Data Structures</option>
-                <option  value="Algorithms">Algorithms</option>
-                <option  value="Artificial Intelligence">Artificial Intelligence</option>
-                <option  value="Deep Learning">Deep Learning</option>
-                <option  value="Natural Language Processing">Natural Language Processing</option>
+                <option value="Statistical Learning">Statistical Learning ({this.state.SLLength})</option>
+                <option value="Algorithms">Algorithms ({this.state.AlgorithmsLength})</option>
+                <option value="Data Structures">Data Structures ({this.state.DSLength})</option>
+                <option value="Artificial Intelligence">Artificial Intelligence ({this.state.AILength})</option>
+                <option value="Deep Learning">Deep Learning ({this.state.DeepLearningLength})</option>
+                <option value="Natural Language Processing">Natural Language Processing ({this.state.NLPLength})</option>
+                <option value="Computational Science">Computational Science ({ this.state.CSLength })</option>
               </select>
             </div>
             <button className="button btn btn-primary" onClick={this.updateBlog.bind(this)}>Submit changes to blog</button>

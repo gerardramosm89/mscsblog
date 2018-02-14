@@ -30,7 +30,6 @@ class Dashboardv2 extends Component {
     }
   }
   componentDidMount() {
-    console.log('mounted');
     this.props.fetchImages();
     this.props.fetchBlogs();
   }
@@ -117,7 +116,6 @@ class Dashboardv2 extends Component {
     );
   }
   renderChangePassword() {
-    console.log('rendering change pass');
     return(
       <div>
         <ChangePasswordComponent />

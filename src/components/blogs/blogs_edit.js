@@ -35,7 +35,6 @@ class EditBlog extends Component {
     let num7 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Computational Science', short: 'CSLength' });
     Promise.all([num1,num2,num3,num4, num5, num6, num7])
       .then(data => {
-        console.log('data is: ', data);
         data.map((data, i) => {
           this.setState({
             [data.payload.short]: data.payload.request.data.length

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { updateBlog, fetchOneBlog } from '../../actions/index';
+import { updateBlog, fetchOneBlog, fetchNumPostsByLearningPath } from '../../actions/index';
 
 class EditBlog extends Component {
   constructor(props) {
@@ -9,11 +9,41 @@ class EditBlog extends Component {
     this.state = {
       title: '',
       content: '',
+      learningPath: 'Statistical Learning',
+      publish: true,
+      postOrder: null,
+      difficulty: '',
       subheading: '',
-      learningPath: 'Learning path must be selected',
-      postId: ''
+      SLLength: '',
+      DSLength: '',
+      AlgorithmsLength: '',
+      AILength: '',
+      DeepLearningLength: '',
+      NLPLength: '',
+      CSLength: '',
+      markdownChecked: false
     };
   }
+
+  componentWillMount() {
+    let num1 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Statistical Learning', short: 'SLLength' });
+    let num2 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Data Structures', short: 'DSLength' });
+    let num3 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Algorithms', short: 'AlgorithmsLength' });
+    let num4 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Artificial Intelligence', short: 'AILength' });
+    let num5 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Deep Learning', short: 'DeepLearningLength' });
+    let num6 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Natural Language Processing', short: 'NLPLength' });
+    let num7 = this.props.fetchNumPostsByLearningPath({ learningPath: 'Computational Science', short: 'CSLength' });
+    Promise.all([num1,num2,num3,num4, num5, num6, num7])
+      .then(data => {
+        console.log('data is: ', data);
+        data.map((data, i) => {
+          this.setState({
+            [data.payload.short]: data.payload.request.data.length
+          });
+        });
+      });
+  }
+
   componentDidMount() {
     let data = { token: this.props.token.token, postId: this.props.match.params.id };
     this.props.fetchOneBlog(data)
@@ -49,10 +79,21 @@ class EditBlog extends Component {
         orderNum: this.state.postOrder, 
         path: this.state.learningPath
       },
+      difficulty: this.state.difficulty,
+      publish: this.state.publish,
       titleImageName: this.state.titleImageName
     }};
-    this.props.updateBlog(updates)
+    const currentStateArray = Object.entries(this.state);
+    let canWeEdit = true;
+    currentStateArray.forEach(item => {
+      if (item[1] === '' || item[1] === null || item[1] === undefined) {
+        canWeEdit = false;
+      }
+    });
+    if (canWeEdit) {
+      this.props.updateBlog(updates)
       .then(() => { this.props.history.push('/dashboard')});
+    }
   }
   titleInput(e) {
     this.setState({
@@ -90,6 +131,14 @@ class EditBlog extends Component {
       titleImageName: e.target.value
     });
   }
+
+  inputChange(e) {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -116,6 +165,10 @@ class EditBlog extends Component {
               <textarea rows="5" className="form-control" onChange={this.contentInput.bind(this)} value={this.state.content} />
             </div>
 
+            <div className="form-group">
+              <label>Difficulty</label>
+              <input name="difficulty" className="form-control newblog__header"type="text" onChange={this.inputChange.bind(this)} value={this.state.difficulty} />
+            </div>
 
             <div className="form-group">
               <label>Post Order</label>
@@ -152,4 +205,4 @@ function mapStateToProps(state) {
     blog: state.blogs.blog
   });
 }
-export default connect(mapStateToProps, { updateBlog, fetchOneBlog })(EditBlog);
+export default connect(mapStateToProps, { updateBlog, fetchOneBlog, fetchNumPostsByLearningPath })(EditBlog);

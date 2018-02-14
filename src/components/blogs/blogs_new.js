@@ -177,6 +177,7 @@ class BlogsNew extends Component {
               <label>Post Order</label>
               <input name="postOrder" className="form-control" type="number" onChange={this.inputChange.bind(this)} />  
             </div>
+            {/*
             <div className="form-check">
               <label className="form-check-label">
                 <input
@@ -189,6 +190,7 @@ class BlogsNew extends Component {
                 Publish now?
               </label>
             </div>
+            */}
             <button className="btn btn-lg btn-info" onClick={this.newBlogButton.bind(this)}>Post Blog</button>
           </form>
         </section>

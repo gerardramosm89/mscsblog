@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { updateBlog, fetchOneBlog, fetchNumPostsByLearningPath } from '../../actions/index';
+import GModal from '../utils/gmodal.js';
 
 class EditBlog extends Component {
   constructor(props) {
@@ -92,6 +93,8 @@ class EditBlog extends Component {
     if (canWeEdit) {
       this.props.updateBlog(updates)
       .then(() => { this.props.history.push('/dashboard')});
+    } else {
+      document.querySelector('#warningButton').click()
     }
   }
   titleInput(e) {
@@ -192,6 +195,38 @@ class EditBlog extends Component {
             </div>
             <button className="button btn btn-primary" onClick={this.updateBlog.bind(this)}>Submit changes to blog</button>
           </form>
+        {/* Start Modal */}
+        <button
+        style={{ visibility: 'hidden' }}
+        type="button"
+        className="btn btn-primary"
+        data-toggle="modal"
+        data-target="#WarningModal"
+        id="warningButton"
+        >
+          {this.props.buttonName ? this.props.buttonName : 'Default Button Name'}
+        </button>
+        <div className="modal fade" id="WarningModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                Please make sure all the fields have been filled out.
+                {this.props.children}
+              </div>
+              <div className="modal-footer">
+                {this.props.secondaryButtonText ? <button type="button" className="btn btn-secondary" data-dismiss="modal">{this.props.secondaryButtonText}</button> : <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>}
+                {this.props.primaryButtonText ? <button type="button" className="btn btn-primary">{this.props.primaryButtonText}</button>: null}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* End Modal */}
         </section>
       </div>
     );

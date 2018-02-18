@@ -8,9 +8,6 @@ const path = require('path');
 // Create the app with express
 const app = express();
 
-// Using http instead to create the server
-var server = http.createServer(app);
-
 app.use(cors());
 app.use(bodyParser.json({ limit: '500mb' }));
 app.use(bodyParser.urlencoded({ limit: '500mb', extended: false }));
@@ -29,6 +26,6 @@ app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
   
-server.listen(port, function(){
+app.listen(port, function(){
     console.log(`Express server is up on port ${port}`);
 });

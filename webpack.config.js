@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 const config = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
@@ -31,13 +31,13 @@ const config = {
     dns: 'empty'
   },
   plugins: [
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production')
-    //   }
-    // }),
-    // new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("styles.css"),    
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new MinifyPlugin()
   ]
 }
 

@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+
 const config = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
@@ -15,8 +18,6 @@ const config = {
         test: /\.js$/
       },
       {
-        // use: ['style-loader', 'css-loader'],
-        // test: /\.css$/
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
@@ -37,7 +38,10 @@ const config = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new MinifyPlugin()
+    new UglifyJSPlugin(),
+    new CompressionPlugin({
+      algorithm: "gzip"
+    })
   ]
 }
 

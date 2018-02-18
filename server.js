@@ -19,8 +19,9 @@ require('./server-file-upload')(app);
 
 // Serve our static files
 const port = process.env.PORT || 8081;
-app.use(express.static(__dirname + '/'));
-
+// app.use(express.static(__dirname + '/'));
+const expressStaticGzip = require("express-static-gzip");
+app.use(expressStaticGzip(__dirname + "/"));
 // Image Routes
 require('./server-image')(app);
 
